@@ -1,0 +1,66 @@
+body{
+	background: url(../images/login/login-bg.jpg) no-repeat;
+	background-size: cover;
+}
+.mui-content{
+	background: none;
+}
+.logo{
+	margin-top: 87px;
+}
+.logo img{
+	display: block;
+	width: 114px;	
+	margin: 0 auto;
+}
+.login-content{
+	background: #FFFFFF;
+	border-radius: 3px;
+	width: 90%;
+	margin: 50px auto 0 auto;
+}
+.login{
+	width: 90%;
+	margin: 0 auto;	
+}
+.login h3,.login h4{
+	text-align: center;
+	color: #1AAEED;
+}
+.login h3{
+	padding-top: 16px;
+	font-size: 18px;
+}
+.login h4{
+	font-size: 10px;
+}
+.login input{
+	background-color: #1AAEED;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 0;
+}
+.login .mui-input-clear,.login .mui-input-password{
+	opacity:0.5;
+}
+.mui-input-password::-webkit-input-placeholder,.mui-input-clear::-webkit-input-placeholder{
+	color:#FFFFFF;
+	font-size: 14px;
+	}
+.forget{
+	display: block;
+	height: 50px;
+	float: right;
+	margin-right: -10px;
+	padding-top: 13px;
+	padding-bottom: 11px;
+}
+.register{
+	display: block;
+	border: none;
+	width: 90%;
+	margin: 120px auto 36px auto;
+	color: #FFFFFF;
+	font-size: 16px;
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#e51c24), to(#b22454));
+}

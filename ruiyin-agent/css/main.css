@@ -1,0 +1,232 @@
+/*通用样式*/
+.mui-content{
+	background: none;
+}
+.mui-bar{
+	background-color: #1aaeee;
+	border-bottom: solid 1px #054977;
+	box-shadow: none;
+}
+.mui-bar h1{
+	color: #FFFFFF;
+/*	font-size: 22px;*/
+}
+/*.back{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	margin-top: -15px;
+	height: 30px;
+	width: 55px;
+	background: url(../images/back.svg) no-repeat left center #1aaeee;
+	background-size: cover;
+}*/
+.footer{
+	border-top: solid 1px #054977;
+	background-color: #1aaeee;
+	padding-bottom: 14px;
+	width: 100%;
+}
+.action_btn {
+	display: block;
+	border-radius: 5px;
+	width: 60%;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	margin: 15px auto 0 auto;
+}
+/*服务端页面*/
+.serverBg{
+	background: url(../images/bg.jpg) no-repeat;
+	background-size: cover;
+}
+.action{
+	margin-top: 80px;
+	margin-bottom: 161px;
+}
+.action li{
+	list-style: none;
+	height: 65px;
+	line-height: 65px;
+	width: 90%;
+	background-color: #FFFFFF;
+	border: solid 1px #1AAEED;
+	border-radius: 4px;
+	margin-bottom: 30px;
+	background-size: 40%;
+	position: relative;
+}
+.addLand{
+	background: url(../images/index/add_land.svg) no-repeat 10px center #FFFFFF;
+}
+.addHouse{
+	background: url(../images/index/add_house.svg) no-repeat 10px center #FFFFFF;
+}
+.myMsg{
+	background: url(../images/index/mymsg.svg) no-repeat 10px center #FFFFFF;
+}
+.release{
+	background: url(../images/index/release.svg) no-repeat 10px center #FFFFFF;
+}
+.actionImg{
+	margin-left: 10px;
+	width: 30%;
+}
+.msgCount{
+	font-size: 19px;
+	color: #E93D44;
+	margin-left: 45%;
+}
+.delHouse{
+	font-size: 12px;
+	color: #7A7A7A;
+	margin-left: 45%;
+}
+.leftArrow{
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	width: 20px;
+	height: 26px;
+	margin-top: -13px;
+}
+/*添加照片*/
+.addPhotoBg{
+	background-color: #1aaeee;
+}
+.photoContent{
+	margin: 72px auto 0 auto;
+	width: 60%;
+	border: solid 2px #8AE1FF;
+	background-color: #FFFFFF;
+	position: relative;
+}
+.photo{
+	margin: 0 auto;
+	padding: 7px 6px;
+}
+
+.photo img{
+	width: 100%;
+	border: solid 2px #1AAEED;	
+}
+#add{
+	border: none;
+}
+.photo li{
+	list-style: none;
+	width: 49%;
+	float: left;
+	margin-bottom: 5px;
+}
+.photo li:nth-child(2n+1){
+	margin-right: 2%;
+}
+.tip{
+	color: #FFFFFF;
+	width: 180px;
+	/*margin: 10px auto 0 auto;*/
+	margin-left: 50%;
+	font-size: 18px;
+	text-align: center;
+	position: absolute;
+	left: -90px;
+	margin-top: 10px;
+	height: 50px;
+	line-height: 50px;
+}
+.addPhotoFooter{
+	margin-top: 87px;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+}
+/*添加信息*/
+#info{
+	padding-top: 18px;
+}
+#info h5{
+	color: #000000;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 18px 0 15px 25px;
+}
+#info div{
+	border: solid 1px #1AAEED;
+	border-radius: 5px;
+	height: 45px;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+#info input{
+	height: 40px;
+	line-height: 40px;
+	
+}
+#info input,#info textarea{
+	border: none;
+	font-size: 16px;
+	text-align: center;
+	margin-left: 35%;
+	width: 65%;
+}
+
+#info label{
+	color: #7F7F7F;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	width: 30%;
+	text-align: left;
+	position: absolute;
+	left: 5%;
+}
+.address{
+	height: 70px!important;
+	overflow: hidden;
+}
+.address textarea{
+	overflow-y: scroll;
+}
+.releaseInfo{
+	display: block;
+	border-radius: 5px;
+	width: 60%;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	margin: 15px auto 0 auto;
+}
+.describtion{
+	height: 150px!important;
+	overflow: hidden;
+}
+.describtion label{
+	float: left;
+}
+.describtion textarea{
+	display: block;
+	margin-top: 40px;
+	margin-left: 5%!important;
+	margin-right: 5%;
+	width: 90%!important;
+	padding: 0;
+	overflow-y: scroll;
+	text-align: left!important;
+	
+}
+.school label{
+	width: 10%!important;
+}
+.school input{
+	width: 70%!important;
+	margin-left: 15%!important;
+}
+.school span{
+	font-size: 14px;
+	color: #FF0000;
+}
