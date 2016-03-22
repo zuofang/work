@@ -1,0 +1,58 @@
+body ,.mui-content{
+	
+     background: url(../images/login/login_bg.jpg) no-repeat;
+    		background-size: cover;
+    height: auto;
+ }
+
+#login{
+	
+	margin:15% 30px 20% 30px;
+	padding-bottom: 20px;
+	 background: #fff; 
+	 border-radius: 5px;
+	height: auto;
+} 
+#login .loginer input{
+	background-color:rgba(1,170,237,0.5);
+	border: none;
+	margin-bottom: 5px;
+}
+#login input ,#login button{
+	border-radius: 0px;
+	
+}
+#login button{
+	background-color: #1AAEED;
+	border: none;
+}
+.loginer h4,.register h4{
+	color: #1AAEED;
+	font-size: 20px;
+	margin-bottom:10px;
+	padding-top: 10px; 
+	text-align: center;
+} 	
+    .loginer .mui-input-row,.register .mui-input-row{
+ 	     margin: 5px 30px;
+     }
+     
+     .loginer a{
+     
+     	margin-right: 45px;
+     }
+.register .register_content{
+	background-color: rgba(1,170,237,0.5);
+}
+#item1 input ,#item2 input{
+   margin-top: 2px;
+      margin-bottom:2px;  
+	border: 2px solid #1AAEED;
+	background-color:rgba(1,170,237,0) ;
+	
+}
+.lr{
+	margin-top: -5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}

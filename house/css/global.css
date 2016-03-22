@@ -1,0 +1,222 @@
+/*公用样式*/
+body,.mui-content{
+	background: #fff;
+	margin: 0px;
+	padding: 0px;
+}
+
+header .logo {
+	margin-top: -5px;
+	width: 70px;
+	height: 60px;
+}
+
+header .icon-xiaoxi {
+			font-size: 22px;
+			color: #fff;
+			position: relative;
+	}
+
+  header .num{
+		position: absolute;
+		top: 23px!important;
+		left: 32px!important;
+	}
+	
+		
+.mui-bar-nav {
+	background: #1AAEED;
+	box-shadow: 0 2px 4px #054977;
+}
+
+.mui-bar-nav a,.mui-bar-nav h1 {
+	color: #fff;
+	font-size: 22px;
+}
+
+.mui-btn-primary {
+	background: #1AAEED;
+	border: none;
+	border-radius: 0;
+	
+}
+.mui-bar .mui-btn{
+				top: 12px;
+				padding: 12px 0px;
+			}
+.mui-bar-tab{
+	padding: 0;
+	box-shadow: none;
+	background: #fff;
+}
+/*公用样式*/
+/*select*/
+
+.nice-select {
+	margin: 0;
+	width: 50%;
+	z-index: 2;
+	padding: 0 10px;
+	height: 38px;
+	border: 1px solid #999;
+	position: fixed;
+	box-shadow: 0 0 5px #999;
+	background: #fff url(../images/a2.jpg) no-repeat right center;
+}
+
+.nice-select input {
+	display: block;
+	width: 100%;
+	height: 38px;
+	line-height: 38px;
+	border: 0;
+	outline: 0;
+	background: none;
+}
+
+.nice-select ul {
+	width: 100%;
+	display: none;
+	position: absolute;
+	left: -1px;
+	top: 38px;
+	overflow: hidden;
+	background-color: #fff;
+	max-height: 150px;
+	overflow-y: auto;
+	border: 1px solid #999;
+	border-top: 0;
+	box-shadow: 0 3px 5px #999;
+	z-index: 9999;
+}
+
+.nice-select ul li {
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+.nice-select ul li.on {
+	background-color: #e0e0e0;
+}
+
+.pluitem + .add[style] {
+	display: none;
+	position: absolute;
+	top: -1000000px;
+	visibility: hidden
+}
+
+.banner + .add[style] {
+	display: none;
+	position: absolute;
+	top: -1000000px;
+	visibility: hidden
+}
+
+.add:last-child {
+	display: none;
+	position: absolute;
+	top: -1000000px;
+	visibility: hidden
+}
+
+.add:first-child {
+	display: none;
+	position: absolute;
+	top: -1000000px;
+	visibility: hidden
+}
+
+.fdad,
+.ad,
+.adbka {
+	display: none;
+	position: absolute;
+	top: -1000000px;
+	visibility: hidden
+}
+
+
+/*select*/
+
+
+/*index页面*/
+
+#head {
+	background: url(../images/index/bg.jpg) no-repeat;
+	background-size: 100% 100%;
+	height: 160px;
+}
+
+
+	  
+		
+		#head .mui-search {
+			margin: 20px 40px;
+		}
+		
+		#head .mui-search input {
+			background: #fff;
+		}
+		
+	#search_top {
+		margin: 30% 50px 10px 50px;
+		background: #fff;
+		border-radius: 5px;
+		height: 30px;
+		line-height: 10px;
+		text-align: center;
+		font-size: 14px;
+	}
+	
+	#search_top .icon-sousuo {
+		font-size: 14px;
+	}
+/*index页面*/
+  /*index-menu*/  
+  .menu .mui-table-view:before,.menu .mui-table-view-cell:before,.menu .mui-table-view:after,.menu .mui-table-view-cell:after{
+				left: 14px;
+				background-color: #1AAEED;
+			}
+			
+			ul li .mui-icon{
+				color: #1AAEED;
+				font-size: 18px;
+			}
+		    ul li label{
+		    	color: #6E7070;
+		    }  
+  
+    /*index-menu*/
+    
+    /*buydetail*/
+     .liucheng{
+    	  	border:3px solid #1AAEED;
+    	  	margin: 20px 30px; 
+    	  	border-radius: 5px; 
+    	  	padding:6px 10px; 
+    	  	text-align: center;
+    	  	color: #1AAEED;
+    	  	font-weight: bold;
+    	  }
+    	  section{
+    	  	margin: 20px 30px;
+    	  }
+    	  section h4{
+    	  	margin-bottom: 20px;
+    	  	color: #1AAEED;
+    	  }
+    	  section p{
+    	  	color: #000;
+    	  	text-indent: 2em;
+    	  	margin: 0px;
+    	  }
+    	  section h5{
+    	  	color: #000;
+    	  }
+    	  	
+    
+     

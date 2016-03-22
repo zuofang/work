@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商业地产</title>
+
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../css/cui.css" />
+
+	</head>
+	<style type="text/css">
+		.mui-content>.mui-table-view:first-child {
+			margin-top: 0px;
+		}
+		
+		li {
+			position: relative;
+			margin-bottom: -4px;
+		}
+		
+		.price {
+			height: 135px;
+			background-color: rgba(43, 165, 221, 0.7);
+			position: absolute;
+			width: 45%;
+			text-align: left;
+			top: 0px;
+		}
+		
+		.price1 {
+			right: 0;
+		}
+		
+		.detail img {
+			width: 45px;
+			height: 45px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		
+		.detail h5 {
+			padding-left: 5px;
+			color: #fff;
+		}
+		
+		.mui-table-view {
+			margin-top: 38px;
+		}
+	</style>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: #1AAEED;">
+			 <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			
+				
+			<h1 class="mui-title" style="font-size:22px ;">商业地产</h1>
+
+		</header>
+		<div class="mui-content">
+			<div class="wrap sel" style="margin-bottom: 2px;  ">
+				<div class="nice-select" name="nice-select" style=" border: 1px solid #1AAEED;">
+					<input value="地区:" readonly="readonly" type="text">
+					<ul style="display: none;">
+						<li data-value="1">洛杉矶</li>
+						<li data-value="2">纽约</li>
+						<li data-value="3">华盛顿</li>
+
+					</ul>
+				</div>
+				<div class="nice-select " name="nice-select" style="border: 1px solid #1AAEED;float: right;margin-left: 50%;">
+					<input value="类型:" readonly="readonly" type="text">
+					<ul style="display: none;">
+						<li data-value="1">洛杉矶</li>
+						<li data-value="2">纽约</li>
+						<li data-value="3">华盛顿</li>
+
+					</ul>
+				</div>
+
+			</div>
+			<ul class="mui-table-view" style="padding-bottom: -1px;">
+				<li>
+					<a href="commercial_detailpage.html">
+					<img src="../images/hourse_search/search_02.jpg" width="100%" height="135px" />
+					<div class="price">
+						<div class="detail">
+							<h5>  $849,00 </h5>
+							<h5>5 bd 3 ba</h5>
+							<img src="../images/index/red.svg" />
+						</div>
+
+					</div>
+                    </a>
+				</li>
+				<li>
+                     <a href="commercial_detailpage.html">
+					<img src="../images/hourse_search/search_01.jpg" width="100%" height="135px" />
+					<div class="price  price1">
+						<div class="detail">
+							<h5>  $849,00 </h5>
+							<h5>5 bd 3 ba</h5>
+							<img src="../images/index/star.svg" />
+						</div>
+
+					</div>
+					 </a>					
+				</li>
+				<li>
+
+					<img src="../images/hourse_search/search_02.jpg" width="100%" height="135px" />
+					<div class="price">
+						<div class="detail">
+							<h5>  $849,00 </h5>
+							<h5>5 bd 3 ba</h5>
+							<img src="../images/index/star.svg" />
+						</div>
+
+					</div>
+				</li>
+				<li>
+
+					<img src="../images/hourse_search/search_01.jpg" width="100%" height="135px" />
+					<div class="price  price1">
+						<div class="detail">
+							<h5>  $849,00 </h5>
+							<h5>5 bd 3 ba</h5>
+							<img src="../images/index/star.svg" />
+						</div>
+
+					</div>
+				</li>
+				<li>
+
+					<img src="../images/hourse_search/search_02.jpg" width="100%" height="135px" />
+					<div class="price">
+						<div class="detail">
+							<h5>  $849,00 </h5>
+							<h5>5 bd 3 ba</h5>
+							<img src="../images/index/star.svg" />
+						</div>
+
+					</div>
+				</li>
+				<li>
+
+					<img src="../images/hourse_search/search_01.jpg" width="100%" height="135px" />
+					<div class="price  price1">
+						<div class="detail">
+							<h5>  $849,00 </h5>
+							<h5>5 bd 3 ba</h5>
+							<img src="../images/index/star.svg" />
+						</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+			$('[name="nice-select"]').click(function(e) {
+				$('[name="nice-select"]').find('ul').hide();
+				$(this).find('ul').show();
+				e.stopPropagation();
+			});
+			$('[name="nice-select"] li').hover(function(e) {
+				$(this).toggleClass('on');
+				e.stopPropagation();
+			});
+			$('[name="nice-select"] li').click(function(e) {
+				var val = $(this).text();
+				$(this).parents('[name="nice-select"]').find('input').val(val);
+				$('[name="nice-select"] ul').hide();
+				e.stopPropagation();
+			});
+			$(document).click(function() {
+				$('[name="nice-select"] ul').hide();
+			});
+			
+			 mui('.mui-table-view').on('tap', 'a', function() {
+				var id = this.getAttribute("href");
+			
+				var href = this.href;
+				mui.openWindow({
+						id: id,
+						url: href
+					});
+					});
+		</script>
+	</body>
+
+</html>

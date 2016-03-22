@@ -1,0 +1,89 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "list.html",
+      "images/"Ìo_02.png",
+      "images/þ.svg",
+      "images/index/menu.svg",
+      "images/index/bg.png",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "images/index/bg.jpg"
+    ],
+    "refer": [
+      "index-menu.html",
+      "list.html"
+    ]
+  },
+  "index-menu.html": {
+    "resources": [
+      "images/side/{Uþ.svg",
+      "images/side/logo.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/side/set.svg"
+    ],
+    "refer": [
+      "account/login.html"
+    ]
+  },
+  "list.html": {
+    "resources": [
+      "images/IRGo,---o,_03.jpg",
+      "images/Žý¶3.png",
+      "images/Žý¶1.png",
+      "images/Ž5.png",
+      "images/Ž3.png",
+      "images/Ã.svg",
+      "images/IRGo,---o,_04.jpg",
+      "images/Žý¶2.png",
+      "images/Ž2.png",
+      "images/Ž1.png",
+      "images/Žý¶4.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/ad2.jpg",
+      "images/nusa1.png",
+      "images/ad1.jpg",
+      "images/index/usa3.png",
+      "images/index/usa1.png",
+      "images/index/usa4.png",
+      "images/index/usa2.png",
+      "images/index/nusa3.png",
+      "images/index/ad2.jpg",
+      "images/index/nusa5.png",
+      "images/index/ad1.jpg",
+      "images/index/nusa2.png",
+      "images/index/star.svg",
+      "images/index/nusa4.png"
+    ]
+  },
+  "account/login.html": {
+    "resources": [
+      "css/login.css",
+      "css/global.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/login/weixin.svg",
+      "images/login/login_bg.jpg",
+      "images/login/tippas.svg"
+    ],
+    "refer": [
+      "account/regist.html"
+    ]
+  },
+  "account/regist.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/login/login_bg.jpg"
+    ]
+  }
+}

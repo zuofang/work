@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>侧滑页</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<style type="text/css">
+			
+			
+		</style>
+	</head>
+
+	<body>
+		    <header style="margin-top: 40px;">
+		    	<img src="images/side/logo.png"  width="148px" style="margin-left: 20px;"/>
+		    	<span id="reg" class="mui-pull-right " style="margin-right: 20px;margin-top: -10px;color: #56ABE4;font-size: 50px;">
+		    		   <img src="images/side/set.svg" width="50"height="50" />
+		    		 <h6 style="margin-left:2px;" >登录/注册</h6>
+		    	</span>
+		       
+		    </header>
+		<div class="mui-content menu">			 
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell" id="recom">
+			      <div id="closeMenu">
+						<span class="mui-pull-left mui-icon iconfont icon-index"></span>&nbsp;&nbsp;&nbsp;
+						<label>首页推荐</label>
+				   </div>
+				</li>
+				<li class="mui-table-view-cell" id="search">
+				    <a href="main/search.html">
+						<span class="mui-pull-left mui-icon  iconfont icon-sousuo"></span>&nbsp;&nbsp;&nbsp;
+						<label>房屋查找</label>
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="house">
+					<a href="main/commercial_real.html">
+						<span class="mui-pull-left mui-icon  iconfont icon-37fangdichan"></span>&nbsp;&nbsp;&nbsp;
+						<label>商业地产</label>
+					</a>	
+				</li>
+				<li class="mui-table-view-cell" id="house">
+					<a href="message.html">
+						<span class="mui-pull-left mui-icon  iconfont  icon-xiaoxi"></span>&nbsp;&nbsp;&nbsp;
+						<label>我的消息<span class="mui-pull-right mui-badge mui-badge-danger">2</span></label>
+				    </a>
+				</li>
+				<li class="mui-table-view-cell" id="attend">
+					<a href="main/attention.html">
+						<span class="mui-pull-left mui-icon  iconfont icon-guanzhu"></span>&nbsp;&nbsp;&nbsp;
+						<label>我的关注</label>	
+					</a>	
+				</li>
+				<li class="mui-table-view-cell" id="buy">	
+					<a href="main/buy.html">
+						<span class="mui-pull-left mui-icon  iconfont icon-liucheng"></span>&nbsp;&nbsp;&nbsp;
+						<label>赴美购屋流程</label>
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="invest">				
+						<span class="mui-pull-left mui-icon  iconfont icon-wodezhongchou"></span>&nbsp;&nbsp;&nbsp;
+						<label>北美投资/众筹</label>					
+				</li>
+				<li class="mui-table-view-cell" id="set">
+					  <a href="account/account_set.html">
+						<span class="mui-pull-left mui-icon iconfont icon-shezhi"></span>&nbsp;&nbsp;&nbsp;
+						<label>账户设置</label>	
+					 </a>	
+				</li>
+			</ul>
+			
+		</div>
+		<footer style="text-align: center; margin-top: 50%; ">
+			   <h5 style="color: #1AAEED;">给你最好的、最放心</h5>
+			   <h5 style="color: #1AAEED;">全新美国投资方式</h5>
+		</footer>
+		<script src="js/mui.min.js"></script>
+			<script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	       document.getElementById('reg').addEventListener('tap', function() {
+      	   
+  //打开登录注册页面
+         mui.openWindow({
+            url: 'account/login.html', 
+            id:'login'
+      });
+   });
+	mui('.mui-table-view').on('tap', 'a', function() {
+				var id = this.getAttribute("href");
+			
+				var href = this.href;
+				mui.openWindow({
+						id: id,
+						url: href
+					});
+					});
+			
+			function close() {
+				mui.fire(mui.currentWebview.opener(),"menu:close");
+			}
+			
+			//点击“关闭侧滑菜单”按钮处理逻辑
+			document.getElementById("closeMenu").addEventListener("tap",close);
+		
+			window.addEventListener('dragstart',function(e){
+				mui.gestures.touch.lockDirection = true; //锁定方向
+				mui.gestures.touch.startDirection = e.detail.direction;
+			});
+			window.addEventListener('dragleft', function(e) {
+				if(!mui.isScrolling){
+					e.detail.gesture.preventDefault();	
+				}
+			});
+			//监听左滑事件，若菜单已展开，左滑要关闭菜单；
+			window.addEventListener("swipeleft",function (e) {
+				if(Math.abs(e.detail.angle)>170){
+					close();						
+				}
+			});
+    </script>
+	</body>
+
+</html>

@@ -1,0 +1,52 @@
+  
+   .mui-control-item{
+	color: #FFFFFF!important;
+	border: none!important;
+	background-color: #a2def9;
+}
+.mui-segmented-control{
+	border: none;
+}
+  .mui-segmented-control .mui-control-item.mui-active{
+	background-color: #1AAEED;
+
+}
+.search-tab{
+	height: 45px;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+}
+.sel{
+	border: solid 1px #1AAEED;
+	border-radius: 5px;
+	height: 45px;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.sel input{
+	height: 45px;
+	line-height:35px;
+	background: none;
+	border: none;
+	font-size: 16px;
+	text-align: center;
+	margin-left: 25%;
+	width: 65%;
+}
+
+.sel label{
+	color: #7F7F7F;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	width: 30%;
+	text-align: left;
+	position: absolute;
+	left: 5%;
+}

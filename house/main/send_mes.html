@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>send-mes</title>
+   
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/send_mes.css" />
+    <link rel="stylesheet" href="../css/iconfont.css" />
+   
+</head>
+
+<body>
+		<header class="mui-bar mui-bar-nav" style="background: #1AAEED;"> 
+			  <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<span class="mui-pull-right mui-icon iconfont icon-xiaoxi " style="font-size: 22px;color: #fff;position: relative;">
+					<span style="position: absolute; top: 23px;left: 30px; " class="mui-badge mui-badge-danger">2</span>
+				</span>
+			<h1 class="mui-title" style="font-size:20px ;">全球不动产</h1>
+																																													
+		</header>
+		<div class="mui-content">
+		    
+		     
+		           <div id="person_detail" >
+						<img class=" mui-pull-left head-img" src="../images/lele.png" >
+						<div >
+						<label>经纪人danie陈</label>
+							<p>职业金牌房产经纪人</p>
+							
+						</div>
+					     <span class="mui-pull-right mui-icon mui-icon-forward" style="margin-top: -40px;"></span>
+			   
+	             	</div>
+	            <div  class="text">
+	                  	  
+	            	<h4> 和我联系,给您一站式的服务</h4>
+	               <textarea  rows="3" ></textarea>
+	               	   
+	               
+	             
+	               <button class="mui-btn mui-btn-primary" style="width: 100%;">发送信息</button>
+	          
+             </div> 
+         </div> 
+      <script src="../js/mui.min.js"></script>
+       <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+   	document.getElementById('person_detail').addEventListener('tap', function() {
+  //打开infoperson页面
+  mui.openWindow({
+    url: '../main/info_person.html', 
+    id:'info_person'
+  });
+});
+    </script>
+</body>
+</html>

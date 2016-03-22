@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>buy</title>
+
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/iconfont.css" />
+
+    <style type="text/css">
+    	  .liucheng{
+    	  	border:1px solid #1AAEED;
+    	  	margin: 20px 30px; 
+    	  	border-radius: 5px; 
+    	  	padding:6px 10px; 
+    	  	text-align: center;
+    	  	color: #1AAEED;
+    	  	font-weight: bold;
+    	  }
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav" style="background: #1AAEED;">
+			  <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>	
+			<h1 class="mui-title" style="font-size:22px ;">赴美购物流程</h1>
+			
+            
+		</header>
+		<div class="mui-content">
+		   
+		    	<div class="liucheng" id="base">
+		    	     <span class="mui-pull-left mui-icon mui-icon-info"></span>
+		    	     <label >赴美购屋基本流程</label>
+		    	     <span class="mui-pull-right">More</span>
+		    	</div>
+		    	
+		    	<div class="liucheng" >
+		    	     <span class="mui-pull-left mui-icon mui-icon-info"></span>
+		    	     <label >赴美购屋前期准备</label>
+		    	     <span class="mui-pull-right">More</span>
+		    	</div>
+		    	
+		    	<div class="liucheng" >
+		    	     <span class="mui-pull-left mui-icon mui-icon-info"></span>
+		    	     <label >赴美购屋贷款</label>
+		    	     <span class="mui-pull-right">More</span>
+		    	</div>
+		    	
+		    	<div class="liucheng" >
+		    	     <span class="mui-pull-left mui-icon mui-icon-info"></span>
+		    	     <label >步骤程序及预估天数</label>
+		    	     <span class="mui-pull-right">More</span>
+		    	</div>
+		    	
+		    	<div class="liucheng" >
+		    	     <span class="mui-pull-left mui-icon mui-icon-info"></span>
+		    	     <label >赴美购屋准备资料</label>
+		    	     <span class="mui-pull-right">More</span>
+		    	</div>
+		    	
+		    	<div class="liucheng" >
+		    	     <span class="mui-pull-left mui-icon mui-icon-info"></span>
+		    	     <label >关于我们</label>
+		    	     <span class="mui-pull-right">More</span>
+		    	</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		 <script type="text/javascript" charset="UTF-8">
+		     	mui.init();
+			    document.getElementById('base').addEventListener('tap', function() {
+      	             mui.openWindow({
+                    url: '../main/buy_detail.html', 
+                    id:'buy_detail'
+             });
+           });
+		</script>
+	
+</body>
+</html>

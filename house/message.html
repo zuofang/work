@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+   
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/global.css"rel="stylesheet" />
+    <link href="css/message.css"rel="stylesheet" />
+    <style type="text/css">
+   
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav" style="background: #1AAEED;">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">消息</h1>
+	</header>
+    <div class="mui-content" >
+       <ul id="OA_task_1" class="mui-table-view">
+				<li class="mui-table-view-cell" id="chat">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					<div>
+						<img class="mui-media-object mui-pull-left" src="images/lele.png">
+						<div class="mui-media-body">
+						<label>经纪人danie陈</label>
+							<p class='mui-ellipsis'>星期三下午三点。felfeofeoghoeg</p>
+						</div>
+						<span class="mui-pull-right" style="">上午10:20</span>
+					</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					<div>
+						<img class="mui-media-object mui-pull-left" src="images/lele.png">
+						<div class="mui-media-body">
+						<label>经纪人danie陈</label>
+							<p class='mui-ellipsis'>星期三下午三点。felfeofeoghoeg</p>
+						</div>
+						<span class="mui-pull-right" style="">上午10:20</span>
+					</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					<div>
+						<img class="mui-media-object mui-pull-left" src="images/lele.png">
+						<div class="mui-media-body">
+						<label>经纪人danie陈</label>
+							<p class='mui-ellipsis'>星期三下午三点。felfeofeoghoeg</p>
+						</div>
+						<span class="mui-pull-right" style="">上午10:20</span>
+					</div>
+					</div>
+				</li>
+                 <li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					<div>
+						<img class="mui-media-object mui-pull-left" src="images/lele.png">
+						<div class="mui-media-body">
+						<label>经纪人danie陈</label>
+							<p class='mui-ellipsis'>星期三下午三点。felfeofeoghoeg</p>
+						</div>
+						<span class="mui-pull-right" style="">上午10:20</span>
+					</div>
+					</div>
+				</li>
+			<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					<div>
+						<img class="mui-media-object mui-pull-left" src="images/lele.png">
+						<div class="mui-media-body">
+						<label>经纪人danie陈</label>
+							<p class='mui-ellipsis'>星期三下午三点。felfeofeoghoeg</p>
+						</div>
+						<span class="mui-pull-right" style="">上午10:20</span>
+					</div>
+					</div>
+				</li>
+			</ul>
+    </div>
+     <script src="js/mui.min.js"></script>
+     <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      		mui('#OA_task_1').on('tap', '.mui-btn', function(event) {
+      			   var btnArray = ['确认', '取消'];
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除该条记录？', '你好', btnArray, function(e) {
+						if (e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+			 
+			
+				document.getElementById('chat').addEventListener('tap', function() {
+  //打开chat页面
+  mui.openWindow({
+    url: 'main/chat.html', 
+    id:'chat',
+    
+  });
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body,.mui-content{
+	background: #fff;
+	margin: 0px;
+	padding: 0px;
+}
+header .mui-bar .mui-bar-nav{
+	background: #1AAEED;
+}
+header img .mui-icon{
+	
+	
+}
+.mui-bar-nav {
+	box-shadow: 0 2px 4px #054977;
+}
+
+.mui-bar-nav a,.mui-bar-nav h1 {
+	color: #fff;
+	font-size: 22px;
+}
+
+.mui-btn-primary {
+	background: #1AAEED;
+	border: none;
+	border-radius: 0;
+	
+}
