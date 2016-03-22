@@ -1,0 +1,69 @@
+body{
+	background: url(../images/login/login-bg.jpg) no-repeat;
+	background-size: cover;
+}
+.mui-content{
+	background: none;
+}
+.logo{
+	margin-top: 87px;
+}
+.logo img{
+	display: block;
+	width: 114px;	
+	margin: 0 auto;
+}
+.login-content{
+	background: #FFFFFF;
+	border-radius: 3px;
+	width: 90%;
+	margin: 50px auto 0 auto;
+}
+.login-panel{
+	width: 80%;
+	margin: 0 auto;	
+}
+.login-panel h3,.login-panel h4{
+	text-align: center;
+	color: #1AAEED;
+}
+.login-panel h3{
+	padding-top: 16px;
+	font-size: 18px;
+}
+.login-panel h4{
+	font-size: 10px;
+}
+.login-panel input,#login{
+	background-color: #1AAEED;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 0;
+}
+.login-panel .mui-input-clear,.login-panel .mui-input-password{
+	opacity:0.5;
+}
+.mui-input-password::-webkit-input-placeholder,.mui-input-clear::-webkit-input-placeholder{
+	color:#FFFFFF;
+	font-size: 14px;
+	}
+.forget{
+	display: block;
+	height: 50px;
+	float: right;
+	margin-right: -10px;
+	padding-top: 13px;
+	padding-bottom: 11px;
+}
+#login{
+	width: 100%;
+}
+.register{
+	display: block;
+	border: none;
+	width: 90%;
+	margin: 120px auto 36px auto;
+	color: #FFFFFF;
+	font-size: 16px;
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#e51c24), to(#b22454));
+}

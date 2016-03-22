@@ -1,0 +1,110 @@
+body{
+	background: url(../images/register/reg_bg.jpg) no-repeat;
+	background-size:cover;
+}
+.mui-content{
+	position: relative;
+}
+.regContainer{
+	width: 80%;
+	margin:100px auto 0 auto;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	padding-bottom: 50px;
+}
+.regContainer h3{
+	text-align: center;
+	padding-top: 18px;
+	padding-bottom: 10px;
+	font-size: 18px;
+	color: #1AAEED;
+	font-weight: normal;
+	
+}
+.regPanel,.regPanel2{
+	width: 90%;
+	margin:  0 auto;
+	overflow: hidden;
+}
+.regPanel2{
+	background-color: #a2def9;
+}
+.regPanel button,.regPanel2 button{
+	width: 100%;
+	text-align: center;
+	border: none;
+	background-color: #1AAEED;
+	color: #FFFFFF;
+	font-size: 16px;
+	border-radius: 0;
+	
+}
+.mui-control-item{
+	color: #FFFFFF!important;
+	border: none!important;
+	background-color: #a2def9;
+}
+.mui-segmented-control{
+	width: 101%;
+	border: none;
+	border-radius: 0;
+	border-bottom: solid 2px #1AAEED;
+}
+.mui-segmented-control .mui-control-item.mui-active{
+	background-color: #1AAEED;
+}
+#item1,#item2{
+	background-color: #a2def9;
+	padding: 5px 0 18px 0;
+}
+#item1 input,#item2 input{
+	width: 70%;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	color:#FFFFFF;
+	font-size: 13px;
+}
+#item1 div,#item2 div,.regPanel2 input{
+	background: none;
+	border: solid 2px #1AAEED;
+	border-radius: 0;
+	margin-bottom: 5px;
+	text-indent: 5px;
+}
+#item1 div:first{
+	position: relative;
+}
+#sendCode{
+	font-size: 10px;
+	display: block;
+	color: #FFFFFF;
+	background-color: #1AAEED;
+	border-radius: 4px;
+	text-align: center;
+	width: 25%;
+	position: absolute;
+	right: 5%;
+	top: 15px;
+}
+#item1 input::-webkit-input-placeholder{
+	color:#FFFFFF;
+	font-size: 14px;
+}
+#item2 input::-webkit-input-placeholder{
+	color:#FFFFFF;
+	font-size: 14px;
+}
+.regPanel2 input::-webkit-input-placeholder{
+	color:#FFFFFF;
+	font-size: 14px;
+}
+.regStep{
+	display: block;
+	width: 60%;
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	margin-left: -30%;
+}

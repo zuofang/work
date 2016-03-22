@@ -1,0 +1,54 @@
+、<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>  
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />  
+</head>
+<body class="serverBg">
+	<header class="mui-bar mui-bar-nav">
+	    <h1 class="mui-title">服务端</h1>
+	   	<a id="set" class="mui-icon mui-icon-gear mui-pull-right"></a>
+	</header>
+	<div class="mui-content">
+	    <ul class="action">
+	    	<li id="addLand"><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
+	    	<li id="addHouse"><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
+	    	<li id="myMsg"><span class="msgCount">(2)</span><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
+	    	<li id="release"><span class="delHouse">(修改/删除房屋)</span><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
+	    </ul>
+	</div>
+	<script src="js/mui.min.js"></script>
+	<script src="js/app.js"></script>
+	<script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	document.getElementById('addLand').addEventListener('tap',function(){
+      		mui.openWindow({
+      			url:'add_photo.html',
+      			id:'addPhoto'
+      		});
+      	});
+      	document.getElementById('addHouse').addEventListener('tap',function(){
+      		mui.openWindow({
+      			url:'add_photo.html',
+      			id:'addPhoto'
+      		});
+      	});
+      	document.getElementById('myMsg').addEventListener('tap',function(){
+      		mui.openWindow({
+      			url:'message.html',
+      			id:'message'
+      		});
+      	});  
+      	document.getElementById('release').addEventListener('tap',function(){
+      		mui.openWindow({
+      			url:'list.html',
+      			id:'list'
+      		});
+      	});
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+ body{
+    	background: #e4f4f8;
+}
+   .mui-content>.mui-table-view:first-child{
+    margin-top: 0px;
+    }
+    	.mui-table-view:before,.mui-table-view-cell:before{
+			
+			background-color: #054977;
+		}
+		.mui-table-view:after,.mui-table-view-cell:after{
+				
+			background-color:#054977;
+		}
+	.mui-table-view img{
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+	}
+	.mui-table-view-cell label{
+		font-weight: bold;
+	}
+	.mui-table-view-cell span{
+		margin-top: -40px; 
+		font-size: 12px;
+		color: #727272;
+	}

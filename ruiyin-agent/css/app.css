@@ -1,0 +1,34 @@
+/*app通用样式*/
+.mui-content{
+	background: none;
+}
+.mui-bar{
+	background-color: #1aaeee;
+	border-bottom: solid 1px #054977;
+	box-shadow: none;
+}
+.mui-bar a,.mui-bar h1{
+	color: #FFFFFF;
+}
+.footer{
+	border-top: solid 1px #054977;
+	background-color: #1aaeee;
+	padding-bottom: 14px;
+	width: 100%;
+}
+.action_btn {
+	display: block;
+	border-radius: 5px;
+	width: 60%;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	margin: 15px auto 0 auto;
+}
+.he250{
+	height: 250px;
+}
+.bg-white{
+	background-color: #FFFFFF;
+}
+
