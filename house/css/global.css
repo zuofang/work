@@ -217,6 +217,15 @@ header .icon-xiaoxi {
     	  section h5{
     	  	color: #000;
     	  }
-    	  	
-    
-     
+      /*buydetail*/	  	
+    /*buy*/
+       .liucheng{
+    	  	border:1px solid #1AAEED;
+    	  	margin: 20px 30px; 
+    	  	border-radius: 5px; 
+    	  	padding:6px 10px; 
+    	  	text-align: center;
+    	  	color: #1AAEED;
+    	  	font-weight: bold;
+    	  }
+     /*buy*/	  

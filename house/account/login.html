@@ -7,114 +7,10 @@
    
     <link href="../css/mui.min.css" rel="stylesheet"/>
     <link href="../css/global.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <style type="text/css">
-    	
-    	
-    	.regContainer{
-	width: 100%;
-	margin:50px auto 0 auto;
-	background-color: #FFFFFF;
-	border-radius: 5px;
-	padding-bottom: 50px;
-}
-.regContainer h3{
-	text-align: center;
-	padding-top: 18px;
-	padding-bottom: 10px;
-	font-size: 18px;
-	color: #1AAEED;
-	font-weight: normal;
-}
-.regPanel,.regPanel2{
-	width: 80%;
-	margin:  0 auto;
-	overflow: hidden;
-}
-.regPanel2{
-	background-color: #a2def9;
-}
-.regPanel button,.regPanel2 button{
-	width: 100%;
-	text-align: center;
-	border: none;
-	background-color: #1AAEED;
-	color: #FFFFFF;
-	font-size: 16px;
-	border-radius: 0;
-	
-}
-.mui-control-item{
-	color: #FFFFFF!important;
-	border: none!important;
-	background-color: #a2def9;
-}
-.mui-segmented-control{
-	width: 101%;
-	border: none;
-	border-radius: 0;
-	border-bottom: solid 2px #1AAEED;
-}
-.mui-segmented-control .mui-control-item.mui-active{
-	background-color: #1AAEED;
-}
-#item1,#item2{
-	background-color: #a2def9;
-	padding: 5px 0 18px 0;
-}
-#item1 input,#item2 input{
-	width: 70%;
-	background: none;
-	border: none;
-	margin: 0;
-	padding: 0;
-	color:#FFFFFF;
-	font-size: 13px;
-}
-#item1 div,#item2 div,.regPanel2 input{
-	background: none;
-	border: solid 2px #1AAEED;
-	border-radius: 0;
-	margin-bottom: 5px;
-	text-indent: 5px;
-}
-#item1 div:first{
-	position: relative;
-}
-#sendCode{
-	font-size: 10px;
-	display: block;
-	color: #FFFFFF;
-	background-color: #1AAEED;
-	border-radius: 4px;
-	text-align: center;
-	width: 25%;
-	position: absolute;
-	right: 5%;
-	top: 15px;
-}
-.loginer input::-webkit-input-placeholder{
-		color:#FFFFFF;
-	font-size: 14px;
-}
-#item1 input::-webkit-input-placeholder{
-	color:#FFFFFF;
-	font-size: 14px;
-}
-#item2 input::-webkit-input-placeholder{
-	color:#FFFFFF;
-	font-size: 14px;
-}
-.regPanel2 input::-webkit-input-placeholder{
-	color:#FFFFFF;
-	font-size: 14px;
-}
-.regStep{
-	display: block;
-	width: 60%;
-	margin: 100px auto 120px auto;
-}
-    </style>
+    <link rel="stylesheet" href="../css/account-css/login.css" />
+    <link href="../css/mui.picker.min.css" rel="stylesheet" />
+    <link href="../css/mui.poppicker.css" rel="stylesheet" />
+   
 </head>
 <body>
 	  <header class="mui-bar mui-bar-nav" style="background: #1AAEED;">
@@ -142,15 +38,18 @@
 	    	</form>
 	    	<!--登录部分-->
 	    	 <div class="regContainer">
-	    	<h3>注册</h3>
-		    <div class="regPanel">
-		    		<div id="segmentedControl" class="mui-segmented-control">
-					<a class="mui-control-item mui-active" href="#item1">手机号注册</a>
-					<a class="mui-control-item" href="#item2">邮箱注册</a>
-				</div>
-				<div>
+		    	<h4>注册</h4>
+			    <div class="regPanel">
+			    		<div id="segmentedControl" class="mui-segmented-control">
+							<a class="mui-control-item mui-active" href="#item1">手机号注册</a>
+							<a class="mui-control-item" href="#item2">邮箱注册</a>
+					</div>
+					<div>
 					<div id="item1" class="mui-control-content mui-active">
-						<div>
+						<div style="height: 45px;line-height: 45px;">
+						  <input id='countryPicker' readonly="" placeholder="请选择国家" />  
+						</div>
+						<div style="position: relative;">
 							<input type="text" placeholder="请输入手机号" />
 							<span id="sendCode">发送验证码</span>
 						</div>
@@ -161,7 +60,7 @@
 					<div id="item2" class="mui-control-content ">
 						<div>
 							<input type="text" placeholder="请输入邮箱" />
-							<span id="sendCode">发送验证码</span>
+							
 						</div>
 						<div class="mui-input-row">
 							<input class="mui-input-clear" type="text" placeholder="请输入验证码" />
@@ -174,16 +73,46 @@
 	    </div>
 	</div>
 	 <script src="../js/mui.min.js"></script>
+	   <script src="../js/mui.picker.min.js"></script>
+	    <script src="../js/mui.poppicker.js"></script>
+	   
+	 
 	<script type="text/javascript" charset="UTF-8">
       	mui.init();
       	document.getElementById('next').addEventListener('tap', function() {
-  //打开注册页面
-  mui.openWindow({
-    url: '../account/regist.html', 
-    id:'regist',
-    
-  });
-});
+  		//打开注册页面
+		  mui.openWindow({
+		    url: '../account/regist.html', 
+		    id:'regist',
+		    
+		  });
+		});
+		mui.ready(function() {
+      		var countryData=[{
+				value: 0,
+				text: '美国'
+			}, {
+				value: 1,
+				text: '英国'
+			},{
+				value:2,
+				 text:'中国'
+			}];
+			setPicker('countryPicker',countryData);
+		});	
+			//创建选择器
+			  function setPicker(id,data){
+	      		var picker = new mui.PopPicker();
+				picker.setData(data);		
+				var p = document.getElementById(id);
+					p.addEventListener('tap', function(event) {
+						picker.show(function(items) {
+							p.value=items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+	      	}
     </script>
 </body>
 </html>
