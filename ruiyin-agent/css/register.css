@@ -28,6 +28,8 @@ body{
 }
 .regPanel2{
 	background-color: #a2def9;
+	color:#FFFFFF;
+	font-size: 14px;
 }
 .regPanel button,.regPanel2 button{
 	width: 100%;
@@ -64,7 +66,7 @@ body{
 	margin: 0;
 	padding: 0;
 	color:#FFFFFF;
-	font-size: 13px;
+	font-size: 14px;
 }
 #item1 div,#item2 div,.regPanel2 input{
 	background: none;
