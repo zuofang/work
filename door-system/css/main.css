@@ -61,7 +61,7 @@
 .hr{	
 	width: 100%;
 	height: 40px;
-	border-bottom: solid 1px rgba(0,0,0,.6) ;
+	border-bottom: solid 1px #8b8cab ;
 }
 /*素材管理*/
 .img-content-list{
@@ -88,21 +88,24 @@
 }
 .doc-tab-bar li{
 	float: left;
-	width: 60px;
+	width: 70px;
 	height: 30px;
+	color: #8b8cab;
 	line-height: 30px;
 	text-align: center;
-	border: solid 1px rgba(0,0,0,.6) ;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	margin: 10px 5px -1px 0;
+	border: solid 1px #8b8cab ;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin: 10px 10px -1px 0;
 }
 .doc-tab-bar li:hover,.doc-action-group button:hover{
 	cursor: pointer;
 }
 .tab-bar-active{
-	color: #FFF;
+	color: #FFF!important;
 	background-color: #FF0080;
+	border: none!important;
+	box-shadow: 2px 2px 3px #8b8cab;
 }
 .doc-content{
 	width: 95%;
@@ -139,6 +142,9 @@
 	left: 0px;
 	text-indent: 10px;
 	line-height: 30px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .doc-action-group{
 	position: absolute;
@@ -196,9 +202,12 @@
 	color: #2e7b91;
 	font-weight: bold;
 }
-#upload-modal .modal-body .close{
+#upload-modal .modal-header .close{
 	position: absolute;
 	right: 10px;
+	top: 5px;
+	font-size: 20px;
+	font-weight: bold;
 }
 .doc-title-input,.choose-file,.doc-description{
 	background-color: #d5e5e9;
