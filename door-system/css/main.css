@@ -57,6 +57,7 @@
 	background-color: rgba(254,254,254,.7);
 	border-radius: 5px;
 	box-shadow: 0 0 3px #FFF;
+	position: relative;
 }
 .hr{	
 	width: 100%;
@@ -80,6 +81,16 @@
 }
 .img-content-list li img{
 	width: 180px;
+}
+.img-tag{
+	background-color: #8b8cab;
+	color: #fff;
+	width: 25px;
+	font-size: 16px;
+	border-radius: 10px 0 0 10px;
+	padding:10px 0 10px 5px;
+	position: absolute;
+	left: -30px;
 }
 /*知识库管理*/
 .doc-tab-bar{
@@ -189,7 +200,7 @@
 #upload-modal .modal-header{
 	border-radius: 10px 10px 0 0;
 	background-color: #48a0a7;
-	height: 15px;
+	height: 10px;
 	border-bottom: solid 5px #2e7b91;
 }
 #upload-modal .modal-body{
@@ -205,7 +216,7 @@
 #upload-modal .modal-header .close{
 	position: absolute;
 	right: 10px;
-	top: 5px;
+	top: -3px;
 	font-size: 20px;
 	font-weight: bold;
 }
