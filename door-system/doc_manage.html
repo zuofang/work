@@ -378,8 +378,14 @@
 			 	<textarea class="doc-description"></textarea>
 			 </div>
 			 <div class="modal-footer">
-			 	<button class="confirm-upload">确认上传</button>
+			 	<button id="conUpload" class="confirm-upload">确认上传</button>
 			 </div>
+		</div>
+		<!--图片上传的等待提示-->
+		<div class="upload-waiting-container">
+			<div class="upload-waiting">
+				<img src="images/loading_072.gif" />正在上传……
+			</div>
 		</div>
 		<script src="lib/jquery/1.9.1/jquery.min.js"></script>
 		<script src="js/H-ui.js"></script>
@@ -395,6 +401,12 @@
 					$(this).children(".doc-action-group").stop().animate({top:'5px'});
 				}).mouseout(function(){
 					$(this).children(".doc-action-group").stop().animate({top:'-22px'});
+				});
+				//点击确认上传按钮隐藏模态框显示上传提示
+				$('#conUpload').click(function(){
+					$('#upload-modal').hide();
+					$('.upload-waiting-container').show();
+					//上传ajax 成功后隐藏上传提示
 				});
 				//分页 ajax请求数据
 //				$.getJSON('#', {curr: 6}, function(res){ //从第6页开始请求。返回的json格式可以任意定义
