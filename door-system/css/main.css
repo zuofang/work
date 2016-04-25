@@ -116,7 +116,7 @@
 	color: #FFF!important;
 	background-color: #FF0080;
 	border: none!important;
-	box-shadow: 2px 2px 3px #8b8cab;
+	box-shadow: 2px 2px 3px #fc716a;
 }
 .doc-content{
 	width: 95%;
@@ -367,4 +367,280 @@
 	background-color: #e6e5e5;
 }
 /*微信后台打印记录查询*/
+.wp-table{
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #8c8cbf;
+	background-color: #FFF;
+}
+.wp-table thead td{
+	font-weight: bold;
+	font-size: 14px;
+}
+.wp-table td{
+	text-align: center;
+	color: #8c8cbf;
+}
+.wp-table .wp-icheck-all,.wp-table .wp-icheck{
+	text-align: left;
+	text-indent: 10px;
+}
+.wp-table thead{
+	font-size: 16px;
+}
+.wp-action-group button{
+	border: none;
+	background:none;
+	font-size: 16px;
+	text-align: center;
+	color: #8c8cbf;
+}
+.wp-success-status{
+	color: #63b6c1!important;
+	border-color: #63b6c1;
+}
+.wp-fail-status{
+	color: #fc716a!important;
+	border-color: #fc716a;
+}
+.wp-printing-status{
+	color: #8c8cbf!important;
+	border-color: #8c8cbf;
+}
+.wp-search-item-list{
+	margin-top: 10px;
+}
+.wp-search-item-list dd,.wp-search-item-list dt{
+	float: left;
+	font-size: 18px;
 
+}
+.wp-search-item-list dd{
+	width: 100px;
+	border-radius: 5px;
+	color: #fff;
+	background-color: #8c8cbf;
+	text-align: center;
+	margin-right: 15px;
+	line-height: 30px;
+	height: 30px;
+}
+.wp-search-item-container{
+	width: 800px;
+}
+.wp-search-item-container ul li,.wp-search-item-container ul li a{
+	float: left;
+	margin-right: 10px;
+	min-width: 80px;
+	max-width: 150px;
+	text-align: center;
+	color: #8c8cbf;
+	padding: 0 5px;
+}
+.wp-search-item-active{
+	border-radius: 5px;
+	border: 1px solid #8c8cbf;
+}
+.wp-summary{
+	padding-top: 10px;
+	width: 1000px;
+	text-align: center;
+}
+.wp-summary li{
+	display: inline-block;
+	height: 60px;
+	width: 100px;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #8c8cbf;
+	background-color: #FFF;
+	margin-right: 80px;
+}
+.wp-summary-title,.wp-summary-count{
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+.wp-summary-title{
+	height: 35px;
+	line-height: 35px;
+	font-size: 15px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+.wp-summary-count{
+	font-size: 14px;
+}
+.wp-summary .wp-summary-active{
+	border-left-width: 8px;
+	border-left-style: solid;
+}
+.wp-summary .wp-summary-active .wp-summary-title i{
+	display: inline-block;
+	width: 3px;
+	height: 12px;
+	margin-left: -5px;
+	margin-right: 10px;
+}
+.wp-action-group button,.wp-summary li,.wp-search-item-container li,.wp-device{
+	cursor: pointer;
+}
+.wp-success-bg{
+	background-color: #63b6c1;
+}
+.wp-fail-bg{
+	background-color:  #fc716a;
+}
+.wp-printing-bg{
+	background-color: #8c8cbf;
+}
+/*微信删除模态框*/
+#wp-delete-modal{
+	border-radius: 10px;
+	width: 400px;
+}
+#wp-delete-modal .modal-header{
+	border-radius: 10px 10px 0 0;
+	background-color: #48a0a7;
+	height: 10px;
+	border-bottom: solid 5px #2e7b91;
+}
+
+#wp-delete-modal .modal-header .close{
+	position: absolute;
+	right: 10px;
+	top: -3px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFF;
+}
+#wp-delete-modal .modal-body p{
+	text-align: center;
+	color: #8c8cbf;
+	font-size: 16px;
+}
+.wp-delete-modal .modal-footer{
+	text-align: center;
+}
+.wp-delete-cancel,.wp-delete-sure{
+	border-radius: 5px;
+	font-size: 16px;
+	color: #FFF;
+	font-weight: bold;
+	border: none;
+	padding: 10px 0px;
+	width: 150px;
+
+}
+.wp-delete-cancel{
+	background: url("../img/img_manage/upload_bg.png") repeat-x;
+	margin-right: 50px;
+}
+.wp-delete-sure{
+	background: url("../img/img_manage/search_bg.png") repeat-x;
+}
+.wp-delete-cancel i,.wp-delete-sure i{
+	margin-right: 15px;
+}
+/*微信详情模态框*/
+#wp-detail-modal{
+	border-radius: 15px;
+	width: 500px;
+	background-color: rgba(255,255,255,.6);
+}
+#wp-detail-modal .close{
+	/*background-color: #FFF;*/
+	font-size: 25px;
+	position: absolute;
+	top: -2px;
+	font-weight: bold;
+	color: #454575;
+
+}
+#wp-detail-modal .modal-header{
+	height: 20px;
+	border-radius: 15px 15px 0 0;
+}
+.wp-detail-title{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #FFF;
+	border-radius: 10px 10px 0 0;
+	box-shadow: 2px 2px 5px grey;
+	text-align: center;
+}
+#wp-detail-modal .modal-footer{
+	text-align: center;
+	border-radius: 0 0 15px 15px;
+}
+.wp-detail-tb{
+	background-color: #FFF;
+	box-shadow: 2px 2px 5px grey;
+}
+.wp-detail-tb td,.wp-detail-title{
+	color: #8c8cbf;
+	font-size: 14px;
+	font-weight: bold;
+}
+.wp-detail-tb td i{
+	display: inline-block;
+	width: 3px;
+	height: 12px;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: #8c8cbf;
+}
+/*微信打印机信息提示框*/
+.wp-device{
+	position: relative;
+}
+.wp-device-tip{
+	position: absolute;
+	width: 100px;
+	height: 80px;
+	border-radius: 5px;
+	border:1px solid #8c8cbf;
+	box-shadow: 0 0 5px  #8c8cbf;
+	z-index: 5;
+	right: -85px;
+	top:-18px;
+	background-color: #FFF;
+	padding: 0px 3px;
+	display: none;
+}
+.wp-device-tip::before{
+	content: "";
+	display: block;
+	width: 20px;
+	height: 25px;
+	background: url("../img/wechat_print/tip_arrow.png") no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: -20px;
+	top: 25px;
+	z-index: 5;
+}
+.wp-device-place{
+	height: 28px;
+	line-height: 28px;
+	border-bottom: 1px solid #8c8cbf;
+	text-align: center;
+}
+.wp-device-place i{
+	display: inline-block;
+	width: 3px;
+	height: 12px;
+	margin-left: 5px;
+	margin-right: 10px;
+	background-color: #8c8cbf;
+}
+.wp-device-success,.wp-device-fail{
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 0;
+}
+.wp-device-fail{
+	color: red;
+}
