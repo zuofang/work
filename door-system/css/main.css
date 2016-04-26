@@ -381,7 +381,7 @@
 	text-align: center;
 	color: #8c8cbf;
 }
-.wp-table .wp-icheck-all,.wp-table .wp-icheck{
+.wp-table .wp-icheck-td{
 	text-align: left;
 	text-indent: 10px;
 }
@@ -431,14 +431,15 @@
 .wp-search-item-container ul li,.wp-search-item-container ul li a{
 	float: left;
 	margin-right: 10px;
-	min-width: 80px;
-	max-width: 150px;
+	/*min-width: 80px;*/
+	/*max-width: 150px;*/
 	text-align: center;
 	color: #8c8cbf;
-	padding: 0 5px;
+	padding: 1px 5px;
+	border-radius: 5px;
 }
 .wp-search-item-active{
-	border-radius: 5px;
+	padding: 0 4px!important;
 	border: 1px solid #8c8cbf;
 }
 .wp-summary{
@@ -493,6 +494,24 @@
 }
 .wp-printing-bg{
 	background-color: #8c8cbf;
+}
+.wp-delete-group{
+	margin-top: 5px;
+	display: none;
+}
+.wp-delete-group button{
+	border: 1px solid #8c8cbf;
+	border-radius: 5px;
+	width: 80px;
+	height: 30px;
+}
+.wp-delete-group .wp-delete{
+	background-color: #8c8cbf;
+	color: #FFF;
+}
+.wp-delete-group .wp-cancel{
+	background-color: #FFF;
+	color: #8c8cbf;
 }
 /*微信删除模态框*/
 #wp-delete-modal{

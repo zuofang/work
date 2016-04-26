@@ -41,7 +41,7 @@
                 <li>新街口支行</li>
                 <li>河定桥支行</li>
                 <li>服务部</li>
-                <li><a id="wp-search-list-more" href="javascript:void(0)">更多……></a></li>
+                <li name="listAction"><a id="wp-search-list-more" href="javascript:void(0)">更多……></a></li>
             </ul>
             <ul class="wp-full-list" style="display: none;">
                 <li>所有</li>
@@ -66,7 +66,7 @@
                 <li>新街口支行</li>
                 <li>河定桥支行</li>
                 <li>服务部</li>
-                <li><a id="wp-search-list-back" href="javascript:void(0)">收起<</a></li>
+                <li name="listAction"><a id="wp-search-list-back" href="javascript:void(0)">收起<</a></li>
             </ul>
 
         </dt>
@@ -96,8 +96,8 @@
             <table class="table table-border wp-table">
                 <thead>
                     <tr>
-                        <td class="wp-icheck-all">
-                            <input type="checkbox"> 全选
+                        <td class="wp-icheck-td">
+                            <input class="wp-icheck-all" type="checkbox"> 全选
                         </td>
                         <td>缩略图</td>
                         <td>终端名称</td>
@@ -109,8 +109,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="wp-icheck">
-                            <input type="checkbox">
+                        <td  class="wp-icheck-td">
+                            <input class="wp-icheck" type="checkbox">
                         </td>
                         <td >
                             <img src="./img/doc_manage/example/doc_demo1.png" height="25" width="25">
@@ -132,8 +132,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="wp-icheck">
-                            <input type="checkbox">
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
                         </td>
                         <td>
                             <img src="./img/doc_manage/example/doc_demo1.png" height="25" width="25">
@@ -155,8 +155,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="wp-icheck">
-                            <input type="checkbox">
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
                         </td>
                         <td>
                             <img src="./img/doc_manage/example/doc_demo1.png" height="25" width="25">
@@ -178,8 +178,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="wp-icheck">
-                            <input type="checkbox">
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
                         </td>
                         <td>
                             <img src="./img/doc_manage/example/doc_demo1.png" height="25" width="25">
@@ -201,8 +201,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="wp-icheck">
-                            <input type="checkbox">
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
                         </td>
                         <td>
                             <img src="./img/doc_manage/example/doc_demo1.png" height="25" width="25">
@@ -224,8 +224,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="wp-icheck">
-                            <input type="checkbox">
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
                         </td>
                         <td>
                             <img src="./img/doc_manage/example/doc_demo1.png" height="25" width="25">
@@ -251,9 +251,10 @@
             </table>
             <!--删除按钮组-->
             <div class="wp-delete-group">
-
+                <button class="wp-delete" data-toggle="modal" href="#wp-delete-modal">删&nbsp;&nbsp;除</button>
+                <button class="wp-cancel">取&nbsp;&nbsp;消</button>
             </div>
-            <!--分页容器-->
+            <!--分页容器 分页与与删除按钮组在同一行 居又对齐-->
             <div id="page-container"></div>
         </div>
 
@@ -310,7 +311,7 @@
             </table>
         </div>
         <div class="modal-footer">
-            <button class="wp-delete-cancel" data-dismiss="modal" aria-hidden="true"><i class="Hui-iconfont">&#xe6a6;</i>删除记录</button>
+            <button class="wp-delete-cancel"><i class="Hui-iconfont">&#xe6a6;</i>删除记录</button>
             <button class="wp-delete-sure"><i class="Hui-iconfont">&#xe6a7;</i>确&nbsp;定</button>
         </div>
     </div>
@@ -331,20 +332,62 @@
             checkboxClass: 'icheckbox_minimal-purple',
             increaseArea: '20%'
         });
+        //全选
+        $('.wp-icheck-all').on('ifChecked',function () {
+            $('.wp-icheck').iCheck('check');
+        }).on('ifUnchecked',function () {
+            $('.wp-icheck').iCheck('uncheck');
+        });
+        //选中checkbox框显示删除按钮
+        $('.wp-table input[type=checkbox]').on('ifChecked',function () {
+           if($('.wp-delete-group').is(':hidden')){
+               $('.wp-delete-group').show();
+           }
+        }).on('ifUnchecked',function () {
+            if(!$('.wp-icheck').is(':checked')){
+                $('.wp-delete-group').hide();
+            }
+        });
+        //删除按钮组的取消按钮点击
+        $('.wp-delete-group .wp-cancel').click(function () {
+            $('.wp-table input[type=checkbox]').iCheck('uncheck');
+            $('.wp-delete-group').hide();
+        });
         //网点的展开收起
         $('#wp-search-list-more').click(function () {
            $('.wp-simple-list').hide();
+            var idx=$('.wp-simple-list .wp-search-item-active').index();
+            $('.wp-search-item-container li').removeClass('wp-search-item-active');
+            $('.wp-full-list li:eq('+idx+')').addClass('wp-search-item-active');
             $('.wp-full-list').show();
+
         });
         $('#wp-search-list-back').click(function () {
             $('.wp-full-list').hide();
+            var idx=$('.wp-full-list .wp-search-item-active').index();
+            $('.wp-search-item-container li').removeClass('wp-search-item-active');
+            if(idx<=4){
+                $('.wp-simple-list li:eq('+idx+')').addClass('wp-search-item-active');
+            }else {
+                $('.wp-simple-list li:eq(0)').addClass('wp-search-item-active');
+            }
             $('.wp-simple-list').show();
+        });
+        //点击统计信息
+        $('.wp-summary li').click(function () {
+            $(this).siblings().removeClass('wp-summary-active');
+            $(this).addClass('wp-summary-active');
         });
         //打印设备信息提示
         $('.wp-device').mouseover(function () {
             $(this).children('.wp-device-tip').show();
         }).mouseout(function () {
             $(this).children('.wp-device-tip').hide();
+        });
+        //网点列表选中
+        $('.wp-search-item-container li[name!="listAction"]').click(function () {
+            $('.wp-search-item-container li').removeClass('wp-search-item-active');
+            $(this).addClass('wp-search-item-active');
         });
         //分页 ajax请求数据
 //				$.getJSON('#', {curr: 6}, function(res){ //从第6页开始请求。返回的json格式可以任意定义
