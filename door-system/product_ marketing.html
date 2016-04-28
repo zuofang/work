@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>素材查询</title>
+    <link href="css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/Hui-iconfont/1.0.6/iconfont.css" rel="stylesheet" type="text/css" />
+    <link href="./lib/icheck-1.x/skins/minimal/purple.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+    <style>
+        #search_txt{
+            width: 80%;
+        }
+        #search{
+            width: 15%;
+        }
+        .hr{
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+<img class="bg" src="img/img_manage/bg.jpg" />
+ 
+  
+<div class="container">
+	<div class="header-nav">
+   <ul  >
+    	<li >
+    	<a><i class="Hui-iconfont">&#xe687;</i>产&nbsp;品&nbsp;营&nbsp;销</a>
+        </li>
+        <!--<li >
+         <a><i class="Hui-iconfont">&#xe687;</i>新&nbsp;增&nbsp;产&nbsp;品</a>	
+        </li>-->
+    </ul>
+    </div>
+    <div class="content-box" id="tab-box" style="border-top-left-radius: 0;">
+    	
+        <div class="hr-pr ">
+	        <div class="search-box product-search">
+	             <input id="search_txt" type="text" placeholder="请输入……"/>
+	             <button class="f-r" id="search"><i class="Hui-iconfont">&#xe665;</i>搜 索</button>
+	        </div>
+            <div class="product_title" >
+            	<label> 产 &nbsp; 品&nbsp; 营&nbsp; 销&nbsp; 列&nbsp; 表</label>
+                <div class="wp-group" style="float: right;">
+                <a class="delete" data-toggle="modal" href="#wp-delete-modal"><i class="Hui-iconfont fl">&#xe609;</i>&nbsp;&nbsp;删&nbsp;&nbsp;除</a>
+                <a href="add-product.html" class="add"><i class="Hui-iconfont fl">&#xe600;</i>&nbsp;&nbsp;新&nbsp;&nbsp;增</a>
+                </div>
+            	
+            </div>
+        </div>
+        <div class="doc-content">
+            <table class="table table-border wp-table">
+                <thead>
+                    <tr>
+                        <td class="wp-icheck-td">
+                            <input class="wp-icheck-all" type="checkbox"> 全选
+                        </td>
+                        <td>产品名称</td>
+                        <td>产品类型</td>
+                        <td>推广类型</td>
+                        <td>pad查看</td>
+                        <td>所属机构</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td  class="wp-icheck-td">
+                            <input class="wp-icheck" type="checkbox">
+                        </td>
+                        <td >
+                           金杨树理财
+                        </td>
+                        <td class="wp-device">
+                            理财
+                           
+                        </td>
+                        <td>基本产品</td>
+                        <td>可查看</td>
+                        <td class="wp-address">体育西路</td>
+                        <td class="wp-action-group">
+                            <button data-toggle="modal" href="#wp-delete-modal"><i class="Hui-iconfont">&#xe609;</i></button>
+                            <button data-toggle="modal" href="#"><i class="Hui-iconfont">&#xe6df;</i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
+                        </td>
+                        <td>
+                        金杨树理财
+                        </td>
+                        <td class="wp-device">
+                            金融
+                           
+                        </td>
+                         <td>基本产品</td>
+                        <td class="wp-fail-status">已禁止</td>
+                        <td class="wp-address">体育西路</td>
+                        <td class="wp-action-group">
+                            <button data-toggle="modal" href="#wp-delete-modal"><i class="Hui-iconfont">&#xe609;</i></button>
+                            <button data-toggle="modal" href="#"><i class="Hui-iconfont">&#xe6df;</i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
+                        </td>
+                        <td>
+                       金杨树理财
+                        </td>
+                        <td class="wp-device">
+                            公司业务
+                            
+                        </td>
+                       <td>基本产品</td>
+                        <td>可查看</td>
+                        <td class="wp-address">体育西路</td>
+                        <td class="wp-action-group">
+                            <button data-toggle="modal" href="#wp-delete-modal"><i class="Hui-iconfont">&#xe609;</i></button>
+                            <button data-toggle="modal" href="#"><i class="Hui-iconfont">&#xe6df;</i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
+                        </td>
+                        <td>
+                         金杨树理财
+                        </td>
+                        <td class="wp-device">
+                          金融理财
+                            
+                        </td>
+                        <td>基本产品</td>
+                        <td>可查看</td>
+                        <td class="wp-address">体育西路</td>
+                        <td class="wp-action-group">
+                            <button data-toggle="modal" href="#wp-delete-modal"><i class="Hui-iconfont">&#xe609;</i></button>
+                            <button data-toggle="modal" href=""><i class="Hui-iconfont">&#xe6df;</i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
+                        </td>
+                        <td>
+                           金杨树理财
+                        </td>
+                        <td class="wp-device">
+                          农业贷款
+                            
+                        </td>
+                        <td>基本产品</td>
+                        <td>可查看</td>
+                        <td class="wp-address">体育西路</td>
+                        <td class="wp-action-group">
+                            <button data-toggle="modal" href="#wp-delete-modal"><i class="Hui-iconfont">&#xe609;</i></button>
+                            <button data-toggle="modal" href=""><i class="Hui-iconfont">&#xe6df;</i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class="wp-icheck-td">
+                            <input type="checkbox" class="wp-icheck">
+                        </td>
+                        <td>
+                         金杨树理财
+                        </td>
+                        <td class="wp-device">
+                            社会贷款
+                           
+                        </td>
+                        <td>理财产品</td>
+                        <td>可查看</td>
+                        <td class="wp-address">体育西路</td>
+                        <td class="wp-action-group">
+                            <button data-toggle="modal" href="#wp-delete-modal"><i class="Hui-iconfont">&#xe609;</i></button>
+                            <button data-toggle="modal" href=""><i class="Hui-iconfont">&#xe6df;</i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <!--删除按钮组-->
+            <div class="wp-delete-group">
+                <button class="wp-delete" data-toggle="modal" href="#wp-delete-modal">删&nbsp;&nbsp;除</button>
+                <button class="wp-cancel">取&nbsp;&nbsp;消</button>
+            </div>
+            <!--分页容器 分页与与删除按钮组在同一行 居又对齐-->
+            <div id="page-container"></div>
+        </div>
+
+
+    </div>
+    <!--删除模态框-->
+    <div id="wp-delete-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void(0);">×</a>
+        </div>
+        <div class="modal-body">
+            <p>是否确认删除本条打印记录</p>
+        </div>
+        <div class="modal-footer">
+            <button class="wp-delete-cancel" data-dismiss="modal" aria-hidden="true"><i class="Hui-iconfont">&#xe6a6;</i>取&nbsp;消</button>
+            <button class="wp-delete-sure"><i class="Hui-iconfont">&#xe6a7;</i>确&nbsp;定</button>
+        </div>
+    </div>
+   
+</div>
+<script src="lib/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/H-ui.js"></script>
+<!--icheck插件-->
+<script src="./lib/icheck-1.x/icheck.js"></script>
+<!--模态框-->
+<script src="lib/bootstrap-modal/2.2.4/bootstrap-modalmanager.js"></script>
+<script src="lib/bootstrap-modal/2.2.4/bootstrap-modal.js"></script>
+<!--分页插件-->
+<script src="lib/laypage/1.2/laypage.js"></script>
+<script>
+    $(function(){
+        //icheck插件
+        $('.wp-table input[type=checkbox]').iCheck({
+            checkboxClass: 'icheckbox_minimal-purple',
+            increaseArea: '20%'
+        });
+        //全选
+        $('.wp-icheck-all').on('ifChecked',function () {
+            $('.wp-icheck').iCheck('check');
+        }).on('ifUnchecked',function () {
+            $('.wp-icheck').iCheck('uncheck');
+        });
+        //选中checkbox框显示删除按钮
+        $('.wp-table input[type=checkbox]').on('ifChecked',function () {
+           if($('.wp-delete-group').is(':hidden')){
+               $('.wp-delete-group').show();
+           }
+        }).on('ifUnchecked',function () {
+            if(!$('.wp-icheck').is(':checked')){
+                $('.wp-delete-group').hide();
+            }
+        });
+        //删除按钮组的取消按钮点击
+        $('.wp-delete-group .wp-cancel').click(function () {
+            $('.wp-table input[type=checkbox]').iCheck('uncheck');
+            $('.wp-delete-group').hide();
+        });
+      
+     
+        //分页 ajax请求数据
+//				$.getJSON('#', {curr: 6}, function(res){ //从第6页开始请求。返回的json格式可以任意定义
+//			    	laypage({
+//			    		cont: 'page-container', //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：&lt;div id="page1">&lt;/div>
+//			            pages: res.pages, //通过后台拿到的总页数
+//			            curr: 6, //初始化当前页
+//			            jump: function(e){ //触发分页后的回调
+//			                $.getJSON('#', {curr: e.curr}, function(res){
+//			                    e.pages = e.last = res.pages; //重新获取总页数，一般不用写
+//			                    //渲染
+//			                    var view = document.getElementById('view1'); //你也可以直接使用jquery
+//			                    var demoContent = (new Date().getTime()/Math.random()/1000)|0; //此处仅仅是为了演示
+//			                    view.innerHTML = res.content + demoContent;
+//			                });
+//			            }
+//			        });
+//		    	});
+    });
+</script>
+</body>
+</html>

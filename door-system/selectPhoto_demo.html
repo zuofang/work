@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>素材查询</title>
+    <link href="css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/Hui-iconfont/1.0.6/iconfont.css" rel="stylesheet" type="text/css" />
+    <link href="./lib/icheck-1.x/skins/minimal/purple.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+    <style>
+    	#pm-selectPhoto-modal{
+    		width: 600px;
+    		background-color: rgba(255,255,255,.6);
+    		border-radius: 15px;
+    	}
+    	#pm-selectPhoto-modal .modal-footer{
+    		border-radius: 0 0 15px 15px;
+    		text-align: center;
+    	}
+    	#pm-selectPhoto-modal .modal-header{
+    		height: 30px;
+    		line-height: 30px;
+    		vertical-align: bottom;
+    		border-radius: 20px 20px 0 0;
+    		padding-bottom: 0;
+    	}
+    	.pm-modal-title{
+    		display: inline-block;
+    		font-size: 16px;
+    		font-weight: bold;
+    		color: #8c8cbf;
+    		background-color: #fff;
+    		border-radius: 8px 8px 0 0;
+    		box-shadow: 3px 3px 5px gray;
+    		padding: 2px 6px 0px 6px;
+    		margin-right: 20px;
+    	}
+    	#pm-modal-summary{
+    		font-size: 14px;
+    		color: #8c8cbf;
+    	}
+    	#pm-selectPhoto-modal .modal-body{
+    		border-bottom: 2px solid #8c8cbf;
+    		text-align: center;
+    	}
+        .pm-selectPhoto-container{
+        	height: 400px;
+        	overflow-y: auto;
+        	box-shadow: 2px 2px 5px gray;
+        	background-color: #FFF;
+        	border-radius: 5px;
+        	margin: 0 auto;
+        	padding: 20px 10px 20px 20px;
+        	text-align: center;
+        	
+        }
+        .pm-selectPhoto-container li,.pm-photo-item img,.pm-photo-item-selected{
+        	width: 80px;
+        	height: 110px;
+        	line-height: 110px;
+        }
+        .pm-selectPhoto-container li{
+        	float: left;
+        	display: inline-block;
+        	position: relative;       	
+        	margin-right: 10px;
+        	margin-top: 15px;
+        	cursor: pointer;
+        }
+        .pm-photo-item-selected{
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	background-color: rgba(0,0,0,.6);
+        	color: #fff;
+        	font-size: 25px;
+        	text-align: center;     	
+        	font-weight: bold;
+        	display: none;
+        }
+        .pm-modal-cancel,.pm-modal-sure{
+			border-radius: 5px;
+			font-size: 16px;
+			color: #FFF;
+			font-weight: bold;
+			border: none;
+			padding: 10px 0px;
+			width: 150px;
+		
+		}
+		.pm-modal-cancel{
+			background: url("./img/img_manage/upload_bg.png") repeat-x;
+			margin-right: 50px;
+		}
+		.pm-modal-sure{
+			background: url("./img/img_manage/search_bg.png") repeat-x;
+		}
+		.pm-modal-cancel i,.pm-modal-sure i{
+			margin-right: 15px;
+		}
+		.pm-photo-container{
+			height: 200px;
+			overflow-y: auto;
+		}
+		.pm-photo-container>li{
+			float: left;
+			width: 80px;
+			height: 80px;
+			position: relative;
+			margin-right: 10px;
+		}
+		.pm-photo-container>li>img{
+			width: 80px;
+			height: 80px;
+			
+		}
+		.pm-photo-container>.pm-add-photo{
+			width: 78px;
+			height: 78px;
+			border: 2px solid #8c8cbf;
+			line-height: 78px;
+			text-align: center;
+			border-radius: 5px;
+			margin-right: 20px;
+			color: #8c8cbf;
+		}
+		.pm-photo-close{
+			display: block;
+			position: absolute;
+			right: 3px;
+			top: 2px;
+			color: red;
+			cursor: pointer;
+		}
+		.pm-add-photo{
+			cursor: pointer;
+		}
+		.pm-add-photo .Hui-iconfont{
+			font-size: 40px;
+			color: ;	
+		}
+    </style>
+</head>
+<body>
+<img class="bg" src="img/img_manage/bg.jpg" />
+<div class="container">
+    <div class="content-box" id="tab-box">
+        <div class="hr">
+        </div>
+        <div class="doc-content">
+          	<ul class="pm-photo-container clearfix">
+          		<li class="pm-add-photo" data-toggle="modal" href="#pm-selectPhoto-modal">
+          			<span><i class="Hui-iconfont">&#xe600;</i></span>       			
+          		</li>
+          	</ul>
+        </div>
+
+
+    </div>     
+</div>
+<!--图片选择模态框-->
+    <div id="pm-selectPhoto-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <span class="pm-modal-title">请选择上传图片</span>
+            <span id="pm-modal-summary"></span>
+        </div>
+        <div class="modal-body">
+            <ul class="pm-selectPhoto-container">
+            	<li class="pm-photo-item">
+            		<img src="img/doc_manage/example/doc_demo1.png" />
+            		<span class="pm-photo-item-selected">
+            			<i class="Hui-iconfont">&#xe6a7;</i>
+            		</span>
+            	</li>
+            	<li class="pm-photo-item">
+            		<img src="img/doc_manage/example/doc_demo2.png" />
+            		<span class="pm-photo-item-selected">
+            			<i class="Hui-iconfont">&#xe6a7;</i>
+            		</span>
+            	</li>
+            	<li class="pm-photo-item">
+            		<img src="img/doc_manage/example/doc_demo3.png" />
+            		<span class="pm-photo-item-selected">
+            			<i class="Hui-iconfont">&#xe6a7;</i>
+            		</span>
+            	</li>
+            	<li class="pm-photo-item">
+            		<img src="img/doc_manage/example/doc_demo4.png" />
+            		<span class="pm-photo-item-selected">
+            			<i class="Hui-iconfont">&#xe6a7;</i>
+            		</span>
+            	</li>
+            	<li class="pm-photo-item">
+            		<img src="img/doc_manage/example/doc_demo5.png" />
+            		<span class="pm-photo-item-selected">
+            			<i class="Hui-iconfont">&#xe6a7;</i>
+            		</span>
+            	</li>
+            	<li class="pm-photo-item">
+            		<img src="img/doc_manage/example/doc_demo6.png" />
+            		<span class="pm-photo-item-selected">
+            			<i class="Hui-iconfont">&#xe6a7;</i>
+            		</span>
+            	</li>
+            	<li class="pm-photo-item">
+            		<img src="img/doc_manage/example/doc_demo7.png" />
+            		<span class="pm-photo-item-selected">
+            			<i class="Hui-iconfont">&#xe6a7;</i>
+            		</span>
+            	</li>
+            	
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="pm-modal-cancel" data-dismiss="modal" aria-hidden="true"><i class="Hui-iconfont">&#xe6a6;</i>取消&nbsp;</button>
+            <button class="pm-modal-sure"><i class="Hui-iconfont">&#xe6a7;</i>确&nbsp;定</button>
+        </div>
+    </div>
+<script src="lib/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/H-ui.js"></script>
+<!--模态框-->
+<script src="lib/bootstrap-modal/2.2.4/bootstrap-modalmanager.js"></script>
+<script src="lib/bootstrap-modal/2.2.4/bootstrap-modal.js"></script>
+<script>
+	$(function(){
+		//已选图片地址
+		var imgUrls=[];
+		//选择图片
+		$('.pm-photo-item').on('click',function(){
+			var $selected=$(this).children('.pm-photo-item-selected');
+			var imgUrl=$(this).children('img').attr('src');
+			if($selected.is(':hidden')){
+				imgUrls.push(imgUrl);
+				$selected.show();
+			}else{
+				imgUrls.splice($.inArray(imgUrl,imgUrls),1);
+				$selected.hide();
+			}
+		});
+		//确认选中图片
+		$('.pm-modal-sure').on('click',function(){
+			$('.pm-photo-container li:gt(0)').remove();
+			for(var i=0;i<imgUrls.length;i++){
+				$('.pm-photo-container').append(
+					'<li><img src="'+imgUrls[i]+'" /><span class="pm-photo-close"><i class="Hui-iconfont">&#xe6a6;</i></span></li>');
+			}
+			$('#pm-selectPhoto-modal').modal('hide');
+		});
+		//删除选择图片
+		$('.pm-photo-container').on('click','.pm-photo-close',function(){
+			var imgUrl=$(this).prev().attr('src');
+			imgUrls.splice($.inArray(imgUrl,imgUrls),1);
+			$('.pm-photo-item>img[src="'+imgUrl+'"]').next().hide();
+			$(this).parent().remove();		
+		});
+		//修改模态框标题
+		$('#pm-selectPhoto-modal').on('shown',function(){
+			var totalCount=$('.pm-photo-item').length;
+			var selectCount=imgUrls.length;
+			$('#pm-modal-summary').html('（已选择'+selectCount+'张，总共'+totalCount+'张）');
+		});
+		
+	})
+	
+</script>
+</body>
+</html>
