@@ -664,6 +664,10 @@
 	color: red;
 }
 /*产品营销列表*/
+.tb tr:hover{
+	cursor: pointer;
+	background:#EAEAEA;
+}
 .header-nav{
 	margin-bottom: -25px;
 }
@@ -738,7 +742,7 @@ background: #dcdde9;
 color: #8B8CAB;
 }
 /*新增产品*/
-.content-add-product{
+.content-add-product,.content-detail-product{
 	margin-top: 25px;
     width: 100%;
     height: 600px;
@@ -972,5 +976,194 @@ color: #8B8CAB;
 .pm-add-photo .Hui-iconfont{
 	font-size: 40px;
 	color: #8c8cbf;	
+}
+/*产品详情*/
+.detail-text{
+	width: 1000px;
+	margin-left: 25px;
+	margin-top: 15px;
+}
+.detail-img{
+	position: relative;
+}
+.detail-pad{
+	border-radius:5px;
+	background: rgba(0,0,0,0.2);
+	padding: 3px 25px;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	left: 55px;
+	bottom: 20px;
+}
+.detail-pad h5{
+	margin: 2px;
+}
+.detail-text li{
+	
+	margin-right: 25px;
+	background: #fff;
+	box-shadow:2px 2px 2px 2px #aaa;
+	padding: 5px 5px;
+	border-radius: 2px;
+	display: inline-block;
+	width:250px;
+	height: 320px;
+	padding: 10px 15px;
+}
+.detail-text li h4{
+	color:#8c8cbf;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #454575;
+}
+
+.detail-text li p{
+    color:#8c8cbf;
+	font-size: 14px;
+}
+.detail-text .detail-scroll{
+	overflow: auto;height: 280px;
+}
+/*swiper*/
+ .swiper-container {
+ 	border-radius: 5px;
+ 	margin-left: 25px;
+ 	 margin-top: 10px;
+ 	 background: #fff;
+ 	 padding: 10px 20px;
+        width: 860px;
+        height: 165px;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+       
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+/*模板管理*/
+#wc-tmp-list{
+	width: 100%;
+	height: 380px;
+	overflow: auto;
+	/*padding: 20px 20px 20px 40px;*/
+	padding-left: 10px;
+}
+#wc-tmp-list>li{
+	display: block;
+	float: left;
+	width: 170px;
+	height: 170px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 14px;
+}
+#wc-tmp-list>li img{
+	width: 100%;
+	height: 100%;
+}
+#wc-temp-add{
+	background-color: #7e7e7e;
+	color: #fff;
+	cursor: pointer;
+	text-align: center;
+}
+#wc-temp-add>i{
+	display: inline-block;
+	width: 100%;
+	font-size: 90px;
+}
+#wc-temp-add>span{
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: 4px;
+}
+.wc-tmp-title{
+	float: left;
+}
+.wc-tmp-action{
+	float: right;
+}
+.wc-tmp-action i{
+	cursor: pointer;
+	font-size: 16px;
+	letter-spacing: 5px;
+}
+
+.wc-tmp-action i:hover{
+	color: #FF0080;
+	font-size: 18px;
+}
+#wc-tmp-list .maskBar{
+	height: 25px;
+	line-height: 25px;
+}
+#wc-tmp-edit-modal>.modal-header,#wc-tmp-delete-modal>.modal-header,#wc-tmp-add-modal>.modal-header{
+	height: 30px;
+	line-height: 30px;
+	background: url(../img/wechat_templete/upload_bg.png) repeat-x;
+	color: #fff;
+	font-size: 16px;
+	letter-spacing: 5px;
+	border-bottom: none;
+}
+#wc-tmp-edit-modal>.modal-header>.close,#wc-tmp-delete-modal>.modal-header>.close,#wc-tmp-add-modal>.modal-header>.close{
+	display: block;
+	font-size: 30px;
+	color: #fff;
+	float: right;
+	opacity: 1;
+	position: absolute;
+	top: 5px;
+}
+#wc-tmp-edit-modal>.modal-footer,#wc-tmp-delete-modal>.modal-footer,#wc-tmp-add-modal>.modal-footer{
+	background-color: #fff;
+	border-top: none;
+	text-align: center;
+	border-radius: 0;
+}
+.wc-tmp-modal-sure{
+	width: 80%;
+	margin: 0 auto;
+	height: 40px;
+	line-height: 40px;
+	background: url(../img/wechat_templete/upload_bg.png) repeat-x;
+	color: #fff;
+	letter-spacing: 20px;
+	text-align: center;
+	border-radius:8px;
+	border: none;
+	box-shadow: none;
+	font-size: 16px;
+}
+#wc-tmp-edit-modal>.modal-body,#wc-tmp-delete-modal>.modal-body,#wc-tmp-add-modal>.modal-body{
+	padding: 10px 30px;
+}
+#wc-tmp-edit-modal>.modal-body>.row,#wc-tmp-add-modal>.modal-body>.row{
+	margin-bottom: 10px;
+}
+#wc-tmp-edit-modal>.modal-body label,#wc-tmp-add-modal>.modal-body label{
+	text-align: left;
+	letter-spacing: 4px;
+	color: #12bfaf;
+	font-size: 16px;
+}
+#wc-tmp-delete-modal>.modal-body>p{
+	font-size: 16px;
+	letter-spacing: 3px;
 }
 

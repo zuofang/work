@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>素材查询</title>
+    <link href="css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/Hui-iconfont/1.0.6/iconfont.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+    <link href="css/main.css" rel="stylesheet" />
+    <style>
+    body{
+    	background: url(img/img_manage/bg.jpg)no-repeat;
+    	background-size: cover;
+    	height: 650px;
+    }
+        #search_txt{
+            width: 80%;
+        }
+        #search{
+            width: 15%;
+        }
+        .hr{
+            height: 80px;
+        }
+        .detail-money,.detail-money1,.detail-money2{
+        	position: absolute; 
+        	color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+ 
+  
+<div class="container">
+	<div class="header-nav">
+   <ul >
+    	<li style="background: #fff; " >
+    	<a href="product_ marketing.html" style=" color:#FC716A;;"><i class="Hui-iconfont">&#xe687;</i>产&nbsp;品&nbsp;营&nbsp;销</a>
+        </li>
+       <li >
+         <a><i class="Hui-iconfont">&#xe667;</i>产&nbsp;品&nbsp;详&nbsp;情</a>	
+        </li>
+    </ul>
+    </div>
+    <div class="content-detail-product"  style="border-top-left-radius: 0;">
+    	
+        <div class="hr-pro">
+	       <label>●产&nbsp;品&nbsp;详&nbsp;情</label>
+          
+        </div>
+        <ul class="detail-text">
+        	<li class="detail-img" style=" background: url(img/detail_product/detail_bg.png)no-repeat;background-size:100% 100%;">
+        		<h5 class="detail-money" style=" left: 130px;top: 40px;">基金</h5>
+        		<h3 class="detail-money1" style="left: 85px;top: 58px;">金杨树理财</h3>
+        		<h5 class="detail-money2" style="left: 115px;top: 140px;">基本产品</h5>
+        		<div class="detail-pad">
+        			 <h5>pad:<span>可查看</span></h5>
+        			 <h5>所属机构:<span>兴隆大街</span> </h5>
+        			 <h5>年收益率:<span>5.6%</span> </h5>
+        		</div>
+        			
+        	
+        	</li>
+        	<li>
+        			<h4>●产品介绍</h4>
+        			<div class="detail-scroll" >
+        			<p>中国邮政储蓄银行以客户需求为导向，通过专业理财团队，精心打造各类稳健收益的人民币理财产品。邮储银行人民币理财业务现已形成面对个人客户的“邮银财富”和面对机构客户的“邮银财智”两大系列产品线，涵盖邮银财富·债券、邮银财富·瑞享、邮银财富·e享、财富日日升、邮银财智·盛势等多个系列产品，满足高、中、低不同风险偏好客户的多元投资理财需求。</p>
+        		    </div>
+        			
+        	</li>
+        	<li>
+        		
+        			<h4>●营销话术</h4>
+        			<div class="detail-scroll">
+        			    <p>先生您好，该产品系邮银财富•债券系列理财产品——邮政财智.盛势2014年第13期。主要面向中端个人客户发售，产品认购起点5-15万元，主要投资信用等级较高的国债、央行票据、金融债、短期融资券、中期票据和企业债等债券类资产。
+                        </p>
+        		    </div>
+        	</li>
+        </ul>
+          <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/detail_product/detal_01.png" width="230"/> </div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_02.png"width="230" /> </div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_03.png"width="230" /></div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_04.png" width="230"/></div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_05.png" width="230"/></div>
+             <div class="swiper-slide"><img src="img/detail_product/detal_06.png" width="230"/> </div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_03.png"width="230" /> </div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_04.png"width="230" /></div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_05.png" width="230"/></div>
+            <div class="swiper-slide"><img src="img/detail_product/detal_06.png" width="230"/></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+         <div class="swiper-button-next" style="color: #000;"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+        <script type="text/javascript" charset="utf-8" src="lib/jquery/1.9.1/jquery.min.js"></script>    
+    <script type="text/javascript" charset="utf-8" src="js/swiper-3.3.1.jquery.min.js"></script>    
+	 <script>
+ 
+      var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true
+    });
+    </script>
+
+</body>
+</html>

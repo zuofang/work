@@ -188,11 +188,6 @@
 
                 </tbody>
             </table>
-            <!--删除按钮组-->
-            <div class="wp-delete-group">
-                <button class="wp-delete" data-toggle="modal" href="#wp-delete-modal">删&nbsp;&nbsp;除</button>
-                <button class="wp-cancel">取&nbsp;&nbsp;消</button>
-            </div>
             <!--分页容器 分页与与删除按钮组在同一行 居又对齐-->
             <div id="page-container"></div>
         </div>
@@ -235,21 +230,6 @@
             $('.wp-icheck').iCheck('check');
         }).on('ifUnchecked',function () {
             $('.wp-icheck').iCheck('uncheck');
-        });
-        //选中checkbox框显示删除按钮
-        $('.wp-table input[type=checkbox]').on('ifChecked',function () {
-           if($('.wp-delete-group').is(':hidden')){
-               $('.wp-delete-group').show();
-           }
-        }).on('ifUnchecked',function () {
-            if(!$('.wp-icheck').is(':checked')){
-                $('.wp-delete-group').hide();
-            }
-        });
-        //删除按钮组的取消按钮点击
-        $('.wp-delete-group .wp-cancel').click(function () {
-            $('.wp-table input[type=checkbox]').iCheck('uncheck');
-            $('.wp-delete-group').hide();
         });
       
      
