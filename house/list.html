@@ -19,7 +19,7 @@
 	   	 <!--图片展示1-->
 	   	<div class="container" >
    	    <div class="row" >
-		        <div class="row-detail">
+		        <div id="122" class="row-detail img-wrap">
 		            <a href="#">
 		                <img width="100%"  src="images/index/nusa3.png">
 		           	
@@ -33,7 +33,7 @@
                       
 		             </div>
 		         </div>
-		        <div class="row-detail">
+		        <div class="row-detail img-wrap">
 		           <a href="#">
 		                <img width="100%"  src="images/index/nusa3.png">
 		           	
@@ -47,7 +47,7 @@
                       
 		             </div>
 		         </div>
-   	            <div class="row-detail">
+   	            <div class="row-detail img-wrap">
 		           <a href="#">
 		                <img width="100%" src="images/index/nusa3.png">
 		           	
@@ -65,7 +65,7 @@
    	    </div>
    	    
    	      <div class="row">
-		       <div class="row-detail" >
+		       <div class="row-detail img-wrap" >
 		           <a href="#">
 		                <img width="100%" src="images/index/nusa3.png">
 		           	
@@ -79,7 +79,7 @@
                       
 		             </div>
 		         </div>
-		        <div class="row-detail-big" style="">
+		        <div class="row-detail-big img-wrap" >
 		           <a href="#">
 		                <img width="100%" src="images/index/11.png">
 		           	
@@ -112,7 +112,7 @@
     	<!--图片展示-->
       <div class="container" >
    	       <div class="row">
-   	       	     <div class="row-detail-big">
+   	       	     <div  href="12" class="row-detail-big img-wrap ">
 		           <a href="#">
 		                <img width="100%" class="mui-media-object" src="images/index/11.png">
 		           	
@@ -126,7 +126,7 @@
                       
 		             </div>
 		         </div>
-		       <div class="row-detail" >
+		       <div id="2" class="row-detail img-wrap" >
 		           <a href="#">
 		                <img width="100%"  src="images/index/nusa3.png">
 		           	
@@ -143,7 +143,7 @@
 
    	    </div>
    	    <div class="row" >
-		       <div class="row-detail">
+		       <div id="3" class="row-detail img-wrap">
 		           <a href="#">
 		                <img width="100%" src="images/index/nusa3.png">
 		           	
@@ -157,7 +157,7 @@
                       
 		             </div>
 		         </div>
-		        <div class="row-detail">
+		        <div class="row-detail img-wrap">
 		           <a href="#">
 		                <img width="100%" src="images/index/nusa3.png">
 		           	
@@ -171,7 +171,7 @@
                       
 		             </div>
 		         </div>
-   	            <div class="row-detail">
+   	            <div class="row-detail img-wrap">
 		           <a href="#">
 		                <img width="100%"  src="images/index/nusa3.png">
 		           	
@@ -205,7 +205,13 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" charset="UTF-8">
       	mui.init();
-
+       mui('.container').on('tap','.img-wrap', function() {
+				var id = this.getAttribute("id");	  
+				mui.openWindow({
+						id: id,
+						url: 'main/house_search.html'
+					});
+					});
     </script>
 </body>
 </html>

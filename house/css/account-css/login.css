@@ -1,0 +1,120 @@
+body ,.mui-content{
+	
+    background: url(../../images/login/login_bg.jpg) no-repeat;
+    background-size: cover;
+    height: auto;
+ }
+
+#login{
+	
+	width: 80%;
+	margin:40px auto 40px auto;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	padding-bottom: 50px;
+} 
+   #login input::-webkit-input-placeholder{
+		color:#FFFFFF;
+	font-size: 14px;
+}
+   
+#login .loginer input{
+	background-color:rgba(1,170,237,0.5);
+	border: none;
+	margin-bottom: 5px;
+}
+#login input ,#login button{
+	border-radius: 0px;
+	
+}
+#login button{
+	background-color: #1AAEED;
+	border: none;
+}
+.loginer h4,.regContainer h4{
+	color: #1AAEED;
+	font-size: 20px;
+	margin-bottom:20px;
+	padding-top: 40px; 
+	text-align: center;
+} 	
+    .loginer .mui-input-row,.register .mui-input-row{
+ 	     margin: 5px 30px;
+     }
+     
+     .loginer a{
+     
+     	margin-right: 45px;
+     }
+
+
+   	.regContainer{
+	
+}
+
+.regPanel,.regPanel2{
+	width: 80%;
+	margin:  0 auto;
+	overflow: hidden;
+}
+.regPanel2{
+	background-color:rgba(1,170,237,0.5);
+}
+.regPanel button,.regPanel2 button{
+	width: 100%;
+	text-align: center;
+	border: none;
+	background-color:rgba(1,170,237,0.5);
+	color: #FFFFFF;
+	font-size: 16px;
+	border-radius: 0;
+	
+}
+.mui-control-item{
+	color: #FFFFFF!important;
+	border: none!important;
+	background-color: rgba(1,170,237,0.5);
+}
+.mui-segmented-control{
+	width: 101%;
+	border: none;
+	border-radius: 0;
+	border-bottom: solid 2px #1AAEED;
+}
+.mui-segmented-control .mui-control-item.mui-active{
+	background-color: #1AAEED;
+}
+#item1,#item2{
+	background-color:rgba(1,170,237,0.5);
+	padding: 5px 0 18px 0;
+}
+#item1 input,#item2 input{
+	width: 70%;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	color:#FFFFFF;
+	font-size: 16px;
+}
+#item1 div,#item2 div,.regPanel2 input{
+	background: none;
+	border: solid 2px #1AAEED;
+	border-radius: 0;
+	margin-bottom: 5px;
+	text-indent: 5px;
+}
+
+#sendCode{
+	font-size: 10px;
+	display: block;
+	color: #fff;
+	background-color: #1AAEED;
+	border-radius: 4px;
+	text-align: center;
+	width: 25%;
+	position: absolute;
+	right: 5%;
+	top: 25%;
+}
+

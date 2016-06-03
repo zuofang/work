@@ -1,0 +1,42 @@
+  	body ,.mui-content{
+	
+     background: url(../../images/login/login_bg.jpg) no-repeat;
+    		background-size:cover;
+         
+ }
+
+#login{
+	margin: 30% 30px 50% 30px;
+	padding-bottom: 20px;
+	 background: #fff; 
+	 border-radius: 5px;
+	height: auto;
+} 
+#login .loginer input{
+	background-color:rgba(1,170,237,0.5);
+	border: none;
+}
+#login input ,#login button{
+	border-radius: 0px;
+	
+}
+#login button{
+	background-color: #1AAEED;
+	border: none;
+}
+.loginer h4{
+	color: #1AAEED;
+	font-size: 20px;
+	padding-bottom:20px;
+	padding-top:20px; 
+	text-align: center;
+} 	
+    .loginer .mui-input-row{
+ 	     margin: 5px 30px;
+     }
+     
+   #login input::-webkit-input-placeholder{
+		color:#FFFFFF;
+	font-size: 14px;
+}
+   	

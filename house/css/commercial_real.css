@@ -1,0 +1,59 @@
+.mui-content>.mui-table-view:first-child {
+			margin-top: 0px;
+		}
+		.wrap{
+			margin-bottom: 2px; 
+		}
+		
+		 .wrap .select-left{
+		 	border: 1px solid #1AAEED;
+		 }
+		  .wrap .select-right{
+		  	border: 1px solid #1AAEED;
+		  	float: right;
+		  	margin-left: 50%;
+		  }
+		 
+		.img-view {
+			position: relative;
+			margin-bottom: -4px;
+		}
+		
+		.price {
+			height: 135px;
+			background-color: rgba(43, 165, 221, 0.7);
+			position: absolute;
+			width: 45%;
+			text-align: left;
+			top: 0px;
+		}
+		 .price-attent{
+    	height: 45px;
+    	background-color:rgba(43,165,221,0.7); 
+    	position: absolute;
+    	width:100% ;    	
+    	text-align: left; 
+    	bottom: 3%;
+    }
+		.price1 {
+			right: 0;
+		}
+		
+		.detail img {
+			width: 45px;
+			height: 45px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		
+		.detail h5 {
+			padding-left: 5px;
+			color: #fff;
+		}
+		
+		.mui-table-view {
+			margin-top: 38px;
+		}
+		
+
