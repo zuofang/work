@@ -1,45 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-    
-    <link href="../css/mui.min.css" rel="stylesheet"/>
-    <link href="../css/global.css"  rel="stylesheet"/>
-    <link rel="stylesheet" href="../css/account-css/regist.css" />
-  
-</head>
-<body>
-	  <header class="mui-bar mui-bar-nav" >
-	         <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	         <h1 class="mui-title">登录/注册</h1>
-		   
-	    </header>
-	<div class="mui-content"> 
-	    <div id="login">
-	    	<!--zhuce-->
-	    	<form class="loginer" >
-	    	     <h4>设置密码</h4>
-	    	     <div class="mui-input-row" >		
-						<input type="text" class="mui-input-clear" placeholder="用户名(建议使用真实姓名)">
-			     </div>
-			     <div class="mui-input-row mui-password" >
-					<input type="password" class="mui-input-password"placeholder="密码(20位字母数字)">
-				</div>
-				<div class="mui-input-row mui-password" >
-					<input type="password" class="mui-input-password"placeholder="确认密码">
-				</div>
-				 <div class="mui-input-row">
-					<button type="button" class="mui-btn mui-btn-primary" style="width: 100%;">确定</button>
-				</div>
-			 
-	    	</form>
-	   </div>
-	   </div>
-	     <script src="../js/mui.min.js"></script>
-	    <script type="text/javascript" charset="UTF-8">
-      		mui.init();
-         </script>
-</body>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>注册</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/global.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/account-css/regist.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">登录/注册</h1>
+		</header>
+		<div class="mui-content">
+			<div id="login">
+				<!--zhuce-->
+				<form class="loginer">
+					<h4>设置密码</h4>
+					<div class="mui-input-row mui-password">
+						<input id="password" type="password" class="mui-input-password" placeholder="密码(20位字母数字)">
+					</div>
+					<div class="mui-input-row mui-password">
+						<input id="confirmPwd" type="password" class="mui-input-password" placeholder="确认密码">
+					</div>
+					<div class="mui-input-row">
+						<button id="regiserBtn" type="button" class="mui-btn mui-btn-primary" style="width: 100%;">确定</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/api.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+			mui.plusReady(function(){
+				var self=plus.webview.currentWebview();
+				var registerData=self.registerData;
+				alert(registerData.username);
+				document.getElementById('regiserBtn').addEventListener('tap',function(){
+					alert(111);
+					var password=$('#password').val();
+					var confirmPwd=$('#confirmPwd').val();
+					if(password.trim()===""){
+						mui.toast('请输入密码');
+						return;
+					}
+					if(password.length>20){
+						mui.toast('密码长度不能超过20个字符');
+						return;
+					}
+					if(confirmPwd.trim()===""){
+						mui.toast('请确认密码');
+						return;
+					}
+					if(password!==confirmPwd){
+						mui.toast('输入密码不一致');
+						return;
+					}
+					registerData.password1=password;
+					registerData.password2=confirmPwd;
+					registerData.type=2;
+					registerData.angent_no="";
+					console.log(registerData);
+					window.realtyApi.register(registerData,function(data){
+						if(data.key){
+							mui.toast('注册成功');
+							mui.openWindow({
+								url: '../account/login.html',
+								id: 'login'							
+							});
+							
+						}else{
+							mui.toast('注册失败');
+							return;
+						}
+					});
+				});
+			})
+		</script>
+	</body>
+
 </html>

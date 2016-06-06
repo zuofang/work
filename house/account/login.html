@@ -1,118 +1,198 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>登录跟注册</title>
-   
-    <link href="../css/mui.min.css" rel="stylesheet"/>
-    <link href="../css/global.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/account-css/login.css" />
-    <link href="../css/mui.picker.min.css" rel="stylesheet" />
-    <link href="../css/mui.poppicker.css" rel="stylesheet" />
-   
-</head>
-<body>
-	  <header class="mui-bar mui-bar-nav" style="background: #1AAEED;">
-	         <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	         <h1 class="mui-title">登录/注册</h1>
-		   
-	    </header>
-	<div class="mui-content"> 
-	    <div id="login">
-	    	<!--登录部分-->
-	    	<form class="loginer" >
-	    	     <h4>登录</h4>
-	    	     <div class="mui-input-row" >		
-						<input type="text" class="mui-input-clear" placeholder="手机号码/邮箱">
-			     </div>
-			     <div class="mui-input-row mui-password" >
-					<input type="password" class="mui-input-password"placeholder="密码">
-				</div>
-				 <div class="mui-input-row">
-					<button type="button" class="mui-btn mui-btn-primary" style="width: 100%;" onclick="return false;">确定</button>
-				</div>
-			 	<a class="mui-pull-right">
-			 		<img src="../images/login/tippas.svg" width="80"height="35" />
-			 	</a>
-	    	</form>
-	    	<!--登录部分-->
-	    	 <div class="regContainer">
-		    	<h4>注册</h4>
-			    <div class="regPanel">
-			    		<div id="segmentedControl" class="mui-segmented-control">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登录跟注册</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/global.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/account-css/login.css" />
+		<link href="../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: #1AAEED;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">登录/注册</h1>
+		</header>
+		<div class="mui-content">
+			<div id="login">
+				<!--登录部分-->
+				<form class="loginer">
+					<h4>登录</h4>
+					<div class="mui-input-row">
+						<input id="userName" type="text" class="mui-input-clear" placeholder="手机号码/邮箱">
+					</div>
+					<div class="mui-input-row mui-password">
+						<input id="logPwd" type="password" class="mui-input-password" placeholder="密码">
+					</div>
+					<div class="mui-input-row">
+						<button id="loginBtn" type="button" class="mui-btn mui-btn-primary" style="width: 100%;" onclick="return false;">确定</button>
+					</div>
+					<a class="mui-pull-right">
+						<img src="../images/login/tippas.svg" width="80" height="35" />
+					</a>
+				</form>
+				<!--注册部分-->
+				<div class="regContainer">
+					<h4>注册</h4>
+					<div class="regPanel">
+						<div id="segmentedControl" class="mui-segmented-control">
 							<a class="mui-control-item mui-active" href="#item1">手机号注册</a>
 							<a class="mui-control-item" href="#item2">邮箱注册</a>
-					</div>
-					<div>
-					<div id="item1" class="mui-control-content mui-active">
-						<div style="height: 45px;line-height: 45px;">
-						  <input id='countryPicker' readonly="" placeholder="请选择国家" />  
 						</div>
-						<div style="position: relative;">
-							<input type="text" placeholder="请输入手机号" />
-							<span id="sendCode">发送验证码</span>
-						</div>
-						<div class="mui-input-row">
-							<input class="mui-input-clear" type="text" placeholder="请输入验证码" />
-						</div>
-					</div>
-					<div id="item2" class="mui-control-content ">
 						<div>
-							<input type="text" placeholder="请输入邮箱" />
-							
+							<div id="item1" class="mui-control-content mui-active">
+								<div style="height: 45px;line-height: 45px;">
+									<input id='countryPicker' readonly="" placeholder="请选择国家" />
+									<input id="country" hidden="hidden" />
+								</div>
+								<div style="position: relative;">
+									<input type="text" id="phone" placeholder="请输入手机号" />
+									<span id="sendCode">发送验证码</span>
+								</div>
+								<div class="mui-input-row">
+									<input id="code" class="mui-input-clear" type="text" placeholder="请输入验证码" />
+								</div>
+							</div>
+							<div id="item2" class="mui-control-content ">
+								<div>
+									<input type="text" placeholder="请输入邮箱" />
+
+								</div>
+								<div class="mui-input-row">
+									<input class="mui-input-clear" type="text" placeholder="请输入验证码" />
+								</div>
+							</div>
 						</div>
-						<div class="mui-input-row">
-							<input class="mui-input-clear" type="text" placeholder="请输入验证码" />
-						</div>
-					</div>			
+						<button id="next">下一步</button>
+					</div>
 				</div>
-				<button id="next">下一步</button>
-	    	</div>	    	    	
-	    
-	    </div>
-	</div>
-	 <script src="../js/mui.min.js"></script>
-	   <script src="../js/mui.picker.min.js"></script>
-	    <script src="../js/mui.poppicker.js"></script>
-	   
-	 
-	<script type="text/javascript" charset="UTF-8">
-      	mui.init();
-      	document.getElementById('next').addEventListener('tap', function() {
-  		//打开注册页面
-		  mui.openWindow({
-		    url: '../account/regist.html', 
-		    id:'regist',
-		    
-		  });
-		});
-		mui.ready(function() {
-      		var countryData=[{
-				value: 0,
-				text: '美国'
-			}, {
-				value: 1,
-				text: '英国'
-			},{
-				value:2,
-				 text:'中国'
-			}];
-			setPicker('countryPicker',countryData);
-		});	
-			//创建选择器
-			  function setPicker(id,data){
-	      		var picker = new mui.PopPicker();
-				picker.setData(data);		
-				var p = document.getElementById(id);
+			</div>
+			<script src="../js/mui.min.js"></script>
+			<script src="../js/mui.picker.min.js"></script>
+			<script src="../js/jquery-1.11.0.js"></script>
+			<script src="../js/mui.poppicker.js"></script>
+			<script src="../js/api.js"></script>
+			<script type="text/javascript" charset="UTF-8">
+				mui.init();
+				mui.ready(function() {				
+					var countryData = [{
+						value: 'US',
+						text: '美国'
+					}, {
+						value: 'CN',
+						text: '中国'
+					}];
+					var registerData={};
+					var countryPicker = setPicker('countryPicker', countryData);
+					//登录
+					document.getElementById('loginBtn').addEventListener('tap',function(){
+						var userName=$('#userName').val();
+						var password=$('#logPwd').val();
+						if(userName.trim()===""){
+							mui.toast('用户名不能为空');
+							return;
+						}
+						if(password.trim()===""){
+							mui.toast('密码不能为空');
+							return;
+						}
+						window.realtyApi.login(userName,password,function(data){
+							if(data.key){
+								sessionStorage.token=data.key;
+								mui.back();
+								mui.openWindow({
+								url: '../index.html',
+								id: 'index'
+							});
+							}else{
+								mui.toast('用户名或密码错误');
+								return;
+							}
+						});
+					});
+					//发送验证码
+					document.getElementById('sendCode').addEventListener('tap',function(){
+						var phone=$('#phone').val();
+						var country=$('#country').val();
+						if(country.trim()===""){
+							mui.toast("请选择国家");
+							return;
+						}
+						if(phone.trim()===""){
+							mui.toast("请输入手机号码");
+							return;
+						}
+						if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
+							mui.toast("手机号码格式不正确");
+							return;
+						}
+					
+						window.realtyApi.getPinCode(country,phone,function(data){
+							if(data.pin){
+								alert(data.pin);
+								registerData.username=data.phone;
+								registerData.pin=data.pin;
+								registerData.country=country;
+							}else{
+								mui.toast("号码已存在");
+							}
+							
+						});
+						
+					});
+					//打开注册页面
+					document.getElementById('next').addEventListener('tap', function() {
+						console.log(registerData);
+						if(registerData.pin){
+							var code=$('#code').val();
+							if(code.trim()===""){
+								mui.toast('验证码不能为空');
+								return;
+							}
+							if(code!=registerData.pin){
+								mui.toast('验证码错误');
+								return;
+							}
+							console.log(registerData);
+							if($('#phone').val()!==registerData.username){
+								mui.toast('手机号码不正确');
+								return;
+							}
+							delete registerData.pin;
+							mui.openWindow({
+								url: '../account/regist.html',
+								id: 'regist',
+								extras:{
+									registerData:registerData
+								}
+							});
+						}else{
+							mui.toast('请填写注册信息');
+							return;
+						}
+						
+					});
+				});
+				//创建选择器
+				function setPicker(id, data) {
+					var picker = new mui.PopPicker();
+					picker.setData(data);
+					var p = document.getElementById(id);
 					p.addEventListener('tap', function(event) {
 						picker.show(function(items) {
-							p.value=items[0].text;
+							p.value = items[0].text;
+							$('#country').val(items[0].value);
+							
 							//返回 false 可以阻止选择框的关闭
 							//return false;
 						});
 					}, false);
-	      	}
-    </script>
-</body>
+				}
+			</script>
+	</body>
+
 </html>

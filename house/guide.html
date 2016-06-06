@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>引导页</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<style type="text/css">
@@ -12,70 +13,75 @@
 				padding: 5px 20px;
 				width: 30%;
 				margin: 10px auto;
-				background:#1AAEED;
-				 left: 35%; 
-				 right: 35%;
+				background: #1AAEED;
+				left: 35%;
+				right: 35%;
 				bottom: 30px;
 				border: 1px solid #fff;
 				border-radius: 5px;
 			}
-			#enter p{
+			
+			#enter p {
 				color: #fff;
 				font-size: 18px;
 			}
 		</style>
-	
+
 	</head>
+
 	<body>
+
 		<div class="mui-content">
 			<div class="mui-slider">
 				<div class="mui-slider-group">
 					<div class="mui-slider-item">
 						<a href="javascript:;">
-							<img src="images/guide/1.png" id="_d1"/>
-						    
-						</a>
-					</div><div class="mui-slider-item">
-						<a href="javascript:;">
-							<img src="images/guide/2.png" id="_d2"/>
-						    javascript:;
+							<img src="images/guide/1.png" id="_d1" />
+
 						</a>
 					</div>
 					<div class="mui-slider-item">
 						<a href="javascript:;">
-							<img src="images/guide/3.png"id="_d3" />
-						    <button class="mui-btn mui-btn-blue " id="enter"type="button">
+							<img src="images/guide/2.png" id="_d2" /> javascript:;
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="javascript:;">
+							<img src="images/guide/3.png" id="_d3" />
+							<button class="mui-btn mui-btn-blue " id="enter" type="button">
 						    	<img style="display: inline-block;" src="images/guide/guide_logo.png"width="60px"height="55px" />
 						    	<p>点击进入</p>
 						    </button>
 						</a>
 					</div>
-					
+
 				</div>
-				
+
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
-			mui.plusReady(function(){
-				 var h=window.innerHeight;
-				 document.getElementById("_d1").style.height=h+"px";
-				 document.getElementById("_d2").style.height=h+"px";
-				 document.getElementById("_d3").style.height=h+"px";
-				 var self = plus.webview.currentWebview();
+			mui.plusReady(function() {
+				var h = window.innerHeight;
+				document.getElementById("_d1").style.height = h + "px";
+				document.getElementById("_d2").style.height = h + "px";
+				document.getElementById("_d3").style.height = h + "px";
+				var self = plus.webview.currentWebview();
 				self.opener().hide("none");
-			     document.getElementById("enter").addEventListener("tap", function() {
-			   		 plus.storage.setItem("IsFirst", "true");
-					 mui.openWindow({
-						 url: "index.html",
-						 id: "index",
-						 waiting: {
+				document.getElementById("enter").addEventListener("tap", function() {
+					plus.storage.setItem("IsFirst", "true");
+					mui.openWindow({
+						url: "index.html",
+						id: "index",
+						waiting: {
 							autoShow: false
 						}
 					});
-			    });
-			});javascript:;
+				});
+			});
+			javascript: ;
 		</script>
 	</body>
+
 </html>

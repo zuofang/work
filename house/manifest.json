@@ -322,7 +322,9 @@
 					"js/mui.picker.min.js",
 					"js/mui.poppicker.js",
 					"css/mui.poppicker.css",
-					"css/mui.picker.min.css"
+					"css/mui.picker.min.css",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [
 					"account/regist.html"
@@ -335,7 +337,10 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"images/login/login_bg.jpg",
-					"css/account-css/regist.css"
+					"css/account-css/regist.css",
+					"js/jquery-1.11.0.js",
+					"css/global.css",
+					"js/api.js"
 				],
 				"refer": [],
 				"priority": 0

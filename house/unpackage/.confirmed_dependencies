@@ -1,234 +1,254 @@
 {
-	"index.html": {
-		"resources": [
-			"images/index/bg.jpg",
-			"images/index/menu.svg",
-			"css/global.css",
-			"css/iconfont.css",
-			"list.html",
-			"fonts/iconfont.ttf"
-		],
-		"refer": [
-			"index-menu.html",
-			"list.html",
-			"main/search.html",
-			"message.html"
-		]
-	},
-	"guide.html": {
-		"resources": [
-			"images/guide/3.png",
-			"images/guide/2.png",
-			"images/guide/1.png",
-			"images/guide/guide_logo.png"
-		],
-		"refer": [
-			"index.html"
-		]
-	},
-	"index-menu.html": {
-		"resources": [
-			"css/global.css",
-			"css/iconfont.css",
-			"fonts/iconfont.ttf",
-			"images/side/set.svg",
-			"images/side/logo.png"
-		],
-		"refer": [
-			"main/buy.html",
-			"main/zongchou.html",
-			"main/attention.html",
-			"main/search.html",
-			"account/account_set.html",
-			"account/login.html",
-			"main/commercial_real.html",
-			"message.html"
-		]
-	},
-	"loading_page.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"guide.html"
-		]
-	},
-	"list.html": {
-		"resources": [
-			"images/index/nusa3.png",
-			"images/index/ad2.jpg",
-			"images/index/ad1.jpg",
-			"css/list.css",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"images/index/11.png",
-			"images/index/star.svg"
-		],
-		"refer": [
-			"main/house_search.html"
-		]
-	},
-	"main/buy.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/iconfont.css",
-			"css/mui.min.css"
-		]
-	},
-	"main/zongchou.html": {
-		"resources": [
-			"js/mui.min.js",
-			"images/zhongchou.jpg",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css"
-		]
-	},
-	"main/attention.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"images/hourse_search/search_02.jpg",
-			"css/iconfont.css",
-			"css/commercial_real.css",
-			"images/index/red.svg",
-			"css/mui.min.css",
-			"images/hourse_search/search_01.jpg"
-		]
-	},
-	"main/info_person.html": {
-		"resources": [
-			"css/info_person.css"
-		]
-	},
-	"main/send_mes.html": {
-		"resources": [
-			"css/send_mes.css",
-			"images/lele.png"
-		],
-		"refer": [
-			"main/info_person.html"
-		]
-	},
-	"main/house_search.html": {
-		"resources": [
-			"js/mui.zoom.js",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"images/hourse_search/search_02.jpg",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"js/mui.previewimage.js",
-			"fonts/iconfont.ttf",
-			"css/cd_and_hs.css",
-			"images/hourse_search/search_01.jpg"
-		],
-		"refer": [
-			"main/send_mes.html"
-		]
-	},
-	"main/search.html": {
-		"resources": [
-			"css/search.css",
-			"js/mui.picker.min.js",
-			"js/mui.min.js",
-			"js/mui.poppicker.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/mui.poppicker.css",
-			"css/mui.picker.min.css"
-		],
-		"refer": [
-			"main/search_detail.html"
-		]
-	},
-	"main/search_detail.html": {
-		"resources": [
-			"css/search_detail.css",
-			"images/hourse_search/search_02.jpg",
-			"css/iconfont.css",
-			"images/index/red.svg",
-			"images/hourse_search/search_01.jpg"
-		]
-	},
-	"message.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/message.css",
-			"css/mui.min.css",
-			"images/lele.png"
-		],
-		"refer": [
-			"main/chat.html"
-		]
-	},
-	"account/account_set.html": {
-		"resources": [
-			"css/account-css/account_set.css",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css"
-		]
-	},
-	"account/login.html": {
-		"resources": [
-			"images/login/tippas.svg",
-			"css/account-css/login.css",
-			"js/mui.picker.min.js",
-			"js/mui.min.js",
-			"js/mui.poppicker.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"images/login/login_bg.jpg",
-			"css/mui.poppicker.css",
-			"css/mui.picker.min.css"
-		],
-		"refer": [
-			"account/regist.html"
-		]
-	},
-	"account/regist.html": {
-		"resources": [
-			"css/account-css/regist.css"
-		]
-	},
-	"main/chat.html": {
-		"resources": [
-			"js/mui.imageViewer.js",
-			"js/chat.js",
-			"css/mui.imageviewer.css",
-			"js/arttmpl.js",
-			"css/chat.css"
-		]
-	},
-	"main/commercial_real.html": {
-		"resources": [
-			"images/a2.jpg",
-			"fonts/mui.ttf",
-			"images/hourse_search/search_01.jpg",
-			"js/mui.min.js",
-			"js/jquery-1.11.0.js",
-			"css/global.css",
-			"css/iconfont.css",
-			"css/commercial_real.css",
-			"images/hourse_search/search_02.jpg",
-			"css/mui.min.css",
-			"images/index/red.svg",
-			"js/select.js",
-			"images/index/star.svg",
-			"css/cui.css"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "images/index/bg.jpg",
+      "images/index/menu.svg",
+      "css/global.css",
+      "css/iconfont.css",
+      "list.html",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": [
+      "index-menu.html",
+      "list.html",
+      "main/search.html",
+      "message.html"
+    ]
+  },
+  "guide.html": {
+    "resources": [
+      "images/guide/3.png",
+      "images/guide/2.png",
+      "images/guide/1.png",
+      "images/guide/guide_logo.png"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "index-menu.html": {
+    "resources": [
+      "css/global.css",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "images/side/set.svg",
+      "images/side/logo.png",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "main/buy.html",
+      "main/zongchou.html",
+      "main/attention.html",
+      "main/search.html",
+      "account/account_set.html",
+      "account/login.html",
+      "main/commercial_real.html",
+      "message.html"
+    ]
+  },
+  "loading_page.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "guide.html"
+    ]
+  },
+  "list.html": {
+    "resources": [
+      "images/index/nusa3.png",
+      "images/index/ad2.jpg",
+      "images/index/ad1.jpg",
+      "css/list.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/index/11.png",
+      "images/index/star.svg"
+    ],
+    "refer": [
+      "main/house_search.html"
+    ]
+  },
+  "main/buy.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/iconfont.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "main/zongchou.html": {
+    "resources": [
+      "js/mui.min.js",
+      "images/zhongchou.jpg",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "main/attention.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "images/hourse_search/search_02.jpg",
+      "css/iconfont.css",
+      "css/commercial_real.css",
+      "images/index/red.svg",
+      "css/mui.min.css",
+      "images/hourse_search/search_01.jpg"
+    ],
+    "refer": []
+  },
+  "main/info_person.html": {
+    "resources": [
+      "css/info_person.css"
+    ],
+    "refer": []
+  },
+  "main/send_mes.html": {
+    "resources": [
+      "css/send_mes.css",
+      "images/lele.png"
+    ],
+    "refer": [
+      "main/info_person.html"
+    ]
+  },
+  "main/house_search.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "images/hourse_search/search_02.jpg",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "js/mui.previewimage.js",
+      "fonts/iconfont.ttf",
+      "css/cd_and_hs.css",
+      "images/hourse_search/search_01.jpg"
+    ],
+    "refer": [
+      "main/send_mes.html"
+    ]
+  },
+  "main/search.html": {
+    "resources": [
+      "css/search.css",
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "js/mui.poppicker.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/mui.poppicker.css",
+      "css/mui.picker.min.css"
+    ],
+    "refer": [
+      "main/search_detail.html"
+    ]
+  },
+  "main/search_detail.html": {
+    "resources": [
+      "css/search_detail.css",
+      "images/hourse_search/search_02.jpg",
+      "css/iconfont.css",
+      "images/index/red.svg",
+      "images/hourse_search/search_01.jpg"
+    ],
+    "refer": []
+  },
+  "message.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/message.css",
+      "css/mui.min.css",
+      "images/lele.png"
+    ],
+    "refer": [
+      "main/chat.html"
+    ]
+  },
+  "account/account_set.html": {
+    "resources": [
+      "css/account-css/account_set.css",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "account/login.html": {
+    "resources": [
+      "images/login/tippas.svg",
+      "css/account-css/login.css",
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "js/mui.poppicker.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/login/login_bg.jpg",
+      "css/mui.poppicker.css",
+      "css/mui.picker.min.css",
+      "js/jquery-1.11.0.js",
+      "js/api.js"
+    ],
+    "refer": [
+      "account/regist.html"
+    ]
+  },
+  "account/regist.html": {
+    "resources": [
+      "css/account-css/regist.css",
+      "js/jquery-1.11.0.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/login/login_bg.jpg",
+      "js/api.js"
+    ],
+    "refer": []
+  },
+  "main/chat.html": {
+    "resources": [
+      "js/mui.imageViewer.js",
+      "js/chat.js",
+      "css/mui.imageviewer.css",
+      "js/arttmpl.js",
+      "css/chat.css"
+    ],
+    "refer": []
+  },
+  "main/commercial_real.html": {
+    "resources": [
+      "images/a2.jpg",
+      "fonts/mui.ttf",
+      "images/hourse_search/search_01.jpg",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/global.css",
+      "css/iconfont.css",
+      "css/commercial_real.css",
+      "images/hourse_search/search_02.jpg",
+      "css/mui.min.css",
+      "images/index/red.svg",
+      "js/select.js",
+      "images/index/star.svg",
+      "css/cui.css"
+    ],
+    "refer": []
+  }
 }
