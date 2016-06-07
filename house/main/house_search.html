@@ -17,7 +17,7 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="back"></a>
 
 			<span class="mui-pull-right mui-icon iconfont icon-03fenxiang " style="color: #fff;">
 					
@@ -28,31 +28,23 @@
 		<nav class="mui-bar mui-bar-tab">
 			<button id="person" class="mui-btn mui-btn-primary mui-btn-block">和我们联系,为您一站式服务</button>
 		</nav>
-		<div class="mui-content">
+		<div class="mui-content" id="realtyDetail">
 			<div class="mui-slider ">
 				<div class="mui-slider-group mui-slider-loop">
 					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一个图文表格) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
+					<template v-for="item in house.images">
+						<div class="mui-slider-item">
+							<img style="width: 100%;" class="mui-media-object" src="{{item.file}}" data-preview-src="" data-preview-group="1">
+						</div>
+					</template>
+					<!--<div class="mui-slider-item mui-slider-item-duplicate">
 						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_01.jpg" data-preview-src="">
-					</div>
-					<div class="mui-slider-item">
-
-						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_02.jpg" data-preview-src="" data-preview-group="1">
-
-					</div>
-					<div class="mui-slider-item">
-						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_01.jpg" data-preview-src="" data-preview-group="1">
-					</div>
-
-					<div class="mui-slider-item">
-						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_02.jpg" data-preview-src="" data-preview-group="1">
-					</div>
-
+					</div>-->
 					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一个图文表格) -->
 
-					<div class="mui-slider-item mui-slider-item-duplicate">
+					<!--<div class="mui-slider-item mui-slider-item-duplicate">
 						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_01.jpg" data-preview-src="">
-					</div>
+					</div>-->
 				</div>
 
 				<div class="mui-slider-indicator">
@@ -68,14 +60,12 @@
 
 			<div class="adder mui-clearfix">
 				<div class="left_tit">
-					<h5>1036 E Orange Blvd #101</h5>
-					<h5>Los Angele,ca </h5>
-					<h5>31820sf</h5>
+					<h5>{{house.name}}</h5>
 				</div>
 				<div class="right_tit">
-					<h4>$883,050</h4>
+					<h4>{{house.price}}</h4>
 
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mui-icon iconfont icon-ditu"></span>&nbsp;出售</span>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mui-icon iconfont icon-ditu"></span>&nbsp;{{house.status_display}}</span>
 				</div>
 			</div>
 
@@ -84,27 +74,32 @@
 				<ul>
 					<li>
 						<label>状态</label>
-						<span>fegeg</span>
+						<span>{{house.status_display}}</span>
 					</li>
 					<li>
 						<label>价格</label>
-						<span>fegeg</span>
+						<span>{{house.price}}</span>
 					</li>
 					<li>
 						<label>平方均价</label>
-						<span>fegeg</span>
+						<span>{{avgPrice}}</span>
 					</li>
 					<li>
 						<label>房间</label>
-						<span>fegeg</span>
+						<span>{{house.room_num}}</span>
+					</li>
+					<li>
+						<label>客厅</label>
+						<span>{{house.parlour_num}}</span>
 					</li>
 					<li>
 						<label>厕所</label>
-						<span>fegeg</span>
+						<span>{{house.toilet_num}}</span>
 					</li>
+
 					<li class="mui-clearfix address">
 						<label style="">地址</label>
-						<p style="">1036e orange fefepguenv</p>
+						<p style="">{{house.address}}</p>
 					</li>
 
 				</ul>
@@ -112,10 +107,7 @@
 			</div>
 			<div class="hourse_des">
 				<h4>房屋描述</h4>
-				<p>核心卖点:在售特别稀缺的电梯紧凑小3房户型</p>
-				<p>核心卖点:在售特别稀缺的电梯紧凑小3房户型在售特别稀缺的电梯紧凑小3房户型</p>
-				<p>核心卖点:在售特别稀缺的电梯紧凑小3房户型在售特别稀缺的电梯紧凑小3房户型小3房户型</p>
-
+				<p>{{house.description}}</p>
 			</div>
 
 			<div class="mui-card">
@@ -125,25 +117,19 @@
 						<div class="mui-collapse-content">
 							<div class="mui-row">
 								<label>2015房产税</label>
-								<span>$12,000</span>
+								<span>${{tax}}</span>
 							</div>
 						</div>
 					</li>
 					<li class="mui-table-view-cell mui-collapse">
 						<a class="mui-navigate-right" href="#">周边学校</a>
 						<div class="mui-collapse-content">
-							<div class="mui-row">
-								<label>小学</label>
-								<span>lfeofeeg</span>
-							</div>
-							<div class="mui-row">
-								<label>中学</label>
-								<span>lfeofeeg</span>
-							</div>
-							<div class="mui-row">
-								<label>高中</label>
-								<span>lfeofeeg</span>
-							</div>
+							<template v-for="item in house.surroundings">
+								<div class="mui-row">
+									<span>{{item.facility.name}}</span>
+								</div>
+							</template>
+
 						</div>
 					</li>
 				</ul>
@@ -155,18 +141,39 @@
 		</div>
 
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/vue.js"></script>
 		<script src="../js/mui.zoom.js"></script>
 		<script src="../js/mui.previewimage.js"></script>
 		<script>
 			mui.init();
-			mui.previewImage();
-			document.getElementById('person').addEventListener('tap', function() {
-				//打开send
-				mui.openWindow({
-					url: '../main/send_mes.html',
-					id: 'send_mes'
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var house = JSON.parse(self.house);
+				new Vue({
+					el: "#realtyDetail",
+					data: {
+						house: house
+					},
+					computed: {
+						avgPrice: function() {
+							var price = parseFloat(house.price);
+							var area = parseFloat(house.area);
+							return (price / area).toFixed(2);
+						}
+					}
 				});
-			});
+				mui.previewImage();
+				document.getElementById('back').addEventListener('tap',function(){
+					mui.back();
+				});
+				document.getElementById('person').addEventListener('tap', function() {
+					//打开send
+					mui.openWindow({
+						url: '../main/send_mes.html',
+						id: 'send_mes'
+					});
+				});
+			})
 		</script>
 	</body>
 

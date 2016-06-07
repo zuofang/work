@@ -41,9 +41,7 @@
 			mui.plusReady(function(){
 				var self=plus.webview.currentWebview();
 				var registerData=self.registerData;
-				alert(registerData.username);
 				document.getElementById('regiserBtn').addEventListener('tap',function(){
-					alert(111);
 					var password=$('#password').val();
 					var confirmPwd=$('#confirmPwd').val();
 					if(password.trim()===""){
@@ -69,11 +67,14 @@
 					console.log(registerData);
 					window.realtyApi.register(registerData,function(data){
 						if(data.key){
-							mui.toast('注册成功');
+							mui.toast('注册成功');					
+							sessionStorage["token"]=data.key;
+//							mui.back();
 							mui.openWindow({
-								url: '../account/login.html',
-								id: 'login'							
+								url: '../index.html',
+								id: 'index'							
 							});
+							
 							
 						}else{
 							mui.toast('注册失败');

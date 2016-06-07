@@ -434,7 +434,8 @@
 					"js/mui.previewimage.js",
 					"fonts/iconfont.ttf",
 					"css/cd_and_hs.css",
-					"images/hourse_search/search_01.jpg"
+					"images/hourse_search/search_01.jpg",
+					"js/vue.js"
 				],
 				"refer": [
 					"main/send_mes.html"
@@ -464,9 +465,17 @@
 					"images/hourse_search/search_02.jpg",
 					"css/iconfont.css",
 					"images/index/red.svg",
-					"images/hourse_search/search_01.jpg"
+					"images/hourse_search/search_01.jpg",
+					"js/vue.js",
+					"js/api.js",
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
-				"refer": [],
+				"refer": [
+					"main/house_search.html"
+				],
 				"priority": 0
 			},
 			"message.html": {

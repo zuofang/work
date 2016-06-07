@@ -21,94 +21,60 @@
 
 		</header>
 		<div class="mui-content">
-			<ul class="mui-table-view" style="padding-bottom: -1px;">
-				<li>
-					<a href="house_search.html">
-						<img src="../images/hourse_search/search_02.jpg" width="100%" height="135px" />
-						<div class="price">
-							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="../images/index/red.svg" />
+			<ul class="mui-table-view" id="realtyList" style="padding-bottom: -1px;">
+					<li v-for="item in realtyList" @click="detail(item.id)" track-by="id">
+							<img src="{{item.images[0].file}}" width="100%" height="135px" />
+							<div class="price">
+								<div class="detail">
+									<h5>  ${{item.price}} </h5>
+									<h5>{{item.room_num}} bd {{item.parlour_num}} ba</h5>
+									<img src="../images/index/red.svg" />
+								</div>
 							</div>
+							<textarea id="{{'ta'+item.id}}" hidden="hidden">{{item|json}}</textarea>
+					</li>
 
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="house_search.html">
-						<img src="../images/hourse_search/search_01.jpg" width="100%" height="135px" />
-						<div class="price">
-							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="../images/index/red.svg" />
-							</div>
-
-						</div>
-					</a>
-				</li>
-				<li>
-
-					<img src="../images/hourse_search/search_02.jpg" width="100%" height="135px" />
-					<div class="price">
-						<div class="detail">
-							<h5>  $849,00 </h5>
-							<h5>5 bd 3 ba</h5>
-							<img src="../images/index/red.svg" />
-						</div>
-
-					</div>
-				</li>
-				<li>
-
-					<img src="../images/hourse_search/search_01.jpg" width="100%" height="135px" />
-					<div class="price">
-						<div class="detail">
-							<h5>  $849,00 </h5>
-							<h5>5 bd 3 ba</h5>
-							<img src="../images/index/red.svg" />
-						</div>
-
-					</div>
-				</li>
-				<li>
-
-					<img src="../images/hourse_search/search_02.jpg" width="100%" height="135px" />
-					<div class="price">
-						<div class="detail">
-							<h5>  $849,00 </h5>
-							<h5>5 bd 3 ba</h5>
-							<img src="../images/index/red.svg" />
-						</div>
-
-					</div>
-				</li>
-				<li>
-
-					<img src="../images/hourse_search/search_01.jpg" width="100%" height="135px" />
-					<div class="price">
-						<div class="detail">
-							<h5>  $849,00 </h5>
-							<h5>5 bd 3 ba</h5>
-							<img src="../images/index/red.svg" />
-						</div>
-
-					</div>
-				</li>
+				
+				
 			</ul>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/api.js"></script>
 		<script>
 			mui.init();
-			mui('.mui-table-view').on('tap', 'a', function() {
-				var id = this.getAttribute("href");
-				var href = this.href;
-				mui.openWindow({
-					id: id,
-					url: href
+			mui.ready(function(){
+				//下一页
+				var next="";
+				//总数
+				var count=0;
+				var realtyList={};
+				var vm=new Vue({
+					el:"#realtyList",
+					data:{
+						realtyList:realtyList
+					},
+					methods:{
+						detail:function(id){
+							var house= document.getElementById('ta'+id).innerText;
+								mui.openWindow({
+									url: './house_search.html',
+									id: 'realtyDetail',
+									extras:{
+										house:house
+									}
+								});
+							
+						}
+					}
 				});
-			});
+				window.realtyApi.getRealtyList(function(data){
+					count=data.count;
+					next=data.next;
+					vm.realtyList=data.results;
+				});
+			})
+			
 		</script>
 	</body>
 

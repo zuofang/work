@@ -21,12 +21,27 @@ window.realtyApi={
 	//登录
 	login:function(userName,password,callBack){
 		var data={
-			"username":"+86"+userName,
+			"username":userName,
 			"password":password
 		};
 		mui.post("http://139.196.232.30/apis/rest-auth/login/",data,function(data){
 			callBack(data);
 		})
+	},
+	
+	//获取房产列表
+	//status 0 出租 1 出售
+	getRealtyList:function(callBack){
+		mui.get("http://139.196.232.30/apis/realty/realties/",{},function(data){
+			callBack(data);
+		});
+	},
+	
+	//获取商业房产列表
+	getCommercialRealtyList:function(callBack){
+		mui.get("http://139.196.232.30/apis/realty/commercial-realties/",{},function(data){
+			callBack(data);
+		});
 	}
 	
 };
