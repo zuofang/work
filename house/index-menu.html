@@ -93,6 +93,7 @@
 			mui('.mui-table-view').on('tap', 'a', function() {
 				var id = this.getAttribute("href");
 				var href = this.href;
+				close();
 				mui.openWindow({
 					id: id,
 					url: href
