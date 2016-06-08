@@ -114,7 +114,7 @@
 	font-size: 16px;
 	margin: 18px 0 15px 25px;
 }
-#info div{
+#info div,#surroundings>li{
 	border: solid 1px #1AAEED;
 	border-radius: 5px;
 	height: 45px;
@@ -181,16 +181,31 @@
 	text-align: left!important;
 	
 }
-.school label{
-	width: 10%!important;
+#surroundings{
+	padding: 0;
 }
-.school input{
-	width: 70%!important;
-	margin-left: 15%!important;
-}
-.school span{
+#surroundings>li{
+	line-height: 45px;
+	list-style: none;
+	color: #7F7F7F;
 	font-size: 14px;
-	color: #FF0000;
+	text-align: left;
+	text-indent: 5%;
+}
+#surroundings>li>span{
+	font-size: 18px;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	margin-top: -9px;
+}
+#addSurBtn{
+	display: block;
+	color: #7F7F7F;
+	margin: 0 auto;
+	border-color: #1AAEED;
+	border-radius: 5px;
+	text-align: center;
 }
 /*发布列表*/
 .releaseList img{

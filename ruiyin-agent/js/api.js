@@ -1,10 +1,10 @@
 window.realtyApi={
 	//获取房产类型
-	getRealtyTypeList:function(callBacck){
+	getRealtyTypeList:function(callBack){
 		mui.ajax('http://139.196.232.30/apis/realty/realty-types/',{
 			dataType:'json',
 			timeout:10000,
-			headers:{'Authorization','Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
+			headers:{'Authorization':'Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
 			success:function(data){
 				callBack(data);
 			},
@@ -19,7 +19,7 @@ window.realtyApi={
 		mui.ajax('http://139.196.232.30/apis/realty/facility-types/',{
 			dataType:'json',
 			timeout:10000,
-			headers:{'Authorization','Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
+			headers:{'Authorization':'Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
 			success:function(data){
 				callBack(data);
 			},
@@ -36,7 +36,7 @@ window.realtyApi={
 			dataType:'json',
 			type:'POST',
 			timeout:10000,
-			headers:{'Authorization','Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
+			headers:{'Authorization':'Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
 			success:function(data){
 				callBack(data);
 			},
@@ -45,4 +45,4 @@ window.realtyApi={
 			}
 		});
 	}
-}
+};

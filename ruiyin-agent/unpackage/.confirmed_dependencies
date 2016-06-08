@@ -1,199 +1,201 @@
 {
-  "index.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "login.html",
-      "css/main.css",
-      "fonts/mui.ttf",
-      "images/login/login-bg.jpg",
-      "images/index/add_house.svg",
-      "images/index/add_land.svg",
-      "images/index/release.svg",
-      "images/index/mymsg.svg",
-      "images/bg.jpg",
-      "images/index/left_arrow.svg",
-      "css/app.css",
-      "js/app.js"
-    ],
-    "refer": [
-      "login.html",
-      "message.html",
-      "add_info.html",
-      "set.html",
-      "add_photo.html",
-      "list.html"
-    ]
-  },
-  "login.html": {
-    "resources": [
-      "images/login/register.svg",
-      "css/login.css",
-      "images/login/login-bg.jpg",
-      "images/logo.svg",
-      "images/login/forget.svg",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "index.html",
-      "fonts/mui.ttf",
-      "images/logo.png",
-      "login.html"
-    ],
-    "refer": [
-      "index.html",
-      "register1.html"
-    ]
-  },
-  "add_photo.html": {
-    "resources": [
-      "css/main.css",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "images/add_photo/return.svg",
-      "images/add_photo/add_photo.jpg",
-      "images/add_photo/next.svg",
-      "images/add_photo/example.jpg",
-      "js/mui.zoom.js",
-      "js/mui.previewimage.js",
-      "css/imagePreview.css",
-      "images/back.svg",
-      "fonts/mui.ttf",
-      "js/addPhoto.js",
-      "css/app.css"
-    ],
-    "refer": [
-      "add_info.html"
-    ]
-  },
-  "info.html": {
-    "resources": [
-      "css/main.css",
-      "js/mui.min.js",
-      "images/back.svg",
-      "css/mui.min.css",
-      "fonts/mui.ttf"
-    ],
-    "refer": []
-  },
-  "add_info.html": {
-    "resources": [
-      "css/main.css",
-      "js/mui.min.js",
-      "images/back.svg",
-      "fonts/mui.ttf",
-      "images/add_info/releaseInfo.svg",
-      "css/mui.min.css",
-      "add_info.html",
-      "css/app.css",
-      "images/index/release.svg",
-      "js/app.js",
-      "js/jquery-1.11.0.js",
-      "images/icon/drop_down.jpg",
-      "js/mui.picker.min.js",
-      "js/mui.poppicker.js",
-      "css/mui.poppicker.css",
-      "css/mui.picker.min.css"
-    ],
-    "refer": [
-      "set.html"
-    ]
-  },
-  "chat.html": {
-    "resources": [
-      "js/mui.imageViewer.js",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/mui.imageviewer.css",
-      "js/arttmpl.js",
-      "css/chat.css",
-      "images/lele.png",
-      "js/chat.js",
-      "css/app.css"
-    ],
-    "refer": []
-  },
-  "register1.html": {
-    "resources": [
-      "css/main.css",
-      "js/mui.min.js",
-      "css/app.css",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/register.css",
-      "images/register/reg_bg.jpg",
-      "images/register/reg_step1.svg",
-      "images/register/reg_step1.png"
-    ],
-    "refer": [
-      "register2.html"
-    ]
-  },
-  "register2.html": {
-    "resources": [
-      "css/main.css",
-      "js/mui.min.js",
-      "images/register/reg_step2.png",
-      "css/app.css",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/register.css",
-      "images/register/reg_bg.jpg"
-    ],
-    "refer": [
-      "register3.html"
-    ]
-  },
-  "register3.html": {
-    "resources": [
-      "css/main.css",
-      "js/mui.min.js",
-      "images/register/reg_step2.png",
-      "css/app.css",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/register.css",
-      "images/register/reg_bg.jpg",
-      "images/register/reg_step3.png"
-    ],
-    "refer": []
-  },
-  "message.html": {
-    "resources": [
-      "images/lele.png",
-      "css/app.css",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/message.css"
-    ],
-    "refer": [
-      "chat.html"
-    ]
-  },
-  "set.html": {
-    "resources": [
-      "fonts/iconfont.css",
-      "fonts/iconfont.ttf",
-      "css/main.css",
-      "js/mui.min.js",
-      "css/app.css",
-      "fonts/mui.ttf",
-      "css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "list.html": {
-    "resources": [
-      "css/main.css",
-      "images/icon/delete.svg",
-      "js/mui.min.js",
-      "css/app.css",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "images/icon/edit.svg",
-      "images/add_photo/example.jpg"
-    ],
-    "refer": []
-  }
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"login.html",
+			"css/main.css",
+			"fonts/mui.ttf",
+			"images/login/login-bg.jpg",
+			"images/index/add_house.svg",
+			"images/index/add_land.svg",
+			"images/index/release.svg",
+			"images/index/mymsg.svg",
+			"images/bg.jpg",
+			"images/index/left_arrow.svg",
+			"css/app.css",
+			"js/app.js"
+		],
+		"refer": [
+			"login.html",
+			"message.html",
+			"add_info.html",
+			"set.html",
+			"add_photo.html",
+			"list.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"images/login/register.svg",
+			"css/login.css",
+			"images/login/login-bg.jpg",
+			"images/logo.svg",
+			"images/login/forget.svg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"index.html",
+			"fonts/mui.ttf",
+			"images/logo.png",
+			"login.html"
+		],
+		"refer": [
+			"index.html",
+			"register1.html"
+		]
+	},
+	"add_photo.html": {
+		"resources": [
+			"css/main.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/add_photo/return.svg",
+			"images/add_photo/add_photo.jpg",
+			"images/add_photo/next.svg",
+			"images/add_photo/example.jpg",
+			"js/mui.zoom.js",
+			"js/mui.previewimage.js",
+			"css/imagePreview.css",
+			"images/back.svg",
+			"fonts/mui.ttf",
+			"js/addPhoto.js",
+			"css/app.css"
+		],
+		"refer": [
+			"add_info.html"
+		]
+	},
+	"info.html": {
+		"resources": [
+			"css/main.css",
+			"js/mui.min.js",
+			"images/back.svg",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"add_info.html": {
+		"resources": [
+			"css/main.css",
+			"js/mui.min.js",
+			"images/back.svg",
+			"fonts/mui.ttf",
+			"images/add_info/releaseInfo.svg",
+			"css/mui.min.css",
+			"add_info.html",
+			"css/app.css",
+			"images/index/release.svg",
+			"js/app.js",
+			"js/jquery-1.11.0.js",
+			"images/icon/drop_down.jpg",
+			"js/mui.picker.min.js",
+			"js/mui.poppicker.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.min.css",
+			"js/vue.js",
+			"js/api.js"
+		],
+		"refer": [
+			"set.html"
+		]
+	},
+	"chat.html": {
+		"resources": [
+			"js/mui.imageViewer.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/mui.imageviewer.css",
+			"js/arttmpl.js",
+			"css/chat.css",
+			"images/lele.png",
+			"js/chat.js",
+			"css/app.css"
+		],
+		"refer": []
+	},
+	"register1.html": {
+		"resources": [
+			"css/main.css",
+			"js/mui.min.js",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/register.css",
+			"images/register/reg_bg.jpg",
+			"images/register/reg_step1.svg",
+			"images/register/reg_step1.png"
+		],
+		"refer": [
+			"register2.html"
+		]
+	},
+	"register2.html": {
+		"resources": [
+			"css/main.css",
+			"js/mui.min.js",
+			"images/register/reg_step2.png",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/register.css",
+			"images/register/reg_bg.jpg"
+		],
+		"refer": [
+			"register3.html"
+		]
+	},
+	"register3.html": {
+		"resources": [
+			"css/main.css",
+			"js/mui.min.js",
+			"images/register/reg_step2.png",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/register.css",
+			"images/register/reg_bg.jpg",
+			"images/register/reg_step3.png"
+		],
+		"refer": []
+	},
+	"message.html": {
+		"resources": [
+			"images/lele.png",
+			"css/app.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/message.css"
+		],
+		"refer": [
+			"chat.html"
+		]
+	},
+	"set.html": {
+		"resources": [
+			"fonts/iconfont.css",
+			"fonts/iconfont.ttf",
+			"css/main.css",
+			"js/mui.min.js",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"list.html": {
+		"resources": [
+			"css/main.css",
+			"images/icon/delete.svg",
+			"js/mui.min.js",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/icon/edit.svg",
+			"images/add_photo/example.jpg"
+		],
+		"refer": []
+	}
 }

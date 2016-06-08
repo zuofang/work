@@ -287,7 +287,9 @@
 					"js/mui.picker.min.js",
 					"js/mui.poppicker.js",
 					"css/mui.poppicker.css",
-					"css/mui.picker.min.css"
+					"css/mui.picker.min.css",
+					"js/vue.js",
+					"js/api.js"
 				],
 				"refer": [
 					"set.html"
