@@ -230,7 +230,9 @@
 					"index.html",
 					"fonts/mui.ttf",
 					"images/logo.png",
-					"login.html"
+					"login.html",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [
 					"register1.html"
@@ -252,7 +254,8 @@
 					"images/back.svg",
 					"fonts/mui.ttf",
 					"js/addPhoto.js",
-					"css/app.css"
+					"css/app.css",
+					"js/jquery-1.11.0.js"
 				],
 				"refer": [
 					"add_info.html"
@@ -322,7 +325,9 @@
 					"css/register.css",
 					"images/register/reg_bg.jpg",
 					"images/register/reg_step1.svg",
-					"images/register/reg_step1.png"
+					"images/register/reg_step1.png",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [
 					"register2.html"
@@ -357,7 +362,9 @@
 					"images/register/reg_bg.jpg",
 					"images/register/reg_step3.png"
 				],
-				"refer": [],
+				"refer": [
+					"login.html"
+				],
 				"priority": 0
 			},
 			"message.html": {

@@ -20,13 +20,13 @@
 	    	<h3>注册</h3>
 		    <div class="regPanel2">
 		    	<div class="mui-input-row">
-		    		<input class="mui-input-clear" type="text" placeholder="姓名（真实姓名）" />
+		    		<input id="reName" class="mui-input-clear" type="text" placeholder="姓名（真实姓名）" />
 		    	</div>
 		    	<div class="mui-input-row">
-		    		<input class="mui-input-clear" type="text" placeholder="Agent ID NO." />
+		    		<input id="agentNo" class="mui-input-clear" type="text" placeholder="Agent ID NO." />
 		    	</div>
 		    	<div class="mui-input-row">
-		    		<input class="mui-input-clear" type="text" placeholder="公司名称" />
+		    		<input id="comName" class="mui-input-clear" type="text" placeholder="公司名称" />
 		    	</div>
 				
 				
@@ -39,15 +39,29 @@
 	    <div class="he250"></div>
 	</div>
 	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.11.0.js"></script>
 	<script type="text/javascript" charset="UTF-8">
       	mui.init();
+      	mui.plusReady(function(){
+      	var self=plus.webview.currentWebview();
+		var registerData=self.registerData;
       	document.getElementById('next').addEventListener('tap', function() {
+      		registerData.agent_no=$('#agentNo').val();
+      		if(registerData.agent_no.trim()===""){
+      			mui.toast('请输入agentNo');
+      			return;
+      		}
 		  //打开注册页面
 		  mui.openWindow({
 		    url: 'register3.html', 
-		    id:'register3'
+		    id:'register3',
+		    extras:{
+					registerData:registerData
+				}
 		  });
 		});
+      	})
+      	
     </script>
 </body>
 </html>

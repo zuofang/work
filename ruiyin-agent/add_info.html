@@ -65,7 +65,10 @@
 	<script src="js/app.js"></script>
 	<script type="text/javascript" charset="UTF-8">
       	mui.init();
-      	mui.ready(function() {
+      	mui.plusReady(function() {
+      		var self=plus.webview.currentWebview();
+			var imgs=self.imgs;
+			alert(imgs);
       		var statusData=[{
 				value: 0,
 				text: '出租'
@@ -170,14 +173,22 @@
 						data.surroundings=[];
 						$('#surroundings li').each(function(){
 							data.surroundings.push({
-								 "facility": {
-			                        "name": $(this).data('name'),
-			                        "sort": $(this).data('sort')
+								facility: {
+			                        name: $(this).data('name'),
+			                        sort: $(this).data('sort')
 			                    }
-							});
+							} 
+							);
 						});
-						console.log(JSON.stringify(data));
 						window.realtyApi.postRealty(data,function(data){
+							if(data.image_list){
+								var url=data.image_list;
+								for(var i=0;i<imgs.length;i++){
+									window.realtyApi.uploadImg(url,imgs[i],function(data){
+										alert(data);
+									});
+								}
+							}
 							mui.toast('添加成功');
 							return;
 						});

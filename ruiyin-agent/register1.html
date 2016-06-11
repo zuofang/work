@@ -26,11 +26,11 @@
 				<div>
 					<div id="item1" class="mui-control-content mui-active">
 						<div>
-							<input type="text" placeholder="请输入手机号" />
+							<input id="phone" type="text" placeholder="请输入手机号" />
 							<span id="sendCode">发送验证码</span>
 						</div>
 						<div class="mui-input-row">
-							<input class="mui-input-clear" type="text" placeholder="请输入验证码" />
+							<input id="code" class="mui-input-clear" type="text" placeholder="请输入验证码" />
 						</div>
 					</div>
 					<div id="item2" class="mui-control-content ">
@@ -51,15 +51,75 @@
 	    <div class="he250"></div>
 	</div>
 	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/api.js"></script>
 	<script type="text/javascript" charset="UTF-8">
       	mui.init();
-  		document.getElementById('next').addEventListener('tap', function() {
-		  //打开注册页面
-		  mui.openWindow({
-		    url: 'register2.html', 
-		    id:'register2'
-		  });
-		});
+      	mui.ready(function(){
+      		var registerData={};
+      		//发送验证码
+			document.getElementById('sendCode').addEventListener('tap',function(){
+				var phone=$('#phone').val();
+				var country='CN';
+//				var country=$('#country').val();
+//				if(country.trim()===""){
+//					mui.toast("请选择国家");
+//					return;
+//				}
+				if(phone.trim()===""){
+					mui.toast("请输入手机号码");
+					return;
+				}
+				if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
+					mui.toast("手机号码格式不正确");
+					return;
+				}
+			
+				window.realtyApi.getPinCode(country,phone,function(data){
+					if(data.pin){
+						alert(data.pin);
+						registerData.username=data.phone;
+						registerData.pin=data.pin;
+						registerData.country=country;
+					}else{
+						mui.toast("号码已存在");
+					}
+					
+				});
+				
+			});
+      		document.getElementById('next').addEventListener('tap', function() {
+			  if(registerData.pin){
+					var code=$('#code').val();
+					if(code.trim()===""){
+						mui.toast('验证码不能为空');
+						return;
+					}
+					if(code!=registerData.pin){
+						mui.toast('验证码错误');
+						return;
+					}
+					if($('#phone').val()!==registerData.username){
+						mui.toast('手机号码不正确');
+						return;
+					}
+					delete registerData.pin;
+					mui.openWindow({
+						url: 'register2.html',
+						id: 'register2',
+						extras:{
+							registerData:registerData
+						}
+					});
+				}else{
+					mui.toast('请填写注册信息');
+					return;
+				}
+				
+			});
+			 
+      	})
+  		
     </script>
 </body>
 </html>

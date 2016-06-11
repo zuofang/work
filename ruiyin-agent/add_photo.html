@@ -15,24 +15,9 @@
 	    <h1 class="mui-title">添加照片</h1>
 	</header>
 	<div class="photoContent">
-	    <ul class="photo mui-clearfix">
+	    <ul id="photoContainer" class="photo mui-clearfix">
 	    	<li>
 	    		<img id="add" src="images/add_photo/add_photo.jpg" alt="" />
-	    	</li>
-	    	<li>
-	    		<img src="images/add_photo/example.jpg" data-preview-src="" data-preview-group="1" alt="" />
-	    	</li>
-	    	<li>
-	    		<img src="images/add_photo/example.jpg" data-preview-src="" data-preview-group="1" alt="" />
-	    	</li>
-	    	<li>
-	    		<img src="images/add_photo/example.jpg" data-preview-src="" data-preview-group="1" alt="" />
-	    	</li>
-	    	<li>
-	    		<img src="images/add_photo/example.jpg" data-preview-src="" data-preview-group="1" alt="" />
-	    	</li>
-	    	<li>
-	    		<img src="images/add_photo/example.jpg" data-preview-src="" data-preview-group="1" alt="" />
 	    	</li>
 	    </ul>
 	    <p class="tip">(最多添加十张照片)</p>
@@ -41,17 +26,64 @@
 		<button id="next" class="action_btn">下一步<i class="mui-icon mui-icon-arrowright"></i></button>
 	</footer>
 	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.11.0.js"></script>
 	<script src="js/mui.zoom.js"></script>
 	<script src="js/mui.previewimage.js"></script>
-   	<script src="js/addPhoto.js"></script>
    	<script type="text/javascript" charset="UTF-8">
       	mui.init();
-      	document.getElementById('next').addEventListener('tap',function(){
+      	mui.plusReady(function(){
+      		var length=$('.photoItem').length;
+      		mui.previewImage();//图片预览
+      		document.getElementById('next').addEventListener('tap',function(){
+      		var imgs=[];
+      		$('.photoItem').each(function(){
+      		 imgs.push($(this).children('img').attr('src'));
+      		});
       		mui.openWindow({
       			url:'add_info.html',
-      			id:'addLand'
+      			id:'addInfo',
+      			extras:{
+					imgs:imgs
+				}
       		});
-      	});   	
+      	});
+      	$('#photoContainer').on('tap','.mui-icon',function(){
+      		$(this).parent('li').remove();
+      		length--;
+      	});
+      	//添加图片
+      	document.getElementById("add").addEventListener("tap",function(){
+      		if($('.photoItem').length<10){
+      			plus.gallery.pick(function(e){
+      				for(var i in e.files){
+      					if(length<10){
+      						$('#photoContainer').append('<li class="photoItem">'+
+				    		'<span class="mui-icon mui-icon-close"></span>'+
+				    		'<img src="'+e.files[i]+'" data-preview-src="" data-preview-group="1" alt="" />'+
+				    		'</li>');
+      						length++;
+      					}else{
+      						mui.toast('最多选取10张图片');
+	      					return;
+      					}
+      				}
+	      		},function(e){
+	      		},{
+	      			filter:"image",
+	      			multiple:true,
+	      			maximum:10,
+	      			onmaxed:function(){
+	      				mui.toast('最多选取10张图片');
+	      			}
+	      		});
+	      	}else{
+	      		mui.toast('最多选取10张图片');
+	      		return;
+	      	}
+      		
+      	});
+      	})
+      	   	
     </script>
 </body>
 </html>

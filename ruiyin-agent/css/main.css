@@ -67,8 +67,23 @@
 .photo{
 	margin: 0 auto;
 	padding: 7px 6px;
+	height: 350px;
+	overflow: auto;
 }
-
+.photoItem{
+	position: relative;
+}
+.photoItem>img{
+	height: 100px;
+}
+.photoItem>.mui-icon{
+	font-weight: bold;
+	color: crimson;
+	font-size: 20px;
+	position: absolute;
+	right: 5%;
+	top:5%;
+}
 .photo img{
 	width: 100%;
 	border: solid 2px #1AAEED;	
