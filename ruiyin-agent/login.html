@@ -38,7 +38,7 @@
 		<script src="js/api.js"></script>
 		<script type="text/javascript" charset="UTF-8">
       	mui.init();
-      	mui.ready(function(){
+      	mui.plusReady(function(){
       		document.getElementById('register').addEventListener('tap', function() {
 			  //打开注册页面
 			  mui.openWindow({
@@ -65,6 +65,7 @@
 						url: 'index.html',
 						id: 'index'
 					});
+					//plus.webview.close('login','none');
 					}else{
 						mui.toast('用户名或密码错误');
 						return;

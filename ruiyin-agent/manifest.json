@@ -214,7 +214,9 @@
 					"add_info.html",
 					"set.html",
 					"add_photo.html",
-					"list.html"
+					"list.html",
+					"addRealtyPhoto.html",
+					"addComRealtyPhoto.html"
 				],
 				"priority": 0
 			},
@@ -360,7 +362,9 @@
 					"css/mui.min.css",
 					"css/register.css",
 					"images/register/reg_bg.jpg",
-					"images/register/reg_step3.png"
+					"images/register/reg_step3.png",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [
 					"login.html"
@@ -404,6 +408,75 @@
 					"css/mui.min.css",
 					"images/icon/edit.svg",
 					"images/add_photo/example.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"addRealtyPhoto.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"css/imagePreview.css",
+					"css/main.css",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"images/add_photo/add_photo.jpg",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.previewimage.js",
+					"js/api.js"
+				],
+				"refer": [
+					"addRealtyInfo.html"
+				],
+				"priority": 0
+			},
+			"addRealtyInfo.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"images/icon/loading.gif"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"addComRealtyPhoto.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"css/imagePreview.css",
+					"css/main.css",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"images/add_photo/add_photo.jpg",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.previewimage.js",
+					"js/api.js"
+				],
+				"refer": [
+					"addComRealtyInfo.html"
+				],
+				"priority": 0
+			},
+			"addComRealtyInfo.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"images/icon/loading.gif",
+					"addComRealtyInfo.html",
+					"js/app.js",
+					"css/main.css",
+					"fonts/mui.ttf",
+					"css/app.css",
+					"js/mui.min.js",
+					"js/jquery-1.11.0.js",
+					"css/mui.min.css",
+					"js/api.js"
 				],
 				"refer": [],
 				"priority": 0

@@ -120,6 +120,12 @@
 	left:0px;
 }
 /*添加信息*/
+#mask>img{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-left: -32px;
+}
 #info{
 	padding-top: 18px;
 }
