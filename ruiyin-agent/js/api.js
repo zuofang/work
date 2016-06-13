@@ -1,28 +1,34 @@
-window.realtyApi={
-	//获取验证码
-	getPinCode:function(country,phone,callBack){
-		var data={
+/**
+ * 接口函数
+ * token 身份认证
+ * */
+function RealtyApi(token){
+	this.token=token||"";
+}
+
+//获取验证码
+RealtyApi.prototype.getPinCode=function(country,phone,callBack){
+	var data={
 			"country":country,
 			"phone":phone
 		};
-		mui.post("http://139.196.232.30/apis/sms/pin/",data,function(data){
-			callBack(data);		
+	$.post("http://139.196.232.30/apis/sms/pin/",data,function(data){
+		callBack(data);		
+	},'json');
+};
+
+//注册
+RealtyApi.prototype.register=function(data,callBack){
+	$.post("http://139.196.232.30/apis/rest-auth/registration/",data,function(data){
+		callBack(data);		
 		},'json');
-	},
-	
-	//注册
-	//type:1:agent 2:client
-	register:function(data,callBack){			
-		mui.post("http://139.196.232.30/apis/rest-auth/registration/",data,function(data){
-				callBack(data);		
-		},'json');
-	},
-	
-	//登录
-	login:function(userName,password,callBack){
-		$.ajax({
+};
+
+//登录
+RealtyApi.prototype.login=function(userName,password,callBack){
+	$.ajax({
 		     type: 'POST',
-		     url: 'http://139.196.232.30/apis/rest-auth/login/' ,
+		     url: 'http://139.196.232.30/apis/rest-auth/login/',
 		     data:{
 				"username":userName,
 				"password":password
@@ -35,69 +41,89 @@ window.realtyApi={
 			},
 		    dataType: 'json'
 		});
-	},
-	//获取房产类型
-	getRealtyTypeList:function(callBack){
-		mui.ajax('http://139.196.232.30/apis/realty/realty-types/',{
-			dataType:'json',
-			timeout:10000,
-			headers:{'Authorization':'Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
+};
+
+//获取房产类型
+RealtyApi.prototype.getRealtyTypeList=function(callBack,isCommercial){
+	isCommercial=isCommercial||false;
+	$.ajax({
+			type:'GET',
+			url:'http://139.196.232.30/apis/realty/realty-types/',
+			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
-				callBack(data);
+				var categoryData=[];
+				for(var i=0;i<data.length;i++){
+					if(data[i].commercial==isCommercial){
+						categoryData.push({
+							value:data[i].id,
+							text:data[i].name
+						});
+					}	
+				}
+				callBack(categoryData);
 			},
 			error:function(){
 				mui.toast('服务器繁忙');	
-			}
+			},
+			dataType: 'json'
 		});
-	},
-	
-	//获取周边类型
-	getFacilityTypeList:function(callBack){
-		mui.ajax('http://139.196.232.30/apis/realty/facility-types/',{
-			dataType:'json',
-			timeout:10000,
-			headers:{'Authorization':'Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
+};
+
+//获取周边类型
+RealtyApi.prototype.getFacilityTypeList=function(callBack){
+	$.ajax({
+			type:'GET',
+			url:'http://139.196.232.30/apis/realty/facility-types/',
+			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
-				callBack(data);
+				var facilityData=[];
+				for(var i=0;i<data.length;i++){
+					facilityData.push({
+						value:data[i].id,
+						text:data[i].name
+					});
+				}
+				callBack(facilityData);
 			},
 			error:function(){
 				mui.toast('服务器繁忙');	
-			}
-		});
-	},
-	
-	//获取地域
-	getRegionList:function(callBack){
-		mui.ajax('http://139.196.232.30/apis/realty/regions/',{
-			dataType:'json',
-			timeout:10000,
-			headers:{'Authorization':'Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
+			},
+			dataType: 'json'
+	});
+};
+
+//获取地域类型
+RealtyApi.prototype.getRegionList=function(callBack){
+	$.ajax({
+			type:'GET',
+			url:'http://139.196.232.30/apis/realty/regions/',
+			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
-				callBack(data);
+				var regionData=[];
+				for(var i=0;i<data.length;i++){
+					regionData.push({
+						value:data[i].id,
+						text:data[i].name
+					});
+				}
+				callBack(regionData);
 			},
 			error:function(){
 				mui.toast('服务器繁忙');	
-			}
-		});
-	},
-	
-	//上传房产 type:0 房地产 1商业地产
-	postRealty:function(data,scallBack,fcallBack,type){
-		type=type||1;
-		var url="";
-		switch(type){
-			case 0:
-			url="http://139.196.232.30/apis/realty/realties/";
-			break;
-			case 1:
-			url="http://139.196.232.30/apis/realty/commercial-realties/";
-			break;
-		}
-		$.ajax({
+			},
+			dataType: 'json'
+	});
+};
+
+//上传房产 type:0 房地产 1商业地产
+RealtyApi.prototype.uploadRealty=function(data,scallBack,fcallBack,type){
+	type=type||0;
+	var url=type>0?"http://139.196.232.30/apis/realty/commercial-realties/":"http://139.196.232.30/apis/realty/realties/";
+	$.ajax({
 		     type: 'POST',
 		     contentType: "application/json",
 		     url: url ,
-		     headers:{'Authorization':'Token d61cb799e4114300c21aabd4ba346dd2ee98649c'},
+		     headers:{'Authorization':'Token '+this.token},
 		     data:JSON.stringify(data),
 		     success: function(data){
 				 scallBack(data);
@@ -107,10 +133,10 @@ window.realtyApi={
 			},
 		    dataType: 'json'
 		});
-	},
-	
-	//上传图片
-	uploadImg:function(url,files,callBack,index){	
+};
+
+//上传图片
+RealtyApi.prototype.uploadImg=function(url,files,callBack,index){	
 			index=index||0;
 			var task=plus.uploader.createUpload(url,{
 			method:"POST"
@@ -119,13 +145,53 @@ window.realtyApi={
 					alert("上传失败");
 				}
 				if(index<files.length-1){
-					realtyApi.uploadImg(url,files,callBack,++index);
+					this.uploadImg(url,files,callBack,++index);
 				}else{
 					callBack();
 				}
 			});
-			task.setRequestHeader('Authorization','Token d61cb799e4114300c21aabd4ba346dd2ee98649c');
+			task.setRequestHeader('Authorization','Token '+this.token);
 			task.addFile(files[index],{key:"file"});
 			task.start();
+};
+
+//发布列表
+RealtyApi.prototype.getRealtyList=function(callBack,url,type){
+	url=url||"";
+	type=type||0;
+	if(url==""){
+		url=type==0?"http://139.196.232.30/apis/realty/realties/mine/":"http://139.196.232.30/apis/realty/commercial-realties/mine/";
 	}
+	$.ajax({
+		url:url,
+		type:'GET',
+		headers:{'Authorization':'Token '+this.token},
+		success:function(data){
+			callBack(data);
+		},
+		error:function(xhr){
+			alert(xhr.readyState);
+		}
+	});
+};
+
+//修改房产
+RealtyApi.prototype.updateRealty=function(){
+	
+};
+
+//删除房产
+RealtyApi.prototype.deleteRealty=function(url,callBack){
+	$.ajax({
+		url:url,
+		type:'DELETE',
+		headers:{'Authorization':'Token '+this.token},
+		success:function(){
+			callBack();
+		},
+		error:function(){
+			mui.toast('删除失败');
+			return;
+		}
+	});
 };

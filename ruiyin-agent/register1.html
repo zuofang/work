@@ -54,8 +54,8 @@
 	<script src="js/jquery-1.11.0.js"></script>
 	<script src="js/api.js"></script>
 	<script type="text/javascript" charset="UTF-8">
-      	mui.init();
       	mui.ready(function(){
+      		mui.init();
       		var registerData={};
       		//发送验证码
 			document.getElementById('sendCode').addEventListener('tap',function(){
@@ -74,8 +74,8 @@
 					mui.toast("手机号码格式不正确");
 					return;
 				}
-			
-				window.realtyApi.getPinCode(country,phone,function(data){
+				var api=new RealtyApi();
+				api.getPinCode(country,phone,function(data){
 					if(data.pin){
 						alert(data.pin);
 						registerData.username=data.phone;
@@ -85,9 +85,10 @@
 						mui.toast("号码已存在");
 					}
 					
-				});
-				
+				});			
 			});
+			
+			//下一步
       		document.getElementById('next').addEventListener('tap', function() {
 			  if(registerData.pin){
 					var code=$('#code').val();

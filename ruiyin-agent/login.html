@@ -37,15 +37,17 @@
 		<script src="js/jquery-1.11.0.js"></script>
 		<script src="js/api.js"></script>
 		<script type="text/javascript" charset="UTF-8">
-      	mui.init();
       	mui.plusReady(function(){
+      		mui.init();
+      		//注册
       		document.getElementById('register').addEventListener('tap', function() {
-			  //打开注册页面
 			  mui.openWindow({
 			    url: 'register1.html', 
 			    id:'register1'
 			  });
 			});
+			
+			//登录
 			document.getElementById('login').addEventListener('tap',function(){
 			  	var userName=$('#userName').val();
 				var password=$('#logPwd').val();
@@ -57,15 +59,15 @@
 					mui.toast('密码不能为空');
 					return;
 				}
-				window.realtyApi.login(userName,password,function(data){
+				var api=new RealtyApi();
+				api.login(userName,password,function(data){
 					if(data.key){
-						sessionStorage.token=data.key;
+						localStorage["token"]=data.key;
 						mui.back();
 						mui.openWindow({
 						url: 'index.html',
 						id: 'index'
 					});
-					//plus.webview.close('login','none');
 					}else{
 						mui.toast('用户名或密码错误');
 						return;

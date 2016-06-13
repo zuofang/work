@@ -207,7 +207,8 @@
 					"images/bg.jpg",
 					"images/index/left_arrow.svg",
 					"css/app.css",
-					"js/app.js"
+					"js/app.js",
+					"js/jquery-1.11.0.js"
 				],
 				"refer": [
 					"message.html",
@@ -407,7 +408,10 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"images/icon/edit.svg",
-					"images/add_photo/example.jpg"
+					"images/add_photo/example.jpg",
+					"js/vue.js",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -437,7 +441,15 @@
 					"js/mui.poppicker.js",
 					"css/mui.poppicker.css",
 					"css/mui.picker.min.css",
-					"images/icon/loading.gif"
+					"images/icon/loading.gif",
+					"addRealtyInfo.html",
+					"css/main.css",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"js/api.js",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0
