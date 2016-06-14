@@ -8,81 +8,19 @@
     <link href="css/app.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <style>
-    	<style>
-			html,
-			body {
-				background-color: #efeff4;
-			}
-			.mui-bar~.mui-content .mui-fullscreen {
-				top: 44px;
-				height: auto;
-			}
-			.mui-pull-top-tips {
-				position: absolute;
-				top: -20px;
-				left: 50%;
-				margin-left: -25px;
-				width: 40px;
-				height: 40px;
-				border-radius: 100%;
-				z-index: 1;
-			}
-			.mui-bar~.mui-pull-top-tips {
-				top: 24px;
-			}
-			.mui-pull-top-wrapper {
-				width: 42px;
-				height: 42px;
-				display: block;
-				text-align: center;
-				background-color: #efeff4;
-				border: 1px solid #ddd;
-				border-radius: 25px;
-				background-clip: padding-box;
-				box-shadow: 0 4px 10px #bbb;
-				overflow: hidden;
-			}
-			.mui-pull-top-tips.mui-transitioning {
-				-webkit-transition-duration: 200ms;
-				transition-duration: 200ms;
-			}
-			.mui-pull-top-tips .mui-pull-loading {
-				/*-webkit-backface-visibility: hidden;
-				-webkit-transition-duration: 400ms;
-				transition-duration: 400ms;*/
-				
-				margin: 0;
-			}
-			.mui-pull-top-wrapper .mui-icon,
-			.mui-pull-top-wrapper .mui-spinner {
-				margin-top: 7px;
-			}
-			.mui-pull-top-wrapper .mui-icon.mui-reverse {
-				/*-webkit-transform: rotate(180deg) translateZ(0);*/
-			}
-			.mui-pull-bottom-tips {
-				text-align: center;
-				background-color: #efeff4;
-				font-size: 15px;
-				line-height: 40px;
-				color: #777;
-			}
-			.mui-pull-top-canvas {
-				overflow: hidden;
-				background-color: #fafafa;
-				border-radius: 40px;
-				box-shadow: 0 4px 10px #bbb;
-				width: 40px;
-				height: 40px;
-				margin: 0 auto;
-			}
-			.mui-pull-top-canvas canvas {
-				width: 40px;
-			}
-			.mui-slider-indicator.mui-segmented-control {
-				background-color: #efeff4;
-			}
-		</style>
+    .mui-pull-bottom-tips {
+		text-align: center;
+		background-color: #efeff4;
+		font-size: 15px;
+		line-height: 40px;
+		color: #777;
+	}
+	.mui-scroll-wrapper{
+		position: absolute;
+		top: 104px;
+		bottom: 0px;
+		left: 0px;
+	}
     </style>
 </head>
 <body>
@@ -90,53 +28,50 @@
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 	    <h1 class="mui-title">发布列表</h1>
 	</header>
-	<div class="mui-content" id="releaseList">
+	<div class="mui-content mui-fullscreen" id="releaseList">
 		<div style="padding: 10px 10px;">
 				<div class="mui-segmented-control">
 					<a class="mui-control-item mui-active" href="#realtyListContainer">房屋</a>
 					<a class="mui-control-item" href="#comRealtyListContainer">地产</a>				
 				</div>
 		</div>
-		<div id="realtyListContainer" class="mui-control-content mui-active">
-			<div id="scroll1" class="mui-scroll-wrapper">
-				<div class="mui-scroll">
-					 <ul id="realtyList" class="mui-table-view mui-table-view-chevron releaseList ">
-						<li v-for="(index,item) in realtyList" :id="{{'rl'+item.id}}" track-by="id" class="mui-table-view-cell mui-media">		
-							<img class="mui-media-object mui-pull-left" src="{{item.images[0].thumbnail_image}}">
-							<div class="mui-media-body">
-								{{item.name}}
-								<p class='mui-ellipsis'>{{item.date_added}}</p>
-							</div>	
-							<div class="action-list">
-								<span class="dele-icon" @click="delete(item)"></span>
-								<span class="edit-icon" @click="edit({{'rl'+item.id}})"></span>
-								<textarea hidden="">{{item|json}}</textarea>
-							</div>
-						</li>
-					</ul>
-				</div>
+		<div id="realtyListContainer" class="mui-control-content mui-active mui-scroll-wrapper">
+			<div class="mui-scroll">
+				 <ul id="realtyList" class="mui-table-view mui-table-view-chevron releaseList">
+					<li v-for="(index,item) in realtyList" :id="{{'rl'+item.id}}" track-by="id" class="mui-table-view-cell mui-media">		
+						<img class="mui-media-object mui-pull-left" src="{{item.images[0].thumbnail_image}}">
+						<div class="mui-media-body">
+							{{item.name}}
+							<p class='mui-ellipsis'>{{item.date_added}}</p>
+						</div>	
+						<div class="action-list">
+							<span class="dele-icon" @click="delete(item)"></span>
+							<span class="edit-icon" @click="edit({{'rl'+item.id}})"></span>
+							<textarea hidden="">{{item|json}}</textarea>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
-	   <div id="comRealtyListContainer" class="mui-control-content">
-			<div id="scroll1" class="mui-scroll-wrapper">
-				<div class="mui-scroll">
-					 <ul id="comRealtyList" class="mui-table-view mui-table-view-chevron releaseList">
-						<li v-for="(index,item) in comRealtyList" :id="{{'rl'+item.id}}" track-by="id" class="mui-table-view-cell mui-media">		
-							<img class="mui-media-object mui-pull-left" src="{{item.images[0].thumbnail_image}}">
-							<div class="mui-media-body">
-								{{item.name}}
-								<p class='mui-ellipsis'>{{item.date_added}}</p>
-							</div>	
-							<div class="action-list">
-								<span class="dele-icon" @click="delete(item,1)"></span>
-								<span class="edit-icon" @click="edit({{'rl'+item.id}},1)"></span>
-								<textarea hidden="">{{item|json}}</textarea>
-							</div>
-						</li>
-					</ul>
-				</div>
+	   <div id="comRealtyListContainer" class="mui-control-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				 <ul id="comRealtyList" class="mui-table-view mui-table-view-chevron releaseList">
+					<li v-for="(index,item) in comRealtyList" :id="{{'rl'+item.id}}" track-by="id" class="mui-table-view-cell mui-media">		
+						<img class="mui-media-object mui-pull-left" src="{{item.images[0].thumbnail_image}}">
+						<div class="mui-media-body">
+							{{item.name}}
+							<p class='mui-ellipsis'>{{item.date_added}}</p>
+						</div>	
+						<div class="action-list">
+							<span class="dele-icon" @click="delete(item,1)"></span>
+							<span class="edit-icon" @click="edit({{'rl'+item.id}},1)"></span>
+							<textarea hidden="">{{item|json}}</textarea>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div> 
+		
 	</div>
 	<script src="js/mui.min.js"></script>
 	<script src="js/jquery-1.11.0.js"></script>
@@ -149,14 +84,49 @@
     	mui.init();
     	//阻尼系数
 		var deceleration = mui.os.ios?0.003:0.0009;
-		$('.mui-scroll-wrapper').scroll({
+		var str="";
+    	var rlNext=null;
+    	var crlNext=null;
+    	var api=new RealtyApi(localStorage["token"]);
+    	//滚动
+    	mui('.mui-scroll-wrapper').scroll({
 			bounce: false,
 			indicators: true, //是否显示滚动条
 			deceleration:deceleration
 		});
-    	var rlNext="";
-    	var crlNext="";
-    	var api=new RealtyApi(localStorage["token"]);
+		//上拉加载 下拉刷新
+		mui.each(document.querySelectorAll('.mui-scroll'), function(index, pullRefreshEl) {
+			mui(pullRefreshEl).pullToRefresh({
+				up: {
+					contentnomore:'没有更多数据了',
+					callback: function() {
+						if(index==0){
+							if(rlNext!==null){
+								api.getRealtyList(function(data){
+									vm.realtyList=vm.realtyList.concat(data.results);
+									rlNext=data.next;
+								},rlNext);
+								this.endPullUpToRefresh();
+							}else{
+								this.endPullUpToRefresh(true);
+							}
+						}else{
+							if(crlNext!==null){
+								console.log(crlNext);
+								api.getRealtyList(function(data){
+									vm.comRealtyList=vm.comRealtyList.concat(data.results);
+									crlNext=data.next;
+									console.log(crlNext);
+								},crlNext,1);
+								this.endPullUpToRefresh();
+							}else{
+								this.endPullUpToRefresh(true);
+							}
+						}
+					}
+				}
+			});
+		});
     	var vm=new Vue({
     		el:"#releaseList",
     		data:{
@@ -185,12 +155,18 @@
     				if(type==0){
     					mui.openWindow({
 			      			url:'editRealtyPhoto.html',
-			      			id:'editRealtyPhoto'
+			      			id:'editRealtyPhoto',
+			      			extras:{
+								data:data
+							}
 			      		});
     				}else{
     					mui.openWindow({
 			      			url:'editRealtyPhoto.html',
-			      			id:'editRealtyPhoto'
+			      			id:'editRealtyPhoto',
+			      			extras:{
+								data:data
+							}
 			      		});
     				}
     				
@@ -198,6 +174,7 @@
     		}
     	});
     	refurbish(api);
+    	//刷新数据
     	function refurbish(api){
     		api.getRealtyList(function(data){
     			vm.realtyList=data.results;

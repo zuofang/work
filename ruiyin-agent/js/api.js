@@ -168,9 +168,6 @@ RealtyApi.prototype.getRealtyList=function(callBack,url,type){
 		headers:{'Authorization':'Token '+this.token},
 		success:function(data){
 			callBack(data);
-		},
-		error:function(xhr){
-			alert(xhr.readyState);
 		}
 	});
 };

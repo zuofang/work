@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>  
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/mui.picker.min.css" rel="stylesheet" />
+    <link href="css/mui.poppicker.css" rel="stylesheet"/>
+</head>
+<body class="bg-white">
+	<header class="mui-bar mui-bar-nav" style="position: relative;">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">添加信息</h1>
+	    <!--<a id="set" class="mui-icon mui-icon-gear mui-pull-right"></a>-->
+	</header>
+	<div class="mui-content" style="padding-top: 0;">
+	    <form action="" id="info" class="mui-clearfix">
+	    	<h5>详细信息</h5>
+	    	<div><label for="realName">名称</label><input id="realName" type="text"/></div>
+	    	<div>
+	    		<label for="">地域</label>
+				<input id='regionPicker' readonly="" data-value=""></input>
+	    	</div>
+	    	<div>
+	    		<label for="">状态</label>
+				<input id='statusPicker' readonly="" data-value=""></input>
+	    	</div>
+	    	<div><label for="price">价格</label><input type="text" id="price"/></div>
+	    	<div><label for="area">面积</label><input id="area" type="text"/></div>
+	    	<div><label for="year">年份</label><input id="year" type="text"/></div>
+	    	<div>
+	    		<label for="">房屋类型</label>
+	    		<input id='categoryPicker' readonly="" data-value=""></input>	    		
+	    	</div>
+	    	<div class="address"><label for="address">地址</label><textarea id="address"  rows="2"></textarea></div>
+	    	<h5>房屋描述</h5>   	
+	    	<div class="describtion">
+	    		<label for="description">添加描述</label>
+	    		<textarea id="description" rows="7"></textarea>
+	    	</div>  	
+	    	<h5>周边</h5>
+	    	<ul id="surroundings">
+	    		
+	    	</ul>
+	    	<div><label for="">周边类型</label><input id="surTypePicker" readonly="" data-value=""/></div>
+	    	<div><label for="surName">周边名称</label><input id="surName" type="text"/></div>
+	    	<button class="mui-btn" id="addSurBtn">添加周边</button>
+	    </form>
+	</div>
+	<footer class="footer" style="margin-top: 30px;">
+		<button id="releaseInfo" class="action_btn">发布<i class="mui-icon mui-icon-arrowright"></i></button>	
+	</footer>
+	<div id="mask" class="mui-backdrop" style="display: none;">
+		<img src="images/icon/loading.gif" />
+	</div>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/mui.picker.min.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script src="js/api.js"></script>
+	<script type="text/javascript" charset="UTF-8">
+      	mui.plusReady(function() {
+      		mui.init();
+      		var api=new RealtyApi(localStorage["token"]);
+      		var self=plus.webview.currentWebview();
+			var imgs=self.imgs;
+      		var statusData=[{
+				value: 0,
+				text: '出租'
+			}, {
+				value: 1,
+				text: '出售'
+			}];
+			setPicker('statusPicker',statusData);
+			//房屋类型
+			api.getRealtyTypeList(function(data){
+				setPicker('categoryPicker',data);
+			},true);
+			//周边类型
+			api.getFacilityTypeList(function(data){
+				setPicker('surTypePicker',data);
+			});
+			//地域类型
+			api.getRegionList(function(data){
+				setPicker('regionPicker',data);
+			});
+			document.getElementById('releaseInfo').addEventListener('tap',function(){
+      			var btnArray = ['确定','取消' ];
+				mui.confirm('确认发布此信息？','', btnArray, function(e) {
+					if (e.index == 0) {
+						//确定
+						var data={};
+						data.name=$('#realName').val();
+						if(data.name.trim()===""){
+							mui.toast('请输入名称');
+							return;
+						}
+						data.status=$('#statusPicker').data('value');
+						if(isNaN(data.status)){
+							mui.toast('请选择状态');
+							return;
+						}
+						data.region=$('#regionPicker').data('value');
+						if(isNaN(data.region)){
+							mui.toast('请选择地域');
+							return;
+						}
+						data.price=$('#price').val();
+						if(isNaN(data.price)){
+							mui.toast('请输入价格');
+							return;
+						}
+						data.area=$('#area').val();
+						if(isNaN(data.area)){
+							mui.toast('请输入面积');
+							return;
+						}
+						data.year=$('#year').val();
+						if(isNaN(data.year)){
+							mui.toast('请输入年份');
+							return;
+						}
+						data.address=$('#address').val();
+						if(data.address.trim()===""){
+							mui.toast('地址不能为空');
+							return;
+						}					
+						data.description=$('#description').val();
+						if(data.description.trim()===""){
+							mui.toast('请输入房屋描述');
+							return;
+						}
+						data.sort=$('#categoryPicker').data('value');
+						if(isNaN(data.sort)){
+							mui.toast('请选择房屋类型');
+							return;
+						}
+						data.surroundings=[];
+						$('#surroundings li').each(function(){
+							data.surroundings.push({
+								facility: {
+			                        name: $(this).data('name'),
+			                        sort: $(this).data('sort')
+			                    }
+							} 
+							);
+						});
+						$('#mask').show();
+						api.uploadRealty(data,function(data){
+							if(data.image_list){
+								api.uploadImg(data.image_list,imgs,function(){
+									mui.toast('添加成功');
+									plus.webview.close('addComRealtyPhoto',"none");
+						    		plus.webview.close('addComRealtyInfo',"none");
+									mui.openWindow({
+						    			url:'index.html',
+						    			id:'index'
+						    	});
+								});
+							}else{
+								$('#mask').hide();
+								mui.toast('添加失败');
+							}
+						},function(){
+							$('#mask').hide();
+							mui.toast('添加失败');
+						},1);
+					}
+				})
+      	});
+      	//添加周边
+      	document.getElementById('addSurBtn').addEventListener('tap',function(){
+      		var typeName=$('#surTypePicker').val();
+      		var type=$('#surTypePicker').data('value');
+      		var name=$('#surName').val();
+      		if(typeName.trim()===""||name.trim()===""){
+      			mui.toast('请填写完整周边信息');
+      		}else{
+      			$('#surroundings').append('<li data-sort="'+type+'" data-name="'+name+'">'+typeName+'&nbsp;&nbsp;&nbsp;&nbsp;'+name+'<span class="mui-icon mui-icon-trash"></span></li>');
+      			$('#surTypePicker').val('');
+      			$('#surTypePicker').data('value','');
+      			$('#surName').val('');
+      		}
+      	});
+      	//删除周边
+      	$('#surroundings').on('tap','.mui-icon-trash',function(){
+      		$(this).parent('li').remove();
+      	});
+		});
+      	
+      	//创建选择器
+      	function setPicker(id,data){
+      		var picker = new mui.PopPicker();
+			picker.setData(data);		
+			var p = document.getElementById(id);
+				p.addEventListener('tap', function(event) {
+					picker.show(function(items) {
+						if(p.innerHTML){
+							p.innerHTML=items[0].text;
+							$('#'+id).data('value',items[0].value);
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						}else{
+							p.value=items[0].text;
+							$('#'+id).data('value',items[0].value);
+						}
+						
+					});
+				}, false);
+      	}
+    </script>
+</body>
+</html>
