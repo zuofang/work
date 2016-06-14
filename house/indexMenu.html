@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>侧滑页</title>
+		<title>菜单栏</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/iconfont.css" />
 		<link rel="stylesheet" href="css/global.css" />
-		<style type="text/css">
-
-		</style>
 	</head>
-
 	<body>
 		<header style="margin-top: 40px;">
 			<img src="images/side/logo.png" width="148px" style="margin-left: 20px;" />
 			<span id="reg" class="mui-pull-right " style="margin-right: 20px;margin-top: -10px;color: #56ABE4;font-size: 50px;">
 		    		   <img src="images/side/set.svg" width="50"height="50" />
 		    		 <h6 style="margin-left:2px;" >登录/注册</h6>
-		    	</span>
-
+		    </span>
 		</header>
 		<div class="mui-content menu">
 			<ul class="mui-table-view">
-				<li class="mui-table-view-cell" id="recom">
+				<li class="mui-table-view-cell">
 					<div id="closeMenu">
 						<span class="mui-pull-left mui-icon iconfont icon-index"></span>&nbsp;&nbsp;&nbsp;
 						<label>首页推荐</label>
 					</div>
 				</li>
-				<li class="mui-table-view-cell" id="search">
-					<a href="main/search.html">
+				<li class="mui-table-view-cell">
+					<a id="search" href="main/search.html">
 						<span class="mui-pull-left mui-icon  iconfont icon-sousuo"></span>&nbsp;&nbsp;&nbsp;
 						<label>房屋查找</label>
 					</a>
 				</li>
-				<li class="mui-table-view-cell" id="house">
-					<a href="main/commercial_real.html">
+				<li class="mui-table-view-cell">
+					<a id="commercialRealty" href="main/commercialRealty.html">
 						<span class="mui-pull-left mui-icon  iconfont icon-37fangdichan"></span>&nbsp;&nbsp;&nbsp;
 						<label>商业地产</label>
 					</a>
 				</li>
-				<li class="mui-table-view-cell" id="house">
-					<a href="message.html">
+				<li class="mui-table-view-cell">
+					<a id="message" href="message.html">
 						<span class="mui-pull-left mui-icon  iconfont  icon-xiaoxi"></span>&nbsp;&nbsp;&nbsp;
 						<label>我的消息<span class="mui-pull-right mui-badge mui-badge-danger">2</span></label>
 					</a>
 				</li>
-				<li class="mui-table-view-cell" id="attend">
-					<a href="main/attention.html">
+				<li class="mui-table-view-cell">
+					<a id="attention" href="main/attention.html">
 						<span class="mui-pull-left mui-icon  iconfont icon-guanzhu"></span>&nbsp;&nbsp;&nbsp;
 						<label>我的关注</label>
 					</a>
 				</li>
-				<li class="mui-table-view-cell" id="buy">
-					<a href="main/buy.html">
+				<li class="mui-table-view-cell">
+					<a id="buy" href="main/buy.html">
 						<span class="mui-pull-left mui-icon  iconfont icon-liucheng"></span>&nbsp;&nbsp;&nbsp;
 						<label>赴美购屋流程</label>
 					</a>
 				</li>
-				<li class="mui-table-view-cell" id="invest">
-					<a href="main/zongchou.html">
+				<li class="mui-table-view-cell">
+					<a id="crowdFund" href="main/crowdFund.html">
 						<span class="mui-pull-left mui-icon  iconfont icon-wodezhongchou"></span>&nbsp;&nbsp;&nbsp;
 						<label>北美投资/众筹</label>
 					</a>
 				</li>
 				<li class="mui-table-view-cell" id="set">
-					<a href="account/account_set.html">
+					<a id="set" href="account/set.html">
 						<span class="mui-pull-left mui-icon iconfont icon-shezhi"></span>&nbsp;&nbsp;&nbsp;
 						<label>账户设置</label>
 					</a>
@@ -81,25 +75,23 @@
 		</footer>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" charset="UTF-8">
+		mui.ready(function(){
 			mui.init();
 			document.getElementById('reg').addEventListener('tap', function() {
 				//打开登录注册页面
-				close();
 				mui.openWindow({
 					url: 'account/login.html',
 					id: 'login'
 				});
 			});
 			mui('.mui-table-view').on('tap', 'a', function() {
-				var id = this.getAttribute("href");
+				var id = this.getAttribute("id");
 				var href = this.href;
-				close();
 				mui.openWindow({
 					id: id,
 					url: href
 				});
 			});
-
 			function close() {
 				mui.fire(mui.currentWebview.opener(), "menu:close");
 			}
@@ -120,6 +112,7 @@
 					close();
 				}
 			});
+		})	
 		</script>
 	</body>
 

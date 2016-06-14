@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/global.css" rel="stylesheet" />
 		<link href="../css/mui.picker.min.css" rel="stylesheet" />
 		<link href="../css/mui.poppicker.css" rel="stylesheet" />
 		<link href="../css/search.css" rel="stylesheet" />
-
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav" style="background: #1AAEED;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">房屋查找</h1>
-
 		</header>
 		<div class="mui-content">
 			<div class="search-tab">
@@ -35,7 +30,6 @@
 
 			<div>
 				<div id="item1" class="mui-control-content mui-active">
-
 					<div class="sel">
 						<label>房屋类型:</label>
 						<input id='statusPicker' readonly="" />
@@ -48,10 +42,7 @@
 						<label>卫生间数:</label>
 						<input id='wcPicker' readonly="" />
 					</div>
-					<div class="sel">
-						<label>装修:</label>
-						<input id='decoratePicker' readonly="" />
-					</div>
+	
 					<div class="sel">
 						<label>输入关键字:</label>
 						<input type="text" />
@@ -120,8 +111,8 @@
 			document.getElementById('sur').addEventListener('tap', function() {
 				//打开注册页面
 				mui.openWindow({
-					url: '../main/search_detail.html',
-					id: 'search_detail'
+					url: '../main/searchReuslt.html',
+					id: 'searchResult'
 				});
 			});
 			//创建选择器

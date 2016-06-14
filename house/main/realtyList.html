@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商业地产</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../css/commercial_real.css" />
+		<link rel="stylesheet" href="../css/cui.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">商业地产</h1>
+		</header>
+		<div class="mui-content">
+			<div class="wrap ">
+				<div class="nice-select select-left" name="nice-select">
+					<input value="地区:" readonly="readonly" type="text">
+					<ul style="display: none;">
+						<li data-value="1">洛杉矶</li>
+						<li data-value="2">纽约</li>
+						<li data-value="3">华盛顿</li>
+					</ul>
+				</div>
+				<div class="nice-select select-right " name="nice-select">
+					<input value="类型:" readonly="readonly" type="text">
+					<ul style="display: none;">
+						<li data-value="1">洛杉矶</li>
+						<li data-value="2">纽约</li>
+						<li data-value="3">华盛顿</li>
+				</div>
+			</div>
+			<ul class="mui-table-view" style="padding-bottom: -1px;" id="realtyList">
+				<li class="img-view" v-for="item in realtyList" @click="detail(item.id)" track-by="id">
+						<img src="{{item.images[0].file}}" width="100%" height="135px" />
+						<div class="price">
+							<div class="detail">
+								<h5>  ${{item.price}} </h5>
+								<h5>{{item.room_num}} bd {{item.parlour_num}} ba</h5>
+								<img src="../images/index/red.svg" />
+							</div>
+						</div>
+						<textarea id="{{'ta'+item.id}}" hidden="hidden">{{item|json}}</textarea>
+				</li>
+			</ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/select.js"></script>
+		<script>
+		mui.init();
+		mui.ready(function(){
+			//下一页
+			var next="";
+			//总数
+			var count=0;
+			var realtyList={};
+			var vm=new Vue({
+				el:"#realtyList",
+				data:{
+					realtyList:realtyList
+				},
+				methods:{
+					detail:function(id){
+						var house= document.getElementById('ta'+id).innerText;
+							mui.openWindow({
+								url: './commercial_detailpage.html',
+								id: 'comRealtyDetail',
+								extras:{
+									house:house
+								}
+							});
+						
+					}
+				}
+			});
+			window.realtyApi.getCommercialRealtyList(function(data){
+				count=data.count;
+				next=data.next;
+				vm.realtyList=data.results;
+			});
+		})
+		
+	</script>
+	</body>
+
+</html>

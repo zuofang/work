@@ -68,14 +68,12 @@
 					window.realtyApi.register(registerData,function(data){
 						if(data.key){
 							mui.toast('注册成功');					
-							sessionStorage["token"]=data.key;
-//							mui.back();
+							localStorage["token"]=data.key;
+							plus.webview.close('login');
 							mui.openWindow({
 								url: '../index.html',
 								id: 'index'							
-							});
-							
-							
+							});										
 						}else{
 							mui.toast('注册失败');
 							return;

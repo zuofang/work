@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -20,24 +19,19 @@
 				border: 1px solid #fff;
 				border-radius: 5px;
 			}
-			
 			#enter p {
 				color: #fff;
 				font-size: 18px;
 			}
 		</style>
-
 	</head>
-
 	<body>
-
 		<div class="mui-content">
 			<div class="mui-slider">
 				<div class="mui-slider-group">
 					<div class="mui-slider-item">
 						<a href="javascript:;">
 							<img src="images/guide/1.png" id="_d1" />
-
 						</a>
 					</div>
 					<div class="mui-slider-item">
@@ -54,7 +48,6 @@
 						    </button>
 						</a>
 					</div>
-
 				</div>
 
 			</div>
@@ -63,12 +56,12 @@
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 			mui.plusReady(function() {
+				var self=plus.webview.currentWebview();
+				self.opener().hide();
 				var h = window.innerHeight;
 				document.getElementById("_d1").style.height = h + "px";
 				document.getElementById("_d2").style.height = h + "px";
 				document.getElementById("_d3").style.height = h + "px";
-				var self = plus.webview.currentWebview();
-				self.opener().hide("none");
 				document.getElementById("enter").addEventListener("tap", function() {
 					plus.storage.setItem("IsFirst", "true");
 					mui.openWindow({
@@ -80,7 +73,6 @@
 					});
 				});
 			});
-			javascript: ;
 		</script>
 	</body>
 

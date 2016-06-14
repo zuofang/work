@@ -6,13 +6,16 @@
 			"css/global.css",
 			"css/iconfont.css",
 			"list.html",
-			"fonts/iconfont.ttf"
+			"fonts/iconfont.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"index-menu.html",
 			"list.html",
 			"main/search.html",
-			"message.html"
+			"message.html",
+			"indexMenu.html"
 		]
 	},
 	"guide.html": {
@@ -20,7 +23,9 @@
 			"images/guide/3.png",
 			"images/guide/2.png",
 			"images/guide/1.png",
-			"images/guide/guide_logo.png"
+			"images/guide/guide_logo.png",
+			"css/mui.min.css",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"index.html"
@@ -215,7 +220,8 @@
 			"js/api.js"
 		],
 		"refer": [
-			"account/regist.html"
+			"account/regist.html",
+			"index.html"
 		]
 	},
 	"account/regist.html": {
@@ -259,5 +265,28 @@
 			"css/cui.css"
 		],
 		"refer": []
+	},
+	"loadingPage.html": {
+		"resources": [
+			"js/mui.min.js"
+		],
+		"refer": [
+			"guide.html"
+		]
+	},
+	"indexMenu.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/global.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"images/side/set.svg",
+			"images/side/logo.png"
+		],
+		"refer": [
+			"account/login.html",
+			"main/search.html"
+		]
 	}
 }

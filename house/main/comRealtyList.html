@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>商业地产</title>
-
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/global.css" />
 		<link rel="stylesheet" href="../css/iconfont.css" />
 		<link rel="stylesheet" href="../css/commercial_real.css" />
 		<link rel="stylesheet" href="../css/cui.css" />
-
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-
 			<h1 class="mui-title">商业地产</h1>
-
 		</header>
 		<div class="mui-content">
 			<div class="wrap ">
@@ -37,9 +31,7 @@
 						<li data-value="1">洛杉矶</li>
 						<li data-value="2">纽约</li>
 						<li data-value="3">华盛顿</li>
-
 				</div>
-
 			</div>
 			<ul class="mui-table-view" style="padding-bottom: -1px;" id="realtyList">
 				<li class="img-view" v-for="item in realtyList" @click="detail(item.id)" track-by="id">
@@ -53,7 +45,6 @@
 						</div>
 						<textarea id="{{'ta'+item.id}}" hidden="hidden">{{item|json}}</textarea>
 				</li>
-				
 			</ul>
 		</div>
 		<script src="../js/mui.min.js"></script>
