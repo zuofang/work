@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的关注</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<link rel="stylesheet" href="../css/commercial_real.css" />
+		<link rel="stylesheet" href="../css/search_detail.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的关注</h1>
+		</header>
+		<div class="mui-content">
+			<div style="padding: 10px 10px;">
+				<div class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#realtyListContainer">房屋</a>
+					<a class="mui-control-item" href="#comRealtyListContainer">地产</a>				
+				</div>
+		</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script>
+			mui.init();
+			var subpages = [];
+			var subpage_style = {
+				top: '45px',
+				bottom: '51px'
+			};
+		</script>
+	</body>
+
+</html>

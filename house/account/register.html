@@ -39,6 +39,7 @@
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
 			mui.plusReady(function(){
+				var api=new RealtyApi();
 				var self=plus.webview.currentWebview();
 				var registerData=self.registerData;
 				document.getElementById('regiserBtn').addEventListener('tap',function(){
@@ -65,11 +66,12 @@
 					registerData.type=2;
 					registerData.angent_no="";
 					console.log(registerData);
-					window.realtyApi.register(registerData,function(data){
+					api.register(registerData,function(data){
 						if(data.key){
 							mui.toast('注册成功');					
 							localStorage["token"]=data.key;
 							plus.webview.close('login');
+							plus.webview.close('register');
 							mui.openWindow({
 								url: '../index.html',
 								id: 'index'							

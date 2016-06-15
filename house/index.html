@@ -26,8 +26,11 @@
 		<script>
 			mui.plusReady(function() {
 				var self=plus.webview.currentWebview();
-				self.opener().close('none');
-//				plus.webview.close('login','none');
+				if(self.opener().id=="guide"){
+					self.opener().close('none');
+				}else{
+					self.opener().hide();
+				}
 				var menu = null;
 				var main = null;
 				var showMenu = false;
@@ -180,7 +183,7 @@
 			});
 			document.getElementById("head_message").addEventListener('tap', function() {
 				mui.openWindow({
-					url: 'message.html',
+					url: 'account/message.html',
 					id: 'message',
 					waiting: {
 						autoShow: false

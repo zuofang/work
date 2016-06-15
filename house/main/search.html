@@ -19,11 +19,11 @@
 			<div class="search-tab">
 				<div id="segmentedControl" class="mui-segmented-control">
 					<a class="mui-control-item mui-active" href="#item1" style="border: none;">
-				                  买房
-		                </a>
+				                  地产
+					</a>
 					<a class="mui-control-item" href="#item1" style="border: none;">
-			                        租房
-			             </a>
+			                        房屋			             
+					</a>
 
 				</div>
 			</div>
@@ -63,71 +63,73 @@
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
 			mui.ready(function() {
-				var statusData = [{
-					value: 0,
-					text: '联排别墅'
-				}, {
-					value: 1,
-					text: '大别墅'
-				}, {
-					value: 2,
-					text: '小别墅'
-				}];
-				var roomData = [{
-					value: 0,
-					text: '1'
-				}, {
-					value: 1,
-					text: '2'
-				}, {
-					value: 2,
-					text: '3'
-				}];
-				var wcData = [{
-					value: 0,
-					text: '1'
-				}, {
-					value: 1,
-					text: '2'
-				}, {
-					value: 2,
-					text: '3'
-				}];
-				var decorateData = [{
-					value: 0,
-					text: '简装'
-				}, {
-					value: 1,
-					text: '精装'
-				}, {
-					value: 2,
-					text: '奢华'
-				}];
-				setPicker('statusPicker', statusData);
-				setPicker('roomPicker', roomData);
-				setPicker('wcPicker', wcData);
-				setPicker('decoratePicker', decorateData);
+//				var statusData = [{
+//					value: 0,
+//					text: '联排别墅'
+//				}, {
+//					value: 1,
+//					text: '大别墅'
+//				}, {
+//					value: 2,
+//					text: '小别墅'
+//				}];
+//				var roomData = [{
+//					value: 0,
+//					text: '1'
+//				}, {
+//					value: 1,
+//					text: '2'
+//				}, {
+//					value: 2,
+//					text: '3'
+//				}];
+//				var wcData = [{
+//					value: 0,
+//					text: '1'
+//				}, {
+//					value: 1,
+//					text: '2'
+//				}, {
+//					value: 2,
+//					text: '3'
+//				}];
+//				var decorateData = [{
+//					value: 0,
+//					text: '简装'
+//				}, {
+//					value: 1,
+//					text: '精装'
+//				}, {
+//					value: 2,
+//					text: '奢华'
+//				}];
+//				setPicker('statusPicker', statusData);
+//				setPicker('roomPicker', roomData);
+//				setPicker('wcPicker', wcData);
+//				setPicker('decoratePicker', decorateData);
 			});
 			document.getElementById('sur').addEventListener('tap', function() {
-				//打开注册页面
 				mui.openWindow({
-					url: '../main/searchReuslt.html',
-					id: 'searchResult'
+					url: 'comRealtyListContainer.html',
+					id: 'comRealtyListContainer',
+					waiting: {
+							autoShow: false
+					}
 				});
 			});
 			//创建选择器
-			function setPicker(id, data) {
-				var picker = new mui.PopPicker();
-				picker.setData(data);
-				var p = document.getElementById(id);
-				p.addEventListener('tap', function(event) {
-					picker.show(function(items) {
-						p.value = items[0].text;
-						//返回 false 可以阻止选择框的关闭
-						//return false;
-					});
-				}, false);
-			}
+//			function setPicker(id, data) {
+//				var picker = new mui.PopPicker();
+//				picker.setData(data);
+//				var p = document.getElementById(id);
+//				p.addEventListener('tap', function(event) {
+//					picker.show(function(items) {
+//						p.value = items[0].text;
+//						//返回 false 可以阻止选择框的关闭
+//						//return false;
+//					});
+//				}, false);
+//			}
 		</script>
 	</body>
 

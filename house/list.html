@@ -83,7 +83,7 @@
 				</div>
 			</div>
 			<div class="mui-input-row" style="margin: 20px;">
-				<button type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
+				<button id="moreRealtyBtn" type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
 			</div>
 
 			<!--end 图片展示-->
@@ -161,7 +161,7 @@
 				</div>
 			</div>
 			<div class="mui-input-row" style="margin: 20px;">
-				<button type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
+				<button id="moreComRealtyBtn" type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
 			</div>
 			<!--end图片展示-->
 			<!--广告区-->
@@ -179,6 +179,24 @@
 				mui.openWindow({
 					id: id,
 					url: 'main/realtyDetail.html'
+				});
+			});
+			document.getElementById('moreRealtyBtn').addEventListener('tap',function(){
+				mui.openWindow({
+					id: 'realtyListContainer',
+					url: 'main/realtyListContainer.html',
+					waiting: {
+							autoShow: false
+					}
+				});
+			});
+			document.getElementById('moreComRealtyBtn').addEventListener('tap',function(){
+				mui.openWindow({
+					id: 'comRealtyListContainer',
+					url: 'main/comRealtyListContainer.html',
+					waiting: {
+							autoShow: false
+					}
 				});
 			});
 		</script>

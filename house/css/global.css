@@ -229,3 +229,14 @@ header .icon-xiaoxi {
     	  	font-weight: bold;
     	  }
      /*buy*/	  
+     
+.mui-segmented-control{
+	border-color: #1AAEED;
+}
+.mui-segmented-control .mui-control-item{
+	color: #1AAEED;
+	border-left-color: #1AAEED;
+}
+.mui-segmented-control .mui-control-item.mui-active{
+	background-color: #1AAEED;
+}
