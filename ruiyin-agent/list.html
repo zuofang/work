@@ -102,7 +102,7 @@
 					callback: function() {
 						if(index==0){
 							if(rlNext!==null){
-								api.getRealtyList(function(data){
+								api.getMyRealtyList(function(data){
 									vm.realtyList=vm.realtyList.concat(data.results);
 									rlNext=data.next;
 								},rlNext);
@@ -113,7 +113,7 @@
 						}else{
 							if(crlNext!==null){
 								console.log(crlNext);
-								api.getRealtyList(function(data){
+								api.getMyRealtyList(function(data){
 									vm.comRealtyList=vm.comRealtyList.concat(data.results);
 									crlNext=data.next;
 									console.log(crlNext);
@@ -176,11 +176,11 @@
     	refurbish(api);
     	//刷新数据
     	function refurbish(api){
-    		api.getRealtyList(function(data){
+    		api.getMyRealtyList(function(data){
     			vm.realtyList=data.results;
     			rlNext=data.next;
     		});
-    		api.getRealtyList(function(data){
+    		api.getMyRealtyList(function(data){
     			vm.comRealtyList=data.results;
     			crlNext=data.next;
     		},"",1);

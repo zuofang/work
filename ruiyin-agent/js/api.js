@@ -155,8 +155,8 @@ RealtyApi.prototype.uploadImg=function(url,files,callBack,index){
 			task.start();
 };
 
-//发布列表
-RealtyApi.prototype.getRealtyList=function(callBack,url,type){
+//我的发布列表
+RealtyApi.prototype.getMyRealtyList=function(callBack,url,type){
 	url=url||"";
 	type=type||0;
 	if(url==""){
