@@ -18,118 +18,224 @@
 		<div class="mui-content">
 			<div class="search-tab">
 				<div id="segmentedControl" class="mui-segmented-control">
-					<a class="mui-control-item mui-active" href="#item1" style="border: none;">
-				                  地产
+					<a class="mui-control-item mui-active" href="#realtyTab" style="border: none;">
+				    房屋	
 					</a>
-					<a class="mui-control-item" href="#item1" style="border: none;">
-			                        房屋			             
+					<a class="mui-control-item" href="#comRealtyTab" style="border: none;">
+			                地产       			             
 					</a>
-
 				</div>
 			</div>
 
 			<div>
-				<div id="item1" class="mui-control-content mui-active">
+				<div id="realtyTab" class="mui-control-content mui-active">
+					<div class="sel">
+						<label>房屋状态:</label>
+						<input id='reStatusPicker' readonly="" data-value=""></input>
+					</div>
 					<div class="sel">
 						<label>房屋类型:</label>
-						<input id='statusPicker' readonly="" />
+						<input id='reTypePicker' readonly="" data-value=""></input>
 					</div>
 					<div class="sel">
-						<label>房间数:</label>
-						<input id='roomPicker' readonly="" />
+						<label>地域:</label>
+						<input id='reRegionPicker' readonly="" data-value=""></input>
 					</div>
 					<div class="sel">
-						<label>卫生间数:</label>
-						<input id='wcPicker' readonly="" />
+						<label>年代:</label>
+						<input id='reYearPicker' readonly="" data-gt="" data-lt=""></input>
 					</div>
-	
 					<div class="sel">
-						<label>输入关键字:</label>
-						<input type="text" />
+						<label>面积:</label>
+						<input id='reAreaPicker' readonly="" data-gt="" data-lt=""></input>
+					</div>
+					<div class="sel">
+						<label>关键字:</label>
+						<input id="reKeyWord" type="text" />
 					</div>
 				</div>
-
+				<div id="comRealtyTab" class="mui-control-content">
+					<div class="sel">
+						<label>房屋状态:</label>
+						<input id='comStatusPicker' readonly="" data-value=""></input>
+					</div>
+					<div class="sel">
+						<label>地产类型:</label>
+						<input id='comTypePicker' readonly="" data-value=""></input>
+					</div>
+					<div class="sel">
+						<label>地域:</label>
+						<input id='comRegionPicker' readonly="" data-value=""></input>
+					</div>
+					<div class="sel">
+						<label>年代:</label>
+						<input id='comYearPicker' readonly="" data-gt="" data-lt=""></input>					
+					</div>
+					<div class="sel">
+						<label>面积:</label>
+						<input id='comAreaPicker' readonly="" data-gt="" data-lt=""></input>
+					</div>
+					<div class="sel">
+						<label>关键字:</label>
+						<input id="comKeyWord" type="text" />
+					</div>
+				</div>
 			</div>
 			<div class="mui-button-row">
 				<button class="mui-btn mui-btn-primary  " style="padding: 10px 19%;background: #1AAEED;border: none; ">取消</button>
-				<button id="sur" class="mui-btn mui-btn-primary " style="padding: 10px 19%; background: #1AAEED;border: none;">确定</button>
+				<button id="searchBtn" class="mui-btn mui-btn-primary " style="padding: 10px 19%; background: #1AAEED;border: none;">确定</button>
 			</div>
 		</div>
 
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/mui.picker.min.js"></script>
 		<script src="../js/mui.poppicker.js"></script>
-
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/api.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
 			mui.ready(function() {
-//				var statusData = [{
-//					value: 0,
-//					text: '联排别墅'
-//				}, {
-//					value: 1,
-//					text: '大别墅'
-//				}, {
-//					value: 2,
-//					text: '小别墅'
-//				}];
-//				var roomData = [{
-//					value: 0,
-//					text: '1'
-//				}, {
-//					value: 1,
-//					text: '2'
-//				}, {
-//					value: 2,
-//					text: '3'
-//				}];
-//				var wcData = [{
-//					value: 0,
-//					text: '1'
-//				}, {
-//					value: 1,
-//					text: '2'
-//				}, {
-//					value: 2,
-//					text: '3'
-//				}];
-//				var decorateData = [{
-//					value: 0,
-//					text: '简装'
-//				}, {
-//					value: 1,
-//					text: '精装'
-//				}, {
-//					value: 2,
-//					text: '奢华'
-//				}];
-//				setPicker('statusPicker', statusData);
-//				setPicker('roomPicker', roomData);
-//				setPicker('wcPicker', wcData);
-//				setPicker('decoratePicker', decorateData);
-			});
-			document.getElementById('sur').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'comRealtyListContainer.html',
-					id: 'comRealtyListContainer',
-					waiting: {
-							autoShow: false
+				var api=new RealtyApi(localStorage["token"]);
+				//状态选择器
+				var statusData=[{
+					value: 0,
+					text: '出租'
+				}, {
+					value: 1,
+					text: '出售'
+				}];
+				setPicker('reStatusPicker',statusData);
+				setPicker('comStatusPicker',statusData);
+				//年代选择器
+				var yearData=[{
+					gt:2010,
+					text:'2010年以后'
+				},{
+					gt:2000,
+					lt:2010,
+					text:'2000~2010年'
+				},{
+					gt:1990,
+					lt:2000,
+					text:'1990~2000年'
+				},{
+					gt:1980,
+					lt:1990,
+					text:'1980~1990年'
+				},
+				{
+					lt:1980,
+					text:'1980年以前'
+				}];
+				setPicker('reYearPicker',yearData,true);
+				setPicker('comYearPicker',yearData,true);
+				//面积选择器
+				var areaData=[{
+					gt:100,
+					text:'100平方以上'
+				},{
+					gt:90,
+					lt:100,
+					text:'90~100平方'
+				},{
+					gt:80,
+					lt:90,
+					text:'80~90平方'
+				},{
+					lt:80,
+					text:'80平方以下'
+				}];
+				setPicker('reAreaPicker',areaData,true);
+				setPicker('comAreaPicker',areaData,true);
+				//房屋类型
+				api.getRealtyTypeList(function(data){
+					var reTypeData=[];
+					var comTypeData=[];
+					for(var item in data){
+						if(data[item].commercial){
+							comTypeData.push({
+								value:data[item].id,
+								text:data[item].name
+							});
+						}else{
+							reTypeData.push({
+								value:data[item].id,
+								text:data[item].name
+							});	
+						}
 					}
+					setPicker('reTypePicker',reTypeData);
+					setPicker('comTypePicker',comTypeData);
 				});
+				//地域类型
+				api.getRegionList(function(data){
+					setPicker('reRegionPicker',data);
+					setPicker('comRegionPicker',data);
+				});
+				//搜索
+				document.getElementById('searchBtn').addEventListener('tap', function() {
+					var data={};
+					if(document.querySelector('.mui-active').getAttribute('href')==="#realtyTab"){
+						data.status=$('#reStatusPicker').data('value');
+						data.sort=$('#reTypePicker').data('value');
+						data.region=$('#reRegionPicker').data('value');
+						data.year__gte=$('#reYearPicker').data('gt');
+						data.year__lte=$('#reYearPicker').data('lt');
+						data.area__gte=$('#reAreaPicker').data('gt');
+						data.area__lte=$('#reAreaPicker').data('lt');
+						data.search=$('#reKeyWord').val();
+						mui.openWindow({
+							url: 'realtyListContainer.html',
+							id: 'realtyListContainer',
+							waiting: {
+								autoShow: false
+							},
+							extras:{
+								data:data
+							}
+						});
+					}else{
+						data.status=$('#comStatusPicker').data('value');
+						data.sort=$('#comTypePicker').data('value');
+						data.region=$('#comRegionPicker').data('value');
+						data.year__gte=$('#comYearPicker').data('gt');
+						data.year__lte=$('#comYearPicker').data('lt');
+						data.area__gte=$('#comAreaPicker').data('gt');
+						data.area__lte=$('#comAreaPicker').data('lt');
+						data.search=$('#comKeyWord').val();
+						mui.openWindow({
+							url: 'comRealtyListContainer.html',
+							id: 'comRealtyListContainer',
+							waiting: {
+									autoShow: false
+							},
+							extras:{
+								data:data
+							}
+						});
+					}
 			});
-			//创建选择器
-//			function setPicker(id, data) {
-//				var picker = new mui.PopPicker();
-//				picker.setData(data);
-//				var p = document.getElementById(id);
-//				p.addEventListener('tap', function(event) {
-//					picker.show(function(items) {
-//						p.value = items[0].text;
-//						//返回 false 可以阻止选择框的关闭
-//						//return false;
-//					});
-//				}, false);
-//			}
+			});
+			
+		//创建选择器
+      	function setPicker(id,data,isRange){
+      		isRange=isRange||false;
+      		var picker = new mui.PopPicker();
+			picker.setData(data);		
+			var p = document.getElementById(id);
+				p.addEventListener('tap', function(event) {
+					picker.show(function(items) {
+						p.value=items[0].text;
+						if(isRange){
+							$('#'+id).data('gt',items[0].gt);
+							$('#'+id).data('lt',items[0].lt);
+						}else{
+							
+							$('#'+id).data('value',items[0].value);
+						}
+					});
+				}, false);
+      	}
 		</script>
 	</body>
 

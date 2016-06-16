@@ -12,7 +12,12 @@
 		<link rel="stylesheet" href="../css/global.css" />
 		<link rel="stylesheet" href="../css/cd_and_hs.css" />
 		<link rel="stylesheet" href="../css/iconfont.css" />
-
+		<style>
+			.mui-media-object{
+				width: 100%!important;
+				height: 135px!important;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -31,20 +36,15 @@
 		<div class="mui-content" id="realtyDetail">
 			<div class="mui-slider ">
 				<div class="mui-slider-group mui-slider-loop">
-					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一个图文表格) -->
-					<template v-for="item in house.images">
-						<div class="mui-slider-item">
-							<img style="width: 100%;" class="mui-media-object" src="{{item.file}}" data-preview-src="" data-preview-group="1">
-						</div>
-					</template>
-					<!--<div class="mui-slider-item mui-slider-item-duplicate">
-						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_01.jpg" data-preview-src="">
-					</div>-->
-					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一个图文表格) -->
-
-					<!--<div class="mui-slider-item mui-slider-item-duplicate">
-						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_01.jpg" data-preview-src="">
-					</div>-->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img class="mui-media-object" src="{{house.images[house.images.length-1].big_image}}" data-preview-src="">
+					</div>
+					<div class="mui-slider-item " v-for="item in house.images">
+						<img class="mui-media-object" src="{{item.big_image}}" data-preview-src="" data-preview-group="1">
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img class="mui-media-object" src="{{house.images[0].big_image}}" data-preview-src="">
+					</div>
 				</div>
 
 				<div class="mui-slider-indicator">
@@ -55,7 +55,7 @@
 					<span class="mui-action mui-action-next mui-icon mui-icon-forward"></span>
 
 				</div>
-				<span class=" mui-icon iconfont icon-aixin "></span>
+				<!--<span class=" mui-icon iconfont icon-aixin "></span>-->
 			</div>
 
 			<div class="adder mui-clearfix">
@@ -113,23 +113,20 @@
 			<div class="mui-card">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell mui-collapse real-global" style="">
-						<a class="mui-navigate-right" href="#">2015年房产税</a>
+						<a class="mui-navigate-right" href="#">年房产税</a>
 						<div class="mui-collapse-content">
 							<div class="mui-row">
-								<label>2015房产税</label>
-								<span>${{tax}}</span>
+								<label>房产税</label>
+								<span>${{house.tax}}</span>
 							</div>
 						</div>
 					</li>
 					<li class="mui-table-view-cell mui-collapse">
-						<a class="mui-navigate-right" href="#">周边学校</a>
+						<a class="mui-navigate-right" href="#">周边</a>
 						<div class="mui-collapse-content">
-							<template v-for="item in house.surroundings">
-								<div class="mui-row">
-									<span>{{item.facility.name}}</span>
-								</div>
-							</template>
-
+							<div class="mui-row" v-for="item in house.surroundings">
+								<span>{{item.facility.name}}</span>
+							</div>
 						</div>
 					</li>
 				</ul>
@@ -148,7 +145,7 @@
 			mui.init();
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
-				var house = JSON.parse(self.house);
+				var house = self.house;
 				new Vue({
 					el: "#realtyDetail",
 					data: {
@@ -162,15 +159,15 @@
 						}
 					}
 				});
-				mui.previewImage();
-				document.getElementById('back').addEventListener('tap',function(){
-					mui.back();
-				});
+				mui.previewImage();			
 				document.getElementById('person').addEventListener('tap', function() {
-					//打开send
+					//发送消息
 					mui.openWindow({
-						url: '../main/send_mes.html',
-						id: 'send_mes'
+						url: 'sendMessage.html',
+						id: 'sendMessage',
+						waiting: {
+							autoShow: false
+						}
 					});
 				});
 			})

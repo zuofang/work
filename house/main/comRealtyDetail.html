@@ -6,44 +6,42 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<title></title>
+		<title>地产详情</title>
 
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/global.css" />
 		<link rel="stylesheet" href="../css/cd_and_hs.css" />
 		<link rel="stylesheet" href="../css/iconfont.css" />
-
+		<style>
+			.mui-media-object{
+				width: 100%!important;
+				height: 135px!important;
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-
-			<span class="mui-pull-right mui-icon iconfont icon-03fenxiang " style="color: #fff;">
-					
+			<span class="mui-pull-right mui-icon iconfont icon-03fenxiang " style="color: #fff;">	
 				</span>
 			<h1 class="mui-title">商业地产</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
 			<button id="person" class="mui-btn mui-btn-primary mui-btn-block">和我们联系,为您一站式服务</button>
 		</nav>
-		<div class="mui-content" id="realtyDetail">
+		<div class="mui-content" id="comRealtyDetail">
 			<div class="mui-slider ">
 				<div class="mui-slider-group mui-slider-loop">
-					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一个图文表格) -->
-					<template v-for="item in house.images">
-						<div class="mui-slider-item">
-							<img style="width: 100%;" class="mui-media-object" src="{{item.file}}" data-preview-src="" data-preview-group="1">
-						</div>
-					</template>
-					<!--<div class="mui-slider-item mui-slider-item-duplicate">
-						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_01.jpg" data-preview-src="">
-					</div>-->
-					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一个图文表格) -->
-
-					<!--<div class="mui-slider-item mui-slider-item-duplicate">
-						<img style="width: 100%;" class="mui-media-object" src="../images/hourse_search/search_01.jpg" data-preview-src="">
-					</div>-->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img class="mui-media-object" src="{{house.images[house.images.length-1].big_image}}" data-preview-src="">
+					</div>
+					<div class="mui-slider-item " v-for="item in house.images">
+						<img class="mui-media-object" src="{{item.big_image}}" data-preview-src="" data-preview-group="1">
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img class="mui-media-object" src="{{house.images[0].big_image}}" data-preview-src="">
+					</div>
 				</div>
 
 				<div class="mui-slider-indicator">
@@ -54,7 +52,7 @@
 					<span class="mui-action mui-action-next mui-icon mui-icon-forward"></span>
 
 				</div>
-				<span class=" mui-icon iconfont icon-aixin "></span>
+			<!--	<span class=" mui-icon iconfont icon-aixin "></span>-->
 			</div>
 
 			<div class="adder mui-clearfix">
@@ -80,22 +78,13 @@
 						<span>{{house.price}}</span>
 					</li>
 					<li>
+						<label>面积</label>
+						<span>{{house.area}}</span>
+					</li>
+					<li>
 						<label>平方均价</label>
 						<span>{{avgPrice}}</span>
 					</li>
-					<li>
-						<label>房间</label>
-						<span>{{house.room_num}}</span>
-					</li>
-					<li>
-						<label>客厅</label>
-						<span>{{house.parlour_num}}</span>
-					</li>
-					<li>
-						<label>厕所</label>
-						<span>{{house.toilet_num}}</span>
-					</li>
-
 					<li class="mui-clearfix address">
 						<label style="">地址</label>
 						<p style="">{{house.address}}</p>
@@ -108,7 +97,18 @@
 				<h4>房屋描述</h4>
 				<p>{{house.description}}</p>
 			</div>
-
+			<div class="mui-card">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">周边</a>
+						<div class="mui-collapse-content">
+								<div class="mui-row" v-for="item in house.surroundings">
+									<span>{{item.facility.name}}</span>
+								</div>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 
 		<script src="../js/mui.min.js"></script>
@@ -119,9 +119,9 @@
 			mui.init();
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
-				var house = JSON.parse(self.house);
+				var house = self.house;
 				new Vue({
-					el: "#realtyDetail",
+					el: "#comRealtyDetail",
 					data: {
 						house: house
 					},
@@ -134,14 +134,14 @@
 					}
 				});
 				mui.previewImage();
-				document.getElementById('back').addEventListener('tap',function(){
-					mui.back();
-				});
 				document.getElementById('person').addEventListener('tap', function() {
-					//打开send
+					//发送消息					
 					mui.openWindow({
-						url: '../main/send_mes.html',
-						id: 'send_mes'
+						url: 'sendMessage.html',
+						id: 'sendMessage',
+						waiting: {
+							autoShow: false
+						}
 					});
 				});
 			})

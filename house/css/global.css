@@ -229,7 +229,7 @@ header .icon-xiaoxi {
     	  	font-weight: bold;
     	  }
      /*buy*/	  
-     
+/*选项卡*/
 .mui-segmented-control{
 	border-color: #1AAEED;
 }
@@ -239,4 +239,12 @@ header .icon-xiaoxi {
 }
 .mui-segmented-control .mui-control-item.mui-active{
 	background-color: #1AAEED;
+}
+/*等待*/
+.loading{
+	display: block;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-left: -30px;
 }
