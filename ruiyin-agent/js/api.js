@@ -155,16 +155,17 @@ RealtyApi.prototype.uploadImg=function(url,files,callBack,index){
 			task.start();
 };
 
-//我的发布列表
+//我的发布列表 1 房屋 2 地产
 RealtyApi.prototype.getMyRealtyList=function(callBack,url,type){
-	url=url||"";
-	type=type||0;
-	if(url==""){
-		url=type==0?"http://139.196.232.30/apis/realty/realties/mine/":"http://139.196.232.30/apis/realty/commercial-realties/mine/";
+	data={};
+	if(url===""){
+		data.sort__commercial=type;
+		url="http://139.196.232.30/apis/realty/realties/mine/";
 	}
 	$.ajax({
 		url:url,
 		type:'GET',
+		data:data,
 		headers:{'Authorization':'Token '+this.token},
 		success:function(data){
 			callBack(data);
