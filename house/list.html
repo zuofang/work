@@ -172,33 +172,52 @@
 			<!--广告区-->
 		</div>
 		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
-			mui('.container').on('tap', '.img-wrap', function() {
-				var id = this.getAttribute("id");
-				mui.openWindow({
-					id: id,
-					url: 'main/realtyDetail.html'
-				});
+			mui.plusReady(function(){
+				mui('.container').on('tap', '.img-wrap', function() {
+				if(checkLogin()){
+					var id = this.getAttribute("id");
+					mui.openWindow({
+						id: id,
+						url: 'main/realtyDetail.html'
+					});
+				}		
 			});
 			document.getElementById('moreRealtyBtn').addEventListener('tap',function(){
-				mui.openWindow({
-					id: 'realtyListContainer',
-					url: 'main/realtyListContainer.html',
-					waiting: {
-							autoShow: false
-					}
-				});
+				if(checkLogin()){
+					mui.openWindow({
+						id: 'realtyListContainer',
+						url: 'main/realtyListContainer.html',
+						waiting: {
+								autoShow: false
+						},
+						extras:{
+								condition:{
+									recommended:2
+								}
+						}
+					});
+				}
 			});
 			document.getElementById('moreComRealtyBtn').addEventListener('tap',function(){
-				mui.openWindow({
-					id: 'comRealtyListContainer',
-					url: 'main/comRealtyListContainer.html',
-					waiting: {
-							autoShow: false
-					}
-				});
+				if(checkLogin()){
+					mui.openWindow({
+						id: 'comRealtyListContainer',
+						url: 'main/comRealtyListContainer.html',
+						waiting: {
+								autoShow: false
+						},extras:{
+								condition:{
+									recommended:2
+								}
+						}
+					});
+				}	
 			});
+			});
+			
 		</script>
 	</body>
 

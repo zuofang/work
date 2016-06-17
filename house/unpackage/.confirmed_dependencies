@@ -8,7 +8,8 @@
 			"list.html",
 			"fonts/iconfont.ttf",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/app.js"
 		],
 		"refer": [
 			"index-menu.html",
@@ -71,7 +72,8 @@
 			"js/mui.min.js",
 			"css/mui.min.css",
 			"images/index/11.png",
-			"images/index/star.svg"
+			"images/index/star.svg",
+			"js/app.js"
 		],
 		"refer": [
 			"main/house_search.html",
@@ -229,7 +231,8 @@
 		],
 		"refer": [
 			"account/regist.html",
-			"index.html"
+			"index.html",
+			"account/register.html"
 		]
 	},
 	"account/regist.html": {
@@ -251,7 +254,12 @@
 			"js/chat.js",
 			"css/mui.imageviewer.css",
 			"js/arttmpl.js",
-			"css/chat.css"
+			"css/chat.css",
+			"js/mui.min.js",
+			"css/global.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/lele.png"
 		],
 		"refer": []
 	},
@@ -280,7 +288,8 @@
 		],
 		"refer": [
 			"guide.html",
-			"index.html"
+			"index.html",
+			"indexMenu.html"
 		]
 	},
 	"indexMenu.html": {
@@ -291,7 +300,10 @@
 			"css/mui.min.css",
 			"fonts/iconfont.ttf",
 			"images/side/set.svg",
-			"images/side/logo.png"
+			"images/side/logo.png",
+			"images/lele.png",
+			"js/jquery-1.11.0.js",
+			"js/app.js"
 		],
 		"refer": [
 			"account/login.html",
@@ -314,7 +326,9 @@
 			"css/mui.min.css",
 			"images/lele.png"
 		],
-		"refer": []
+		"refer": [
+			"main/chat.html"
+		]
 	},
 	"account/set.html": {
 		"resources": [
@@ -483,6 +497,18 @@
 		"resources": [
 			"css/send_mes.css",
 			"images/lele.png"
+		]
+	},
+	"account/register.html": {
+		"resources": [
+			"css/account-css/regist.css",
+			"js/jquery-1.11.0.js",
+			"js/mui.min.js",
+			"css/global.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/login/login_bg.jpg",
+			"js/api.js"
 		]
 	}
 }

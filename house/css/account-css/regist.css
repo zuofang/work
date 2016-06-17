@@ -1,7 +1,15 @@
-  	body ,.mui-content{
-	
+ .mui-content{
+ 	background: none;
+ }
+ .bg{
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -10;
      background: url(../../images/login/login_bg.jpg) no-repeat;
-    		background-size:cover;
+    background-size:cover;
          
  }
 
@@ -15,6 +23,7 @@
 #login .loginer input{
 	background-color:rgba(1,170,237,0.5);
 	border: none;
+	color: white;
 }
 #login input ,#login button{
 	border-radius: 0px;

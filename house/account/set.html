@@ -39,12 +39,29 @@
 				</li>
 			</ul>
 			<div class="mui-button-row">
-				<button class="mui-btn mui-btn-primary mui-btn-block"  id="exit" type="button">退出账户</button>
+				<button class="mui-btn mui-btn-primary mui-btn-block"  id="exitBtn" type="button">退出账户</button>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
+			mui.plusReady(function(){
+				document.getElementById('exitBtn').addEventListener('tap',function(){
+					plus.storage.removeItem('token');
+				    var menu=plus.webview.getWebviewById('menu');
+				    mui.fire(menu,'exit');
+				    plus.webview.close('set');
+				    mui.openWindow({
+					   url: '../index.html',
+					   id: 'index',
+					   waiting: {
+							autoShow: false
+					   }
+				    });
+				 
+			});
+				
+			});
 		</script>
 	</body>
 

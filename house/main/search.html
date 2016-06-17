@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<div class="mui-button-row">
-				<button class="mui-btn mui-btn-primary  " style="padding: 10px 19%;background: #1AAEED;border: none; ">取消</button>
+				<button id="clearBtn" class="mui-btn mui-btn-primary  " style="padding: 10px 19%;background: #1AAEED;border: none; ">清空</button>
 				<button id="searchBtn" class="mui-btn mui-btn-primary " style="padding: 10px 19%; background: #1AAEED;border: none;">确定</button>
 			</div>
 		</div>
@@ -191,7 +191,7 @@
 								autoShow: false
 							},
 							extras:{
-								data:data
+								condition:data
 							}
 						});
 					}else{
@@ -210,12 +210,23 @@
 									autoShow: false
 							},
 							extras:{
-								data:data
+								condition:data
 							}
 						});
 					}
 			});
+			
+			//清空
+			document.getElementById('clearBtn').addEventListener('tap',function(){
+				$('.mui-content input').each(function(){
+					if($(this).is(':read-only')){
+						clearPicker($(this));
+					}else{
+						$(this).val('');
+					}
+				});
 			});
+		});
 			
 		//创建选择器
       	function setPicker(id,data,isRange){
@@ -235,6 +246,14 @@
 						}
 					});
 				}, false);
+      	}
+      	
+      	//清空选择器
+      	function clearPicker($p){
+      		$p.val('');
+  			$p.data('lt','');
+  			$p.data('gt','');
+  			$p.data('value','');
       	}
 		</script>
 	</body>

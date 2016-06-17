@@ -16,6 +16,7 @@
 			<h1 class="mui-title">登录/注册</h1>
 		</header>
 		<div class="mui-content">
+			<div class="bg"></div>
 			<div id="login">
 				<!--zhuce-->
 				<form class="loginer">
@@ -65,13 +66,16 @@
 					registerData.password2=confirmPwd;
 					registerData.type=2;
 					registerData.angent_no="";
-					console.log(registerData);
 					api.register(registerData,function(data){
 						if(data.key){
 							mui.toast('注册成功');					
-							localStorage["token"]=data.key;
+							plus.storage.setItem('token',data.key);
 							plus.webview.close('login');
-							plus.webview.close('register');
+							var menu=plus.webview.getWebviewById('menu');
+							mui.fire(menu,'register',{
+								userName:"左武洲",
+								userImg:"images/lele.png"
+							});
 							mui.openWindow({
 								url: '../index.html',
 								id: 'index'							

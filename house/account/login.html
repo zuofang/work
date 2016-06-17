@@ -46,8 +46,7 @@
 						<div>
 							<div id="item1" class="mui-control-content mui-active">
 								<div style="height: 45px;line-height: 45px;">
-									<input id='countryPicker' readonly="" placeholder="请选择国家" />
-									<input id="country" hidden="hidden" />
+									<input id='countryPicker' readonly="" data-value="" placeholder="请选择国家" />
 								</div>
 								<div style="position: relative;">
 									<input type="text" id="phone" placeholder="请输入手机号" />
@@ -60,10 +59,6 @@
 							<div id="item2" class="mui-control-content ">
 								<div>
 									<input type="text" placeholder="请输入邮箱" />
-
-								</div>
-								<div class="mui-input-row">
-									<input class="mui-input-clear" type="text" placeholder="请输入验证码" />
 								</div>
 							</div>
 						</div>
@@ -103,8 +98,14 @@
 						}
 						api.login(userName,password,function(data){
 							if(data.key){
-								localStorage.token=data.key;
+								plus.storage.setItem('token',data.key);
+								var menu=plus.webview.getWebviewById('menu');
+								mui.fire(menu,'login',{
+									userName:"左武洲",
+									userImg:"images/lele.png"
+								});
 								plus.webview.close('login','none');
+								mui.toast('欢迎登录');
 								mui.openWindow({
 								url: '../index.html',
 								id: 'index'
@@ -118,7 +119,7 @@
 					//发送验证码
 					document.getElementById('sendCode').addEventListener('tap',function(){
 						var phone=$('#phone').val();
-						var country=$('#country').val();
+						var country=$('#countryPicker').data('value');
 						if(country.trim()===""){
 							mui.toast("请选择国家");
 							return;
@@ -134,6 +135,7 @@
 					
 						api.getPinCode(country,phone,function(data){
 							if(data.pin){
+								alert(data.pin);
 								registerData.username=data.phone;
 								registerData.pin=data.pin;
 								registerData.country=country;
@@ -177,20 +179,24 @@
 					});
 				});
 				//创建选择器
-				function setPicker(id, data) {
-					var picker = new mui.PopPicker();
-					picker.setData(data);
+		      	function setPicker(id,data,isRange){
+		      		isRange=isRange||false;
+		      		var picker = new mui.PopPicker();
+					picker.setData(data);		
 					var p = document.getElementById(id);
-					p.addEventListener('tap', function(event) {
-						picker.show(function(items) {
-							p.value = items[0].text;
-							$('#country').val(items[0].value);
-							
-							//返回 false 可以阻止选择框的关闭
-							//return false;
-						});
-					}, false);
-				}
+						p.addEventListener('tap', function(event) {
+							picker.show(function(items) {
+								p.value=items[0].text;
+								if(isRange){
+									$('#'+id).data('gt',items[0].gt);
+									$('#'+id).data('lt',items[0].lt);
+								}else{
+									
+									$('#'+id).data('value',items[0].value);
+								}
+							});
+						}, false);
+		      	}
 			</script>
 	</body>
 

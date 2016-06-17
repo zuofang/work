@@ -235,7 +235,8 @@
 					"images/index/bg.png",
 					"css/iconfont.css",
 					"fonts/iconfont.ttf",
-					"images/index/bg.jpg"
+					"images/index/bg.jpg",
+					"js/app.js"
 				],
 				"refer": [
 					"index-menu.html",
@@ -300,7 +301,8 @@
 					"images/index/star.svg",
 					"images/index/nusa4.png",
 					"css/list.css",
-					"images/index/11.png"
+					"images/index/11.png",
+					"js/app.js"
 				],
 				"refer": [
 					"main/house_search.html",
@@ -330,7 +332,8 @@
 				],
 				"refer": [
 					"account/regist.html",
-					"index.html"
+					"index.html",
+					"account/register.html"
 				],
 				"priority": 0
 			},
@@ -519,7 +522,12 @@
 					"js/chat.js",
 					"css/mui.imageviewer.css",
 					"js/arttmpl.js",
-					"css/chat.css"
+					"css/chat.css",
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/lele.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -550,7 +558,8 @@
 				],
 				"refer": [
 					"guide.html",
-					"index.html"
+					"index.html",
+					"indexMenu.html"
 				],
 				"priority": 0
 			},
@@ -562,7 +571,10 @@
 					"css/mui.min.css",
 					"fonts/iconfont.ttf",
 					"images/side/set.svg",
-					"images/side/logo.png"
+					"images/side/logo.png",
+					"images/lele.png",
+					"js/jquery-1.11.0.js",
+					"js/app.js"
 				],
 				"refer": [
 					"account/login.html",
@@ -586,7 +598,9 @@
 					"css/mui.min.css",
 					"images/lele.png"
 				],
-				"refer": [],
+				"refer": [
+					"main/chat.html"
+				],
 				"priority": 0
 			},
 			"account/set.html": {
@@ -764,6 +778,20 @@
 				"resources": [
 					"css/send_mes.css",
 					"images/lele.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"account/register.html": {
+				"resources": [
+					"css/account-css/regist.css",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/login/login_bg.jpg",
+					"js/api.js"
 				],
 				"refer": [],
 				"priority": 0

@@ -83,18 +83,19 @@
 			});
 			var api=new RealtyApi(localStorage["token"]);
 			var next = null;
+			var condition={};
 			mui.plusReady(function(){
 				var opener=plus.webview.currentWebview().opener();
-				var data=opener.data||{};
-				alert(data);
-				init(api);
+				condition=opener.condition||condition;
+				condition.sort__commercial=2;
+				init(api,condition);
 			});
 			
 			
 			
 			//下拉
 			function pullDownRefresh() {
-				init(api,true);
+				init(api,condition,true);
 			}
 			
 			//上拉
@@ -111,7 +112,7 @@
 			}
 			
 			//初始化
-			function init(api,isRefresh){
+			function init(api,condition,isRefresh){
 				isRefresh=isRefresh||false;
 				api.getRealtyList(function(data){
 					if($('.loading').is(':visible')){
@@ -124,7 +125,7 @@
 						mui('#pullRefresh').pullRefresh().endPulldownToRefresh();
 						mui('#pullRefresh').pullRefresh().refresh(true);
 					}
-				},"",1)
+				},"",condition);
 			}
 			
 		</script>

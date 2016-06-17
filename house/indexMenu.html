@@ -15,6 +15,10 @@
 		    		   <img src="images/side/set.svg" width="50"height="50" />
 		    		 <h6 style="margin-left:2px;" >登录/注册</h6>
 		    </span>
+		    <span id="userInfo" class="mui-pull-right " style="margin-right: 20px;margin-top: -10px;color: #56ABE4;font-size: 50px;display: none;">
+		    		   <img style="border-radius: 50%;" src="" width="50"height="50" />
+		    		 <h6 style="text-align: center;"></h6>
+		    </span>
 		</header>
 		<div class="mui-content menu">
 			<ul class="mui-table-view">
@@ -74,22 +78,37 @@
 			<h5 style="color: #1AAEED;">全新美国投资方式</h5>
 		</footer>
 		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script src="js/app.js"></script>
 		<script type="text/javascript" charset="UTF-8">
-		mui.ready(function(){
-			mui.init();
+		mui.init();
+		
+		mui.plusReady(function(){
+			var token= plus.storage.getItem('token');
+			if(token!==null){
+				var data={
+					userImg:"images/lele.png",
+					userName:"左武洲"
+				};
+				$('#reg').hide();
+				$('#userInfo>img').attr('src',data.userImg);
+				$('#userInfo>h6').text(data.userName);
+				$('#userInfo').show();
+			}
+			//登录注册
 			document.getElementById('reg').addEventListener('tap', function() {
-				close();
-				//打开登录注册页面
-				mui.openWindow({
-					url: 'account/login.html',
-					id: 'login',
-					waiting: {
-							autoShow: false
-					}
-				});
+			close();
+			mui.openWindow({
+				url: 'account/login.html',
+				id: 'login',
+				waiting: {
+						autoShow: false
+				}
 			});
-			mui('.mui-table-view').on('tap', 'a', function() {
-				close();
+		});
+		mui('.mui-table-view').on('tap', 'a', function() {
+			close();
+			if(checkLogin()){
 				var id = this.getAttribute("id");
 				var href = this.href;
 				mui.openWindow({
@@ -99,28 +118,54 @@
 							autoShow: false
 					}
 				});
-			});
-			function close() {
-				mui.fire(mui.currentWebview.opener(), "menu:close");
 			}
-			//点击“关闭侧滑菜单”按钮处理逻辑
-			document.getElementById("closeMenu").addEventListener("tap", close);
-			window.addEventListener('dragstart', function(e) {
-				mui.gestures.touch.lockDirection = true; //锁定方向
-				mui.gestures.touch.startDirection = e.detail.direction;
-			});
-			window.addEventListener('dragleft', function(e) {
-				if (!mui.isScrolling) {
-					e.detail.gesture.preventDefault();
-				}
-			});
-			//监听左滑事件，若菜单已展开，左滑要关闭菜单；
-			window.addEventListener("swipeleft", function(e) {
-				if (Math.abs(e.detail.angle) > 170) {
-					close();
-				}
-			});
-		})	
+			
+		});
+		function close() {
+			mui.fire(mui.currentWebview.opener(), "menu:close");
+		}
+		//点击“关闭侧滑菜单”按钮处理逻辑
+		document.getElementById("closeMenu").addEventListener("tap", close);
+		window.addEventListener('dragstart', function(e) {
+			mui.gestures.touch.lockDirection = true; //锁定方向
+			mui.gestures.touch.startDirection = e.detail.direction;
+		});
+		window.addEventListener('dragleft', function(e) {
+			if (!mui.isScrolling) {
+				e.detail.gesture.preventDefault();
+			}
+		});
+		//监听左滑事件，若菜单已展开，左滑要关闭菜单；
+		window.addEventListener("swipeleft", function(e) {
+			if (Math.abs(e.detail.angle) > 170) {
+				close();
+			}
+		});
+		//注册事件
+		window.addEventListener('register',function(e){
+			alert(111);
+			plus.webview.close('register');
+			var data=e.detail;
+			$('#reg').hide();
+			$('#userInfo>img').attr('src',data.userImg);
+			$('#userInfo>h6').text(data.userName);
+			$('#userInfo').show();
+		});
+		//登录事件
+		window.addEventListener('login',function(e){
+			var data=e.detail;
+			$('#reg').hide();
+			$('#userInfo>img').attr('src',data.userImg);
+			$('#userInfo>h6').text(data.userName);
+			$('#userInfo').show();
+		});
+		//登出
+		window.addEventListener('exit',function(){
+			$('#userInfo').hide();
+			$('#reg').show();
+		});
+		});
+		
 		</script>
 	</body>
 

@@ -10,6 +10,7 @@
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 			mui.plusReady(function() {
+				//首次登录
 				var first = plus.storage.getItem("isFirst");
 				if (first) {
 					mui.openWindow({

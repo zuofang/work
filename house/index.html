@@ -23,6 +23,7 @@
 			</div>
 		</header>
 		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
 		<script>
 			mui.plusReady(function() {
 				var self=plus.webview.currentWebview();
@@ -173,22 +174,26 @@
 				}
 			};
 			document.getElementById("search_top").addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'main/search.html',
-					id: 'search',
-					waiting: {
-						autoShow: false
-					}
-				});
+				if(checkLogin()){
+					mui.openWindow({
+						url: 'main/search.html',
+						id: 'search',
+						waiting: {
+							autoShow: false
+						}
+					});
+				}		
 			});
 			document.getElementById("head_message").addEventListener('tap', function() {
-				mui.openWindow({
+				if(checkLogin()){
+					mui.openWindow({
 					url: 'account/message.html',
-					id: 'message',
-					waiting: {
-						autoShow: false
-					}
-				});
+						id: 'message',
+						waiting: {
+							autoShow: false
+						}
+					});
+				}	
 			});
 			});
 			
