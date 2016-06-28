@@ -38,95 +38,98 @@
 		<script src="../js/vue.js"></script>
 		<script src="../js/api.js"></script>
 		<script>
-			mui.init({
-				pullRefresh: {
-					container: '#pullRefresh',
-					down: {
-						callback: pullDownRefresh
-					},
-					up: {
-						contentrefresh: '正在加载...',
-						contentnomore:'没有更多数据了',
-						callback: pullUpRefresh
-					}
-				}
-			});
-			var vm = new Vue({
-				el: "#comRealtyList",
-				data: {
-					comRealtyList: []
-				},
-				methods: {
-					detail: function(item) {
-						mui.openWindow({
-							url: 'comRealtyDetail.html',
-							id: 'comRealtyDetail',
-							extras: {
-								house: item
-							}
-						});
-					},
-					collect:function(index,isCollect){
-						if(isCollect){
-							api.cancelCollectRealty(this.comRealtyList[index].unlike_by_current_user,function(){
-								vm.comRealtyList[index].liked_by_current_user=false;
-								vm.comRealtyList[index].unlike_by_current_user=null;
-							});
-						}else{
-							api.collectRealty(this.comRealtyList[index].like_list,function(data){
-								vm.comRealtyList[index].liked_by_current_user=true;
-								vm.comRealtyList[index].unlike_by_current_user=data.unlike;
-							});
+		
+			
+			
+			mui.plusReady(function(){
+					mui.init({
+					pullRefresh: {
+						container: '#pullRefresh',
+						down: {
+							callback: pullDownRefresh
+						},
+						up: {
+							contentrefresh: '正在加载...',
+							contentnomore:'没有更多数据了',
+							callback: pullUpRefresh
 						}
 					}
-				}
-			});
-			var api=new RealtyApi(localStorage["token"]);
-			var next = null;
-			var condition={};
-			mui.plusReady(function(){
+				});
+				var vm = new Vue({
+					el: "#comRealtyList",
+					data: {
+						comRealtyList: []
+					},
+					methods: {
+						detail: function(item) {
+							mui.openWindow({
+								url: 'comRealtyDetail.html',
+								id: 'comRealtyDetail',
+								extras: {
+									house: item
+								}
+							});
+						},
+						collect:function(index,isCollect){
+							if(isCollect){
+								api.cancelCollectRealty(this.comRealtyList[index].unlike_by_current_user,function(){
+									vm.comRealtyList[index].liked_by_current_user=false;
+									vm.comRealtyList[index].unlike_by_current_user=null;
+								});
+							}else{
+								api.collectRealty(this.comRealtyList[index].like_list,function(data){
+									vm.comRealtyList[index].liked_by_current_user=true;
+									vm.comRealtyList[index].unlike_by_current_user=data.unlike;
+								});
+							}
+						}
+					}
+				});
+				var api=new RealtyApi(plus.storage.getItem('token'));
+				var next = null;
 				var opener=plus.webview.currentWebview().opener();
-				condition=opener.condition||condition;
+				var condition=opener.condition||{};
 				condition.sort__commercial=2;
 				init(api,condition);
+				//下拉
+				function pullDownRefresh() {
+					init(api,condition,true);
+				}
+				
+				//上拉
+				function pullUpRefresh() {
+					if(next!==null){
+						api.getRealtyList(function(data){
+							mui('#pullRefresh').pullRefresh().endPullupToRefresh();
+							vm.comRealtyList=vm.comRealtyList.concat(data.results);
+							next=data.next;
+						},next);	
+					}else{
+						mui('#pullRefresh').pullRefresh().endPullupToRefresh(true);
+					}
+				}
+				
+				//初始化
+				function init(api,condition,isRefresh){
+					isRefresh=isRefresh||false;
+					api.getRealtyList(function(data){
+						if($('.loading').is(':visible')){
+							$('.loading').hide();
+						}
+						next=data.next;
+						vm.comRealtyList=data.results;
+						$('#comRealtyList').show();
+						if(isRefresh){
+							mui('#pullRefresh').pullRefresh().endPulldownToRefresh();
+							mui('#pullRefresh').pullRefresh().refresh(true);
+						}
+					},"",condition);
+				}
+				
 			});
 			
 			
 			
-			//下拉
-			function pullDownRefresh() {
-				init(api,condition,true);
-			}
-			
-			//上拉
-			function pullUpRefresh() {
-				if(next!==null){
-					api.getRealtyList(function(data){
-						mui('#pullRefresh').pullRefresh().endPullupToRefresh();
-						vm.comRealtyList=vm.comRealtyList.concat(data.results);
-						next=data.next;
-					},next);	
-				}else{
-					mui('#pullRefresh').pullRefresh().endPullupToRefresh(true);
-				}
-			}
-			
-			//初始化
-			function init(api,condition,isRefresh){
-				isRefresh=isRefresh||false;
-				api.getRealtyList(function(data){
-					if($('.loading').is(':visible')){
-						$('.loading').hide();
-					}
-					next=data.next;
-					vm.comRealtyList=data.results;
-					$('#comRealtyList').show();
-					if(isRefresh){
-						mui('#pullRefresh').pullRefresh().endPulldownToRefresh();
-						mui('#pullRefresh').pullRefresh().refresh(true);
-					}
-				},"",condition);
-			}
 			
 		</script>
 	</body>

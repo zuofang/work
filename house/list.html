@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -7,8 +8,9 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/list.css" />
 	</head>
+
 	<body>
-		<div class="mui-content">
+		<div class="mui-content" id="reRealtyContainer">
 			<!--标题-->
 			<div class="tit">
 				<h3>为您推荐</h3>
@@ -16,9 +18,10 @@
 			</div>
 			<!--标题-->
 			<!--图片展示1-->
-			<div class="container">
+
+			<div class="container" v-if="realtyList.length>0">
 				<div class="row">
-					<div id="122" class="row-detail img-wrap">
+					<div class="row-detail img-wrap">
 						<a href="#">
 							<img width="100%" src="images/index/nusa3.png">
 						</a>
@@ -81,9 +84,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="mui-input-row" style="margin: 20px;">
-				<button id="moreRealtyBtn" type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
+				<div class="mui-input-row" style="margin: 20px;">
+					<button id="moreRealtyBtn" @click="moreRealty" type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
+				</div>
 			</div>
 
 			<!--end 图片展示-->
@@ -94,9 +97,9 @@
 			</div>
 			<!-- end标题1-->
 			<!--图片展示-->
-			<div class="container">
+			<div class="container" v-if="comRealtyList.length>0">
 				<div class="row">
-					<div href="12" class="row-detail-big img-wrap ">
+					<div class="row-detail-big img-wrap ">
 						<a href="#">
 							<img width="100%" class="mui-media-object" src="images/index/11.png">
 						</a>
@@ -108,7 +111,7 @@
 							</div>
 						</div>
 					</div>
-					<div id="2" class="row-detail img-wrap">
+					<div class="row-detail img-wrap">
 						<a href="#">
 							<img width="100%" src="images/index/nusa3.png">
 						</a>
@@ -122,7 +125,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="3" class="row-detail img-wrap">
+					<div class="row-detail img-wrap">
 						<a href="#">
 							<img width="100%" src="images/index/nusa3.png">
 						</a>
@@ -159,10 +162,11 @@
 						</div>
 					</div>
 				</div>
+				<div class="mui-input-row" style="margin: 20px;">
+					<button id="moreComRealtyBtn" @click="moreComRealty" type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
+				</div>
 			</div>
-			<div class="mui-input-row" style="margin: 20px;">
-				<button id="moreComRealtyBtn" type="button" class="mui-btn mui-btn-primary" style="width: 100%;background: #1aaeed;border: none;  ">查看更多推荐</button>
-			</div>
+
 			<!--end图片展示-->
 			<!--广告区-->
 			<div class="ad">
@@ -172,52 +176,66 @@
 			<!--广告区-->
 		</div>
 		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-1.11.0.js"></script>
 		<script src="js/app.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/api.js"></script>
 		<script type="text/javascript" charset="UTF-8">
-			mui.init();
-			mui.plusReady(function(){
-				mui('.container').on('tap', '.img-wrap', function() {
-				if(checkLogin()){
-					var id = this.getAttribute("id");
-					mui.openWindow({
-						id: id,
-						url: 'main/realtyDetail.html'
-					});
-				}		
-			});
-			document.getElementById('moreRealtyBtn').addEventListener('tap',function(){
-				if(checkLogin()){
-					mui.openWindow({
-						id: 'realtyListContainer',
-						url: 'main/realtyListContainer.html',
-						waiting: {
-								autoShow: false
+			mui.plusReady(function() {
+				mui.init();
+				var vm = new Vue({
+					el: "#reRealtyContainer",
+					data: {
+						realtyList: [],
+						comRealtyList: []
+					},
+					methods: {
+						detail: function(url) {
+							if (checkLogin()) {
+								mui.openWindow({
+									id: id,
+									url: url,
+									waiting: {
+										autoShow: false
+									}
+								});
+							}
 						},
-						extras:{
-								condition:{
-									recommended:2
-								}
+						moreRealty: function() {
+							if (checkLogin()) {
+								mui.openWindow({
+									id: 'realtyListContainer',
+									url: 'main/realtyListContainer.html',
+									waiting: {
+										autoShow: false
+									},
+									extras: {
+										condition: {
+											recommended: 2
+										}
+									}
+								});
+							}
+						},
+						moreComRealty: function() {
+							if (checkLogin()) {
+								mui.openWindow({
+									id: 'comRealtyListContainer',
+									url: 'main/comRealtyListContainer.html',
+									waiting: {
+										autoShow: false
+									},
+									extras: {
+										condition: {
+											recommended: 2
+										}
+									}
+								});
+							}
 						}
-					});
-				}
+					}
+				});
 			});
-			document.getElementById('moreComRealtyBtn').addEventListener('tap',function(){
-				if(checkLogin()){
-					mui.openWindow({
-						id: 'comRealtyListContainer',
-						url: 'main/comRealtyListContainer.html',
-						waiting: {
-								autoShow: false
-						},extras:{
-								condition:{
-									recommended:2
-								}
-						}
-					});
-				}	
-			});
-			});
-			
 		</script>
 	</body>
 

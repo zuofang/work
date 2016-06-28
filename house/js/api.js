@@ -4,6 +4,8 @@
  * */
 function RealtyApi(token){
 	this.token=token||"";
+	this.host="http://139.196.232.30";
+	this.language="/zh";
 }
 
 //获取验证码
@@ -12,14 +14,14 @@ RealtyApi.prototype.getPinCode=function(country,phone,callBack){
 			"country":country,
 			"phone":phone
 		};
-	$.post("http://139.196.232.30/apis/sms/pin/",data,function(data){
+	$.post(this.host+this.language+"/apis/sms/pin/",data,function(data){
 		callBack(data);		
 	},'json');
 };
 
 //注册
 RealtyApi.prototype.register=function(data,callBack){
-	$.post("http://139.196.232.30/apis/rest-auth/registration/",data,function(data){
+	$.post(this.host+this.language+"/apis/rest-auth/registration/",data,function(data){
 		callBack(data);		
 		},'json');
 };
@@ -28,7 +30,7 @@ RealtyApi.prototype.register=function(data,callBack){
 RealtyApi.prototype.login=function(userName,password,callBack){
 	$.ajax({
 		     type: 'POST',
-		     url: 'http://139.196.232.30/apis/rest-auth/login/',
+		     url: this.host+this.language+'/apis/rest-auth/login/',
 		     data:{
 				"username":userName,
 				"password":password
@@ -47,7 +49,7 @@ RealtyApi.prototype.login=function(userName,password,callBack){
 RealtyApi.prototype.getRealtyTypeList=function(callBack){
 	$.ajax({
 			type:'GET',
-			url:'http://139.196.232.30/apis/realty/realty-types/',
+			url:this.host+this.language+'/apis/realty/realty-types/',
 			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
 				callBack(data);
@@ -63,7 +65,7 @@ RealtyApi.prototype.getRealtyTypeList=function(callBack){
 RealtyApi.prototype.getFacilityTypeList=function(callBack){
 	$.ajax({
 			type:'GET',
-			url:'http://139.196.232.30/apis/realty/facility-types/',
+			url:this.host+this.language+'/apis/realty/surrounding-sorts/',
 			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
 				var facilityData=[];
@@ -86,7 +88,7 @@ RealtyApi.prototype.getFacilityTypeList=function(callBack){
 RealtyApi.prototype.getRegionList=function(callBack){
 	$.ajax({
 			type:'GET',
-			url:'http://139.196.232.30/apis/realty/regions/',
+			url:this.host+this.language+'/apis/realty/regions/',
 			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
 				var regionData=[];
@@ -110,7 +112,7 @@ RealtyApi.prototype.getRegionList=function(callBack){
 
 //房产列表
 RealtyApi.prototype.getRealtyList=function(callBack,url,data){
-	url=url||"http://139.196.232.30/apis/realty/realties/";
+	url=url||this.host+this.language+"/apis/realty/realties/";
 	data=data||{};
 	$.ajax({
 		url:url,
@@ -154,12 +156,12 @@ RealtyApi.prototype.cancelCollectRealty=function(url,callBack){
 	});
 };
 
-//收藏列表 1为房屋 2为地产
+//收藏列表 3为房屋 2为地产
 RealtyApi.prototype.getRealtyCollection=function(callBack,url,type){
 	data={};
 	if(url===""){
 		data.sort__commercial=type;
-		url="http://139.196.232.30/apis/realty/realties/liked/";
+		url=this.host+this.language+"/apis/realty/realties/liked/";
 	}
 	$.ajax({
 		url:url,

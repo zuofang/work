@@ -94,8 +94,8 @@
 		<script src="../js/api.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
-			mui.ready(function() {
-				var api=new RealtyApi(localStorage["token"]);
+			mui.plusReady(function() {
+				var api=new RealtyApi(plus.storage.getItem('token'));
 				//状态选择器
 				var statusData=[{
 					value: 0,

@@ -36,75 +36,77 @@
 		<script src="../js/vue.js"></script>
 		<script src="../js/api.js"></script>
 		<script>
-			mui.init({
-				pullRefresh: {
-					container: '#pullRefresh',
-					up: {
-						contentrefresh: '正在加载...',
-						contentnomore:'没有更多数据了',
-						callback: pullUpRefresh
-					}
-				}
-			});
-			
-			var api=new RealtyApi(localStorage["token"]);
-			var next = null;
-			var vm = new Vue({
-				el: "#comRealtyList",
-				data: {
-					comRealtyList: []
-				},
-				methods: {
-					detail: function(item) {
-							mui.openWindow({
-								url: '../main/comRealtyDetail.html',
-								id: 'comRealtyDetail',
-								extras: {
-									house: item
-								}
-							});
-						},
-					cancelCollection: function(item) {
-							mui.confirm('取消收藏？','', ['确定','取消' ], function(e) {
-								if(e.index==0){
-									api.cancelCollectRealty(item.unlike_by_current_user,function(){
-										vm.comRealtyList.$remove(item);
-									});
-								}
-							});
-					}
-				}
-			});
-			init(api);
-			
-			//上拉
-			function pullUpRefresh() {
-				if(next!==null){
-					api.getRealtyCollection(function(data){
-						mui('#pullRefresh').pullRefresh().endPullupToRefresh();
-						vm.comRealtyList=vm.comRealtyList.concat(data.results);
-						next=data.next;
-					},next);	
-				}else{
-					mui('#pullRefresh').pullRefresh().endPullupToRefresh(true);
-				}
-			}
-			
-			//初始化
-			function init(api,isRefresh){
-				isRefresh=isRefresh||false;
-				api.getRealtyCollection(function(data){
-					if($('.loading').is(':visible')){
-							$('.loading').hide();
+			mui.plusReady(function(){
+					mui.init({
+					pullRefresh: {
+						container: '#pullRefresh',
+						up: {
+							contentrefresh: '正在加载...',
+							contentnomore:'没有更多数据了',
+							callback: pullUpRefresh
 						}
-					next=data.next;
-					vm.comRealtyList=data.results;
-					$('#comRealtyList').show();
-					if(isRefresh){
-						mui('#pullRefresh').pullRefresh().endPulldownToRefresh();
 					}
-				},"",2);
-			}
+				});
+				var api=new RealtyApi(plus.storage.getItem('token'));
+				var next = null;
+				var vm = new Vue({
+					el: "#comRealtyList",
+					data: {
+						comRealtyList: []
+					},
+					methods: {
+						detail: function(item) {
+								mui.openWindow({
+									url: '../main/comRealtyDetail.html',
+									id: 'comRealtyDetail',
+									extras: {
+										house: item
+									}
+								});
+							},
+						cancelCollection: function(item) {
+								mui.confirm('取消收藏？','', ['确定','取消' ], function(e) {
+									if(e.index==0){
+										api.cancelCollectRealty(item.unlike_by_current_user,function(){
+											vm.comRealtyList.$remove(item);
+										});
+									}
+								});
+						}
+					}
+				});
+				init(api);
+				
+				//上拉
+				function pullUpRefresh() {
+					if(next!==null){
+						api.getRealtyCollection(function(data){
+							mui('#pullRefresh').pullRefresh().endPullupToRefresh();
+							vm.comRealtyList=vm.comRealtyList.concat(data.results);
+							next=data.next;
+						},next);	
+					}else{
+						mui('#pullRefresh').pullRefresh().endPullupToRefresh(true);
+					}
+				}
+				
+				//初始化
+				function init(api,isRefresh){
+					isRefresh=isRefresh||false;
+					api.getRealtyCollection(function(data){
+						if($('.loading').is(':visible')){
+								$('.loading').hide();
+							}
+						next=data.next;
+						vm.comRealtyList=data.results;
+						$('#comRealtyList').show();
+						if(isRefresh){
+							mui('#pullRefresh').pullRefresh().endPulldownToRefresh();
+						}
+					},"",2);
+				}
+			});
+			
 			
 		</script>
 	</body>

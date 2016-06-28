@@ -302,7 +302,10 @@
 					"images/index/nusa4.png",
 					"css/list.css",
 					"images/index/11.png",
-					"js/app.js"
+					"js/app.js",
+					"js/vue.js",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [
 					"main/house_search.html",
@@ -640,7 +643,9 @@
 					"fonts/iconfont.ttf",
 					"css/cd_and_hs.css"
 				],
-				"refer": [],
+				"refer": [
+					"main/sendMessage.html"
+				],
 				"priority": 0
 			},
 			"main/comRealtyListContainer.html": {
@@ -753,7 +758,9 @@
 					"css/mui.min.css",
 					"images/loading.gif"
 				],
-				"refer": [],
+				"refer": [
+					"main/comRealtyDetail.html"
+				],
 				"priority": 0
 			},
 			"main/comRealtyDetail.html": {
@@ -777,9 +784,17 @@
 			"main/sendMessage.html": {
 				"resources": [
 					"css/send_mes.css",
-					"images/lele.png"
+					"images/lele.png",
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf"
 				],
-				"refer": [],
+				"refer": [
+					"main/agentInfo.html"
+				],
 				"priority": 0
 			},
 			"account/register.html": {
@@ -792,6 +807,20 @@
 					"css/mui.min.css",
 					"images/login/login_bg.jpg",
 					"js/api.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/agentInfo.html": {
+				"resources": [
+					"css/info_person.css",
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf",
+					"images/lele.png"
 				],
 				"refer": [],
 				"priority": 0
