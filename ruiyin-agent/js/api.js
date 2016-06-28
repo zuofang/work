@@ -4,6 +4,8 @@
  * */
 function RealtyApi(token){
 	this.token=token||"";
+	this.host="http://139.196.232.30";
+	this.language="/zh";
 }
 
 //获取验证码
@@ -12,14 +14,14 @@ RealtyApi.prototype.getPinCode=function(country,phone,callBack){
 			"country":country,
 			"phone":phone
 		};
-	$.post("http://139.196.232.30/apis/sms/pin/",data,function(data){
+	$.post(this.host+this.language+"/apis/sms/pin/",data,function(data){
 		callBack(data);		
 	},'json');
 };
 
 //注册
 RealtyApi.prototype.register=function(data,callBack){
-	$.post("http://139.196.232.30/apis/rest-auth/registration/",data,function(data){
+	$.post(this.host+this.language+"/apis/rest-auth/registration/",data,function(data){
 		callBack(data);		
 		},'json');
 };
@@ -28,7 +30,7 @@ RealtyApi.prototype.register=function(data,callBack){
 RealtyApi.prototype.login=function(userName,password,callBack){
 	$.ajax({
 		     type: 'POST',
-		     url: 'http://139.196.232.30/apis/rest-auth/login/',
+		     url: this.host+this.language+'/apis/rest-auth/login/',
 		     data:{
 				"username":userName,
 				"password":password
@@ -44,23 +46,13 @@ RealtyApi.prototype.login=function(userName,password,callBack){
 };
 
 //获取房产类型
-RealtyApi.prototype.getRealtyTypeList=function(callBack,isCommercial){
-	isCommercial=isCommercial||false;
+RealtyApi.prototype.getRealtyTypeList=function(callBack){
 	$.ajax({
 			type:'GET',
-			url:'http://139.196.232.30/apis/realty/realty-types/',
+			url:this.host+this.language+'/apis/realty/realty-types/',
 			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
-				var categoryData=[];
-				for(var i=0;i<data.length;i++){
-					if(data[i].commercial==isCommercial){
-						categoryData.push({
-							value:data[i].id,
-							text:data[i].name
-						});
-					}	
-				}
-				callBack(categoryData);
+				callBack(data);
 			},
 			error:function(){
 				mui.toast('服务器繁忙');	
@@ -73,7 +65,7 @@ RealtyApi.prototype.getRealtyTypeList=function(callBack,isCommercial){
 RealtyApi.prototype.getFacilityTypeList=function(callBack){
 	$.ajax({
 			type:'GET',
-			url:'http://139.196.232.30/apis/realty/facility-types/',
+			url:this.host+this.language+'/apis/realty/surrounding-sorts/',
 			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
 				var facilityData=[];
@@ -96,7 +88,7 @@ RealtyApi.prototype.getFacilityTypeList=function(callBack){
 RealtyApi.prototype.getRegionList=function(callBack){
 	$.ajax({
 			type:'GET',
-			url:'http://139.196.232.30/apis/realty/regions/',
+			url:this.host+this.language+'/apis/realty/regions/',
 			headers:{'Authorization':'Token '+this.token},
 			success:function(data){
 				var regionData=[];
@@ -115,52 +107,50 @@ RealtyApi.prototype.getRegionList=function(callBack){
 	});
 };
 
+
+
+
+//房产列表
+RealtyApi.prototype.getRealtyList=function(callBack,url,data){
+	url=url||this.host+this.language+"/apis/realty/realties/";
+	data=data||{};
+	$.ajax({
+		url:url,
+		type:'GET',
+		data:data,
+		headers:{'Authorization':'Token '+this.token},
+		success:function(data){
+			callBack(data);
+		}
+	});
+};
+
 //上传房产 type:0 房地产 1商业地产
-RealtyApi.prototype.uploadRealty=function(data,scallBack,fcallBack,type){
-	type=type||0;
-	var url=type>0?"http://139.196.232.30/apis/realty/commercial-realties/":"http://139.196.232.30/apis/realty/realties/";
+RealtyApi.prototype.uploadRealty=function(data,scallBack,fcallBack){
 	$.ajax({
 		     type: 'POST',
 		     contentType: "application/json",
-		     url: url ,
+		     url: this.host+this.language+"/apis/realty/realties/" ,
 		     headers:{'Authorization':'Token '+this.token},
 		     data:JSON.stringify(data),
 		     success: function(data){
 				 scallBack(data);
 			 },
-			 error:function(){
+			 error:function(err){
+			 	console.log(JSON.parse(err).msg);
 				fcallBack();
 			},
 		    dataType: 'json'
 		});
 };
 
-//上传图片
-RealtyApi.prototype.uploadImg=function(url,files,callBack,index){	
-			index=index||0;
-			var task=plus.uploader.createUpload(url,{
-			method:"POST"
-			},function(t,status){
-				if(status!==201){
-					alert("上传失败");
-				}
-				if(index<files.length-1){
-					this.uploadImg(url,files,callBack,++index);
-				}else{
-					callBack();
-				}
-			});
-			task.setRequestHeader('Authorization','Token '+this.token);
-			task.addFile(files[index],{key:"file"});
-			task.start();
-};
 
-//我的发布列表 1 房屋 2 地产
+//我的发布列表 3 房屋 2 地产
 RealtyApi.prototype.getMyRealtyList=function(callBack,url,type){
 	data={};
 	if(url===""){
 		data.sort__commercial=type;
-		url="http://139.196.232.30/apis/realty/realties/mine/";
+		url=this.host+this.language+"/apis/realty/realties/mine/";
 	}
 	$.ajax({
 		url:url,
@@ -174,8 +164,20 @@ RealtyApi.prototype.getMyRealtyList=function(callBack,url,type){
 };
 
 //修改房产
-RealtyApi.prototype.updateRealty=function(){
-	
+RealtyApi.prototype.editRealty=function(url,data,scallBack,fcallBack){
+	$.ajax({
+		url:url,
+		type:'PUT',
+		contentType: "application/json",
+		data:JSON.stringify(data),
+		headers:{'Authorization':'Token '+this.token},
+		success:function(data){
+			scallBack(data);
+		},
+		error:function(){
+			fcallBack();
+		}
+	});
 };
 
 //删除房产

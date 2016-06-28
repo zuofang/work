@@ -78,7 +78,7 @@ body{
 #item1 div:first{
 	position: relative;
 }
-#sendCode{
+#sendCode,#sendMail{
 	font-size: 10px;
 	display: block;
 	color: #FFFFFF;
@@ -87,6 +87,12 @@ body{
 	text-align: center;
 	width: 25%;
 	position: absolute;
+}
+#sendCode{
+	right: 5%;
+	top: 6px;
+}
+#sendMail{
 	right: 5%;
 	top: 15px;
 }

@@ -28,6 +28,7 @@
 	<script src="js/mui.min.js"></script>
 	<script src="js/jquery-1.11.0.js"></script>
 	<script src="js/api.js"></script>
+	<script src="js/compressImg.js"></script>
 	<script src="js/mui.zoom.js"></script>
 	<script src="js/mui.previewimage.js"></script>
    	<script type="text/javascript" charset="UTF-8">
@@ -38,7 +39,9 @@
       		document.getElementById('next').addEventListener('tap',function(){
       		var imgs=[];
       		$('.photoItem').each(function(){
-      		 imgs.push($(this).children('img').attr('src'));
+      		 imgs.push({
+      		 	"file":$(this).children('img').attr('src').substr(22)
+      		 });
       		});
       		mui.openWindow({
       			url:'addComRealtyInfo.html',
@@ -56,18 +59,13 @@
       	document.getElementById("add").addEventListener("tap",function(){
       		if($('.photoItem').length<10){
       			plus.gallery.pick(function(e){
-      				for(var i in e.files){
-      					if(length<10){
-      						$('#photoContainer').append('<li class="photoItem">'+
-				    		'<span class="mui-icon mui-icon-close"></span>'+
-				    		'<img src="'+e.files[i]+'" data-preview-src="" data-preview-group="1" alt="" />'+
-				    		'</li>');
-      						length++;
-      					}else{
-      						mui.toast('最多选取10张图片');
-	      					return;
-      					}
-      				}
+      		
+      				$('#photoContainer').compressImg({
+      					images:e.files,
+      					maxWidth:600,
+      					maxHeight:600,
+      					quality:0.4
+      				});
 	      		},function(e){
 	      		},{
 	      			filter:"image",

@@ -330,7 +330,11 @@
 					"images/register/reg_step1.svg",
 					"images/register/reg_step1.png",
 					"js/jquery-1.11.0.js",
-					"js/api.js"
+					"js/api.js",
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"css/mui.picker.min.css",
+					"css/mui.poppicker.css"
 				],
 				"refer": [
 					"register2.html"
@@ -415,7 +419,10 @@
 					"js/mui.pullToRefresh.js",
 					"js/mui.pullToRefresh.material.js"
 				],
-				"refer": [],
+				"refer": [
+					"editComRealtyInfo.html",
+					"editRealtyInfo.html"
+				],
 				"priority": 0
 			},
 			"addRealtyPhoto.html": {
@@ -430,7 +437,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/mui.previewimage.js",
-					"js/api.js"
+					"js/api.js",
+					"js/compressImg.js"
 				],
 				"refer": [
 					"addRealtyInfo.html"
@@ -468,7 +476,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/mui.previewimage.js",
-					"js/api.js"
+					"js/api.js",
+					"js/compressImg.js"
 				],
 				"refer": [
 					"addComRealtyInfo.html"
@@ -491,6 +500,36 @@
 					"js/jquery-1.11.0.js",
 					"css/mui.min.css",
 					"js/api.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"editComRealtyInfo.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"images/icon/loading.gif",
+					"js/vue.js",
+					"css/main.css",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/api.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"editRealtyInfo.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"images/icon/loading.gif"
 				],
 				"refer": [],
 				"priority": 0

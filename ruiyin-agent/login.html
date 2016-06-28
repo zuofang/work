@@ -62,8 +62,7 @@
 				var api=new RealtyApi();
 				api.login(userName,password,function(data){
 					if(data.key){
-						localStorage["token"]=data.key;
-						mui.back();
+						plus.storage.setItem('token',data.key);
 						mui.openWindow({
 						url: 'index.html',
 						id: 'index'

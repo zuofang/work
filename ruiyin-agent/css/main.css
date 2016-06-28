@@ -73,9 +73,6 @@
 .photoItem{
 	position: relative;
 }
-.photoItem>img{
-	height: 100px;
-}
 .photoItem>.mui-icon{
 	font-weight: bold;
 	color: crimson;
@@ -85,6 +82,7 @@
 	top:5%;
 }
 .photo img{
+	height: 100px;
 	width: 100%;
 	border: solid 2px #1AAEED;	
 }
@@ -94,6 +92,7 @@
 .photo li{
 	list-style: none;
 	width: 49%;
+	height: auto;
 	float: left;
 	margin-bottom: 5px;
 }

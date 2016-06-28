@@ -38,7 +38,7 @@
 		<div id="realtyListContainer" class="mui-control-content mui-active mui-scroll-wrapper">
 			<div class="mui-scroll">
 				 <ul id="realtyList" class="mui-table-view mui-table-view-chevron releaseList">
-					<li v-for="(index,item) in realtyList" :id="{{'rl'+item.id}}" track-by="id" class="mui-table-view-cell mui-media">		
+					<li v-for="(index,item) in realtyList" track-by="id" class="mui-table-view-cell mui-media">		
 						<img class="mui-media-object mui-pull-left" src="{{item.images[0].thumbnail_image}}">
 						<div class="mui-media-body">
 							{{item.name}}
@@ -46,8 +46,7 @@
 						</div>	
 						<div class="action-list">
 							<span class="dele-icon" @click="delete(item)"></span>
-							<span class="edit-icon" @click="edit({{'rl'+item.id}})"></span>
-							<textarea hidden="">{{item|json}}</textarea>
+							<span class="edit-icon" @click="edit(item)"></span>
 						</div>
 					</li>
 				</ul>
@@ -56,7 +55,7 @@
 	   <div id="comRealtyListContainer" class="mui-control-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				 <ul id="comRealtyList" class="mui-table-view mui-table-view-chevron releaseList">
-					<li v-for="(index,item) in comRealtyList" :id="{{'rl'+item.id}}" track-by="id" class="mui-table-view-cell mui-media">		
+					<li v-for="(index,item) in comRealtyList" track-by="id" class="mui-table-view-cell mui-media">		
 						<img class="mui-media-object mui-pull-left" src="{{item.images[0].thumbnail_image}}">
 						<div class="mui-media-body">
 							{{item.name}}
@@ -64,14 +63,12 @@
 						</div>	
 						<div class="action-list">
 							<span class="dele-icon" @click="delete(item,1)"></span>
-							<span class="edit-icon" @click="edit({{'rl'+item.id}},1)"></span>
-							<textarea hidden="">{{item|json}}</textarea>
+							<span class="edit-icon" @click="edit(item,1)"></span>
 						</div>
 					</li>
 				</ul>
 			</div>
-		</div> 
-		
+		</div> 	
 	</div>
 	<script src="js/mui.min.js"></script>
 	<script src="js/jquery-1.11.0.js"></script>
@@ -80,14 +77,14 @@
 	<script src="js/mui.pullToRefresh.js"></script>
 	<script src="js/mui.pullToRefresh.material.js"></script>
 	<script type="text/javascript" charset="UTF-8">
-    mui.ready(function(){
+    mui.plusReady(function(){
     	mui.init();
     	//阻尼系数
 		var deceleration = mui.os.ios?0.003:0.0009;
 		var str="";
     	var rlNext=null;
     	var crlNext=null;
-    	var api=new RealtyApi(localStorage["token"]);
+    	var api=new RealtyApi(plus.storage.getItem('token'));
     	//滚动
     	mui('.mui-scroll-wrapper').scroll({
 			bounce: false,
@@ -148,23 +145,22 @@
 						}
 					});
     			},
-    			edit:function(id,type){
+    			edit:function(item,type){
     				type=type||0;
-    				var data=JSON.parse($('#'+id).children('textarea').text());
     				if(type==0){
     					mui.openWindow({
-			      			url:'editRealtyPhoto.html',
-			      			id:'editRealtyPhoto',
+			      			url:'editRealtyInfo.html',
+			      			id:'editRealtyInfo',
 			      			extras:{
-								data:data
+								data:item
 							}
 			      		});
     				}else{
     					mui.openWindow({
-			      			url:'editRealtyPhoto.html',
-			      			id:'editRealtyPhoto',
+			      			url:'editComRealtyInfo.html',
+			      			id:'editComRealtyInfo',
 			      			extras:{
-								data:data
+								data:item
 							}
 			      		});
     				}
@@ -178,7 +174,7 @@
     		api.getMyRealtyList(function(data){
     			vm.realtyList=data.results;
     			rlNext=data.next;
-    		},"",1);
+    		},"",3);
     		api.getMyRealtyList(function(data){
     			vm.comRealtyList=data.results;
     			crlNext=data.next;

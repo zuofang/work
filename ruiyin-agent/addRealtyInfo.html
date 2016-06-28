@@ -29,7 +29,6 @@
 				<input id='statusPicker' readonly="" data-value=""></input>
 	    	</div>
 	    	<div><label for="price">价格</label><input type="text" id="price"/></div>
-	    	<!--<div><label for="">平方均价</label><input type="text" id=""/></div>-->
 	    	<div><label for="roomNum">房间数</label><input id="roomNum" type="text"/></div>
 	    	<div><label for="toiletNum">厕所数</label><input id="toiletNum" type="text"/></div>
 	    	<div><label for="parlourNum">大厅数</label><input id="parlourNum" type="text"/></div>
@@ -71,7 +70,7 @@
 	<script type="text/javascript" charset="UTF-8">
       	mui.plusReady(function() {
       		mui.init();
-      		var api=new RealtyApi(localStorage["token"]);
+      		var api=new RealtyApi(plus.storage.getItem('token'));
       		var self=plus.webview.currentWebview();
 			var imgs=self.imgs;
       		var statusData=[{
@@ -84,7 +83,16 @@
 			setPicker('statusPicker',statusData);
 			//房屋类型
 			api.getRealtyTypeList(function(data){
-				setPicker('categoryPicker',data);
+				var comTypeData=[];
+				for(var item in data){
+					if(!data[item].commercial){
+						comTypeData.push({
+							value:data[item].id,
+							text:data[item].name
+						});
+					}
+				}
+				setPicker('categoryPicker',comTypeData);
 			});
 			//周边类型
 			api.getFacilityTypeList(function(data){
@@ -175,29 +183,21 @@
 						data.surroundings=[];
 						$('#surroundings li').each(function(){
 							data.surroundings.push({
-								facility: {
-			                        name: $(this).data('name'),
-			                        sort: $(this).data('sort')
-			                    }
+		                        name: $(this).data('name'),
+		                        sort: $(this).data('sort')
 							} 
 							);
 						});
+						data.images=imgs;
 						$('#mask').show();
 						api.uploadRealty(data,function(data){
-							if(data.image_list){
-								api.uploadImg(data.image_list,imgs,function(){
-									mui.toast('添加成功');
-									plus.webview.close('addRealtyPhoto',"none");
-						    		plus.webview.close('addRealtyInfo',"none");
-									mui.openWindow({
-						    			url:'index.html',
-						    			id:'index'
-						    		});	
-								});
-							}else{
-								$('#mask').hide();
-								mui.toast('添加失败');
-							}	
+							plus.webview.close('addRealtyPhoto',"none");
+				    		plus.webview.close('addRealtyInfo',"none");
+				    		mui.toast('添加成功');
+							mui.openWindow({
+				    			url:'index.html',
+				    			id:'index'
+				    		});
 						},function(){
 							$('#mask').hide();
 							mui.toast('添加失败');
@@ -225,23 +225,22 @@
       	});
 		});
       	
-      	//创建选择器
-      	function setPicker(id,data){
+      	 //创建选择器
+      	function setPicker(id,data,isRange){
+      		isRange=isRange||false;
       		var picker = new mui.PopPicker();
 			picker.setData(data);		
 			var p = document.getElementById(id);
 				p.addEventListener('tap', function(event) {
 					picker.show(function(items) {
-						if(p.innerHTML){
-							p.innerHTML=items[0].text;
-							$('#'+id).data('value',items[0].value);
-							//返回 false 可以阻止选择框的关闭
-							//return false;
+						p.value=items[0].text;
+						if(isRange){
+							$('#'+id).data('gt',items[0].gt);
+							$('#'+id).data('lt',items[0].lt);
 						}else{
-							p.value=items[0].text;
+							
 							$('#'+id).data('value',items[0].value);
 						}
-						
 					});
 				}, false);
       	}

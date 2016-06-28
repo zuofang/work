@@ -25,10 +25,6 @@
 		    	<div class="mui-input-row">
 		    		<input id="confirmPwd" class="mui-input-password" type="password" placeholder="确认密码" />
 		    	</div>
-		    	
-				
-				
-				
 				<button id="finish">注册完成</button>
 	    	</div>
 	    	
@@ -69,15 +65,15 @@
 				registerData.type=1;
 				var api=new RealtyApi();
 				api.register(registerData,function(data){
-					if(data.key){
-						mui.toast('注册成功');					
-						localStorage["token"]=data.key;
+					if(data.key){			
+						plus.storage.setItem('token',data.key);
+						plus.webview.close('login','none');
 						plus.webview.close('register1','none');
 						plus.webview.close('register2','none');
-						plus.webview.close('register3','none');
+						mui.toast('注册成功');	
 						mui.openWindow({
-							url: 'login.html',
-							id: 'login'							
+							url: 'index.html',
+							id: 'index'							
 						});	
 					}else{
 						mui.toast('注册失败');

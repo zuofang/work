@@ -6,6 +6,8 @@
     <title></title>
    
     <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/mui.picker.min.css" rel="stylesheet" />
+    <link href="css/mui.poppicker.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/register.css" rel="stylesheet" />
@@ -25,18 +27,22 @@
 				</div>
 				<div>
 					<div id="item1" class="mui-control-content mui-active">
-						<div>
+						<div class="mui-input-row">
+							<input type="text" id='countryPicker' readonly="" data-value="" placeholder="请选择国家" />
+						</div>
+						<div style="position: relative;">
 							<input id="phone" type="text" placeholder="请输入手机号" />
 							<span id="sendCode">发送验证码</span>
 						</div>
 						<div class="mui-input-row">
 							<input id="code" class="mui-input-clear" type="text" placeholder="请输入验证码" />
 						</div>
+						
 					</div>
 					<div id="item2" class="mui-control-content ">
 						<div>
 							<input type="text" placeholder="请输入邮箱" />
-							<span id="sendCode">发送验证码</span>
+							<span id="sendMail">发送邮件</span>
 						</div>
 						<div class="mui-input-row">
 							<input class="mui-input-clear" type="text" placeholder="请输入验证码" />
@@ -50,22 +56,32 @@
 	    <img class="regStep" src="images/register/reg_step1.png" />
 	    <div class="he250"></div>
 	</div>
+	
 	<script src="js/mui.min.js"></script>
 	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/mui.picker.min.js"></script>
+	<script src="js/mui.poppicker.js"></script>
 	<script src="js/api.js"></script>
 	<script type="text/javascript" charset="UTF-8">
-      	mui.ready(function(){
+      	mui.plusReady(function(){
       		mui.init();
       		var registerData={};
+      		var countryData = [{
+						value: 'US',
+						text: '美国'
+					}, {
+						value: 'CN',
+						text: '中国'
+					}];
+			var countryPicker = setPicker('countryPicker', countryData);
       		//发送验证码
 			document.getElementById('sendCode').addEventListener('tap',function(){
 				var phone=$('#phone').val();
-				var country='CN';
-//				var country=$('#country').val();
-//				if(country.trim()===""){
-//					mui.toast("请选择国家");
-//					return;
-//				}
+				var country=$('#countryPicker').data('value');
+				if(country.trim()===""){
+					mui.toast("请选择国家");
+					return;
+				}
 				if(phone.trim()===""){
 					mui.toast("请输入手机号码");
 					return;
@@ -118,6 +134,26 @@
 				}
 				
 			});
+			
+				 //创建选择器
+	      	function setPicker(id,data,isRange){
+	      		isRange=isRange||false;
+	      		var picker = new mui.PopPicker();
+				picker.setData(data);		
+				var p = document.getElementById(id);
+					p.addEventListener('tap', function(event) {
+						picker.show(function(items) {
+							p.value=items[0].text;
+							if(isRange){
+								$('#'+id).data('gt',items[0].gt);
+								$('#'+id).data('lt',items[0].lt);
+							}else{
+								
+								$('#'+id).data('value',items[0].value);
+							}
+						});
+					}, false);
+	      	}
 			 
       	})
   		
