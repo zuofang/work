@@ -118,7 +118,6 @@ RealtyApi.prototype.getRealtyList=function(callBack,url,data){
 		url:url,
 		type:'GET',
 		data:data,
-		headers:{'Authorization':'Token '+this.token},
 		success:function(data){
 			callBack(data);
 		}
@@ -173,3 +172,51 @@ RealtyApi.prototype.getRealtyCollection=function(callBack,url,type){
 		}
 	});
 };
+//发送消息
+RealtyApi.prototype.sendMessage=function(url,data,sCallBack,fCallBack){
+		$.ajax({
+			type:"POST",
+			url:url,
+			async:true,
+			data:data,
+			headers:{'Authorization':'Token '+this.token},
+			success:function(data){
+				sCallBack(data);
+			},
+			error:function(){
+				fCallBack();
+			}
+		});
+};
+//消息列表
+RealtyApi.prototype.getMsgList=function(sCallBack,fCallBack,url){
+	url=url||this.host+this.language+"/apis/message/conversations/";
+	$.ajax({
+			type:"GET",
+			url:url,
+			async:true,
+			headers:{'Authorization':'Token '+this.token},
+			success:function(data){
+				sCallBack(data);
+			},
+			error:function(){
+				fCallBack();
+			}
+		});
+}
+//获取聊天记录
+RealtyApi.prototype.getChatList=function(url,sCallBack,fCallBack){
+	$.ajax({
+			type:"GET",
+			url:url,
+			async:true,
+			headers:{'Authorization':'Token '+this.token},
+			success:function(data){
+				sCallBack(data);
+			},
+			error:function(){
+				fCallBack();
+			}
+		});
+}
+

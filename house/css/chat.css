@@ -17,30 +17,30 @@ footer {
 	left: 0px;
 	bottom: 0px;
 	overflow: hidden;
-	padding: 0px 50px;
+	padding: 0;
 	background-color: #fafafa;
 }
 .footer-left {
 	position: absolute;
-	width: 50px;
+	width: 70%;
 	height: 50px;
 	left: 0px;
 	bottom: 0px;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 100%;
-	padding: 12px 4px;
+	padding: 5px 10px;
 }
 .footer-right {
 	position: absolute;
-	width: 50px;
+	width: 30%;
 	height: 50px;
 	right: 0px;
 	bottom: 0px;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 100%;
-	padding: 12px 5px;
+	padding: 5px 20px;
 	display: inline-block;
 }
 .footer-center {
@@ -282,4 +282,15 @@ footer .mui-icon-paperplane {
 }
 .cancel {
 	background-color: darkred;
+}
+.message-content{
+	border-radius: 5px;
+	margin-left: 5%;
+}
+.message-submit{
+	height: 40px;
+	width: 100%;
+	border-radius: 5px;
+	display: inline-block;
+	margin:0 10%;
 }

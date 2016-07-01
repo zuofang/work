@@ -17,31 +17,69 @@
 			</span>
 			<h1 class="mui-title" style="font-size:20px ;">全球不动产</h1>
 		</header>
-		<div class="mui-content">
+		<div class="mui-content" id="sendMsg">
 			<div id="person_detail">
-				<img class=" mui-pull-left head-img" src="../images/lele.png">
+				<img class=" mui-pull-left head-img" src="{{agent.photo}}">
 				<div>
-					<label>经纪人danie陈</label>
+					<label>经纪人{{agent.phone}}</label>
 					<p>职业金牌房产经纪人</p>
 				</div>
 				<span class="mui-pull-right mui-icon mui-icon-forward" style="margin-top: -40px;"></span>
 			</div>
 			<div class="text">
 				<h4> 和我联系,给您一站式的服务</h4>
-				<textarea rows="3"></textarea>
-				<button class="mui-btn mui-btn-primary" style="width: 100%;">发送信息</button>
+				<textarea rows="3" v-model="message"></textarea>
+				<button class="mui-btn mui-btn-primary" style="width: 100%;" @click="send">发送信息</button>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/vue.js"></script>
 		<script type="text/javascript" charset="UTF-8">
-			mui.init();
-			document.getElementById('person_detail').addEventListener('tap', function() {
+			mui.plusReady(function(){
+				mui.init();
+				var self=plus.webview.currentWebview();
+				var agent=self.agent;
+				var realty=self.realty;
+				var api=new RealtyApi(plus.storage.getItem('token'));
+				var vm=new Vue({
+					el:"#sendMsg",
+					data:{
+						agent:agent,
+						message:"",
+						realty:realty
+					},
+					methods:{
+						send:function(){
+							if(this.message.trim()!=""){
+								var data={
+									body:this.message,
+									realty:realty,
+									file:null
+								};
+								api.sendMessage(this.agent.chat,data,function(data){
+									mui.back();
+									mui.toast('发送成功！');
+								},function(){
+									mui.toast('发送失败，请稍后再试！');
+								});
+							}else{
+								mui.toast('请填写消息内容');
+							}
+						}
+					}
+				});
+				document.getElementById('person_detail').addEventListener('tap', function() {
 				//打开经纪人信息页面
 				mui.openWindow({
 					url: '../main/agentInfo.html',
 					id: 'agentInfo'
 				});
 			});
+		});
+			
+			
 		</script>
 	</body>
 

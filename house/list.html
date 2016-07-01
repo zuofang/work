@@ -10,76 +10,70 @@
 	</head>
 
 	<body>
-		<div class="mui-content" id="reRealtyContainer">
-			<!--标题-->
-			<div class="tit">
-				<h3>为您推荐</h3>
-				<h4>美国家，美国梦</h4>
-			</div>
-			<!--标题-->
-			<!--图片展示1-->
+		<div class="mui-content" id="reRealtyContainer" style="display: none;">
 
-			<div class="container" v-if="realtyList.length>0">
+			<div class="container" v-if="realtyList.length>=5">
+				<!--标题-->
+				<div class="tit">
+					<h3>为您推荐</h3>
+					<h4>美国家，美国梦</h4>
+				</div>
+				<!--标题-->
 				<div class="row">
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(realtyList[0])">
+							<img width="100%" src="{{realtyList[0].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{realtyList[0].name}} </h5>
+								<h5>  ${{realtyList[0].price}}</h5>
 							</div>
 						</div>
 					</div>
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(realtyList[1])">
+							<img width="100%" src="{{realtyList[1].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{realtyList[1].name}} </h5>
+								<h5>  ${{realtyList[1].price}}</h5>
 							</div>
 						</div>
 					</div>
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(realtyList[2])">
+							<img width="100%" src="{{realtyList[2].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{realtyList[2].name}} </h5>
+								<h5>  ${{realtyList[2].price}}</h5>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(realtyList[3])">
+							<img width="100%" src="{{realtyList[3].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{realtyList[3].name}} </h5>
+								<h5>  ${{realtyList[3].price}}</h5>
 							</div>
 						</div>
 					</div>
 					<div class="row-detail-big img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/11.png">
+						<a @click="detail(realtyList[4])">
+							<img width="100%" src="{{realtyList[4].images[0].medium_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{realtyList[4].name}} </h5>
+								<h5>  ${{realtyList[4].price}}</h5>
 							</div>
 						</div>
 					</div>
@@ -89,75 +83,74 @@
 				</div>
 			</div>
 
-			<!--end 图片展示-->
-			<!--标题1-->
-			<div class="tit">
-				<h3>北美商业地产</h3>
-				<h4>投资理财新选择</h4>
-			</div>
 			<!-- end标题1-->
 			<!--图片展示-->
-			<div class="container" v-if="comRealtyList.length>0">
+			<div class="container" v-if="comRealtyList.length>=5">
+				<!--end 图片展示-->
+				<!--标题1-->
+				<div class="tit">
+					<h3>北美商业地产</h3>
+					<h4>投资理财新选择</h4>
+				</div>
 				<div class="row">
 					<div class="row-detail-big img-wrap ">
-						<a href="#">
-							<img width="100%" class="mui-media-object" src="images/index/11.png">
+						<a @click="detail(comRealtyList[0],true)">
+							<img width="100%" class="mui-media-object" src="{{comRealtyList[0].images[0].medium_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{comRealtyList[0].name}} </h5>
+								<h5>  ${{comRealtyList[0].price}}</h5>
 							</div>
 						</div>
 					</div>
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(comRealtyList[1],true)">
+							<img width="100%" src="{{comRealtyList[1].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{comRealtyList[1].name}} </h5>
+								<h5>   ${{comRealtyList[1].price}} </h5>
+								<!--	<img src="images/index/star.svg" />-->
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(comRealtyList[2],true)">
+							<img width="100%" src="{{comRealtyList[2].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{comRealtyList[2].name}} </h5>
+								<h5>   ${{comRealtyList[2].price}} </h5>
+								<!--	<img src="images/index/star.svg" />-->
 							</div>
 						</div>
 					</div>
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(comRealtyList[3],true)">
+							<img width="100%" src="{{comRealtyList[3].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{comRealtyList[3].name}} </h5>
+								<h5>   ${{comRealtyList[3].price}} </h5>
+								<!--<img src="images/index/star.svg" />-->
 							</div>
 						</div>
 					</div>
 					<div class="row-detail img-wrap">
-						<a href="#">
-							<img width="100%" src="images/index/nusa3.png">
+						<a @click="detail(comRealtyList[4],true)">
+							<img width="100%" src="{{comRealtyList[4].images[0].thumbnail_image}}">
 						</a>
 						<div class="price">
 							<div class="detail">
-								<h5>  $849,00 </h5>
-								<h5>5 bd 3 ba</h5>
-								<img src="images/index/star.svg" />
+								<h5>   {{comRealtyList[4].name}} </h5>
+								<h5>   ${{comRealtyList[4].price}} </h5>
+								<!--<img src="images/index/star.svg" />-->
 							</div>
 						</div>
 					</div>
@@ -190,15 +183,26 @@
 						comRealtyList: []
 					},
 					methods: {
-						detail: function(url) {
+						detail: function(item, isCommercial) {
 							if (checkLogin()) {
-								mui.openWindow({
-									id: id,
-									url: url,
-									waiting: {
-										autoShow: false
-									}
-								});
+								isCommercial = isCommercial || false;
+								if (isCommercial) {
+									mui.openWindow({
+										id: 'comRealtyDetail',
+										url: 'main/comRealtyDetail.html',
+										extras: {
+											house: item
+										}
+									});
+								} else {
+									mui.openWindow({
+										id: 'realtyDetail',
+										url: 'main/realtyDetail.html',
+										extras: {
+											house: item
+										}
+									});
+								}
 							}
 						},
 						moreRealty: function() {
@@ -235,7 +239,35 @@
 						}
 					}
 				});
+
+				init();			
+				function init(){
+					var api = new RealtyApi(plus.storage.getItem('token'));
+					api.getRealtyList(function(data) {
+						if (data.results) {
+							vm.realtyList = data.results;
+							if(vm.realtyList.length>=5&&$('#reRealtyContainer').is(':hidden')){
+								$('#reRealtyContainer').show();
+							}
+						}
+					}, "", {
+						sort__commercial: 3,
+						recommended: 2
+					});
+					api.getRealtyList(function(data) {
+						if (data.results) {
+							vm.comRealtyList = data.results;
+							if(vm.comRealtyList.length>=5&&$('#reRealtyContainer').is(':hidden')){
+								$('#reRealtyContainer').show();
+							}
+						}
+					}, "", {
+						sort__commercial: 2,
+						recommended: 2
+					});
+				}
 			});
+			
 		</script>
 	</body>
 

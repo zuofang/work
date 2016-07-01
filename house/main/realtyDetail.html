@@ -165,6 +165,10 @@
 					mui.openWindow({
 						url: 'sendMessage.html',
 						id: 'sendMessage',
+						extras:{
+							agent:house.agent,
+							realty:house.id
+						},
 						waiting: {
 							autoShow: false
 						}

@@ -14,7 +14,7 @@
 		<header class="mui-bar mui-bar-nav" id="head">
 			<img class="mui-pull-left mui-icon logo " src="images/index/menu.svg" />
 			<span id="head_message" class="mui-pull-right mui-icon iconfont icon-xiaoxi ">
-				<span  class="mui-badge mui-badge-danger num">2</span>
+			<!--	<span  class="mui-badge mui-badge-danger num">2</span>-->
 			</span>
 			<h1 class="mui-title">全球不动产</h1>
 			<div id="search_top">
@@ -187,11 +187,8 @@
 			document.getElementById("head_message").addEventListener('tap', function() {
 				if(checkLogin()){
 					mui.openWindow({
-					url: 'account/message.html',
-						id: 'message',
-						waiting: {
-							autoShow: false
-						}
+						url: 'account/messageContainer.html',
+						id: 'messageContainer'
 					});
 				}	
 			});

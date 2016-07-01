@@ -27,7 +27,9 @@
      	margin-bottom: -2px;
      	
      }
-    
+    .row-detail img,.row-detail-big img{
+    	height: 100px;
+    }
     .row-detail{
     	flex: 1;
     	margin-left: 1px;

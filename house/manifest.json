@@ -243,7 +243,8 @@
 					"main/search.html",
 					"message.html",
 					"indexMenu.html",
-					"account/message.html"
+					"account/message.html",
+					"account/messageContainer.html"
 				],
 				"priority": 0
 			},
@@ -311,7 +312,8 @@
 					"main/house_search.html",
 					"main/realtyDetail.html",
 					"main/realtyListContainer.html",
-					"main/comRealtyListContainer.html"
+					"main/comRealtyListContainer.html",
+					"main/comRealtyDetail.html"
 				],
 				"priority": 0
 			},
@@ -530,7 +532,10 @@
 					"css/global.css",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"images/lele.png"
+					"images/lele.png",
+					"js/vue.js",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -588,7 +593,8 @@
 					"main/buy.html",
 					"main/crowdFund.html",
 					"account/attention.html",
-					"main/comRealtyListContainer.html"
+					"main/comRealtyListContainer.html",
+					"account/messageContainer.html"
 				],
 				"priority": 0
 			},
@@ -790,7 +796,10 @@
 					"fonts/mui.ttf",
 					"css/iconfont.css",
 					"css/mui.min.css",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"js/jquery-1.11.0.js",
+					"js/api.js",
+					"js/vue.js"
 				],
 				"refer": [
 					"main/agentInfo.html"
@@ -821,6 +830,33 @@
 					"css/mui.min.css",
 					"fonts/iconfont.ttf",
 					"images/lele.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"account/messageList.html": {
+				"resources": [
+					"js/vue.js",
+					"js/jquery-1.11.0.js",
+					"js/api.js",
+					"js/mui.min.js",
+					"css/global.css",
+					"css/message.css",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"main/chat.html"
+				],
+				"priority": 0
+			},
+			"account/messageContainer.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/message.css",
+					"css/mui.min.css",
+					"account/messageList.html"
 				],
 				"refer": [],
 				"priority": 0

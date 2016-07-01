@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/global.css" rel="stylesheet" />
+		<link href="../css/message.css" rel="stylesheet" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div id="pullRefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul id="msgList" class="mui-table-view">
+					<msg-item v-for="item in msgList" :item="item" track-by="$index"></msg-item>
+				</ul>
+			</div>
+			
+		</div>
+		<template id="msgItem">
+			<li class="mui-table-view-cell" @click="transfer(item.chat,item.target_name)">
+				<div class="mui-slider-right mui-disabled">
+					<a class="mui-btn mui-btn-red">删除</a>
+				</div>
+				<div class="mui-slider-handle">
+					<div>
+						<img class="mui-media-object mui-pull-left" src="{{item.target_photo}}">
+						<div class="mui-media-body">
+							<label>{{item.target_name}}</label>
+							<p class='mui-ellipsis'>{{item.updated}}</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</template>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/api.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+			mui.plusReady(function(){
+				mui.init({
+					pullRefresh: {
+						container: '#pullRefresh',
+						down: {
+							callback: pullDownRefresh
+						},
+						up: {
+							contentrefresh: '正在加载...',
+							contentnomore:'没有更多数据了',
+							callback: pullUpRefresh
+						}
+					}
+				});
+				var api=new RealtyApi(plus.storage.getItem('token'));
+				var next=null;
+				var vm=new Vue({
+					el:'#msgList',
+					data:{
+						msgList:[]
+					},
+					components:{
+						'msg-item':{
+							template:'#msgItem',
+							props:['item'],
+							methods:{
+								transfer:function(url,target){
+									//打开chat页面
+									mui.openWindow({
+										url: '../main/chat.html',
+										id: 'chat',
+										extras:{
+											url:url,
+											target:target
+										}
+									});
+								}
+							}
+						}
+					}
+					
+				});
+				init();
+				//下拉刷新
+				function pullDownRefresh(){
+					init(true);
+				}
+				//上拉加载
+				function pullUpRefresh(){
+					if(next!==null){
+						api.getMsgList(function(data){
+							mui('#pullRefresh').pullRefresh().endPullupToRefresh();
+							vm.msgList=vm.msgList.concat(data.results);
+							next=data.next;
+						},function(){
+						mui.toast('请求失败！');
+						},next);	
+					}else{
+						mui('#pullRefresh').pullRefresh().endPullupToRefresh(true);
+					}
+				}
+				//删除聊天记录
+				mui('#msgList').on('tap', '.mui-btn', function(event) {
+					var btnArray = ['确认', '取消'];
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除该条记录？', '你好', btnArray, function(e) {
+						if (e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+				//初始化
+				function init(isRefresh){
+					isRefresh=isRefresh||false;
+					api.getMsgList(function(data){
+						next=data.next;
+						vm.msgList=data.results;
+							if(isRefresh){
+								mui('#pullRefresh').pullRefresh().endPulldownToRefresh();
+								mui('#pullRefresh').pullRefresh().refresh(true);
+							}
+						},function(){
+						mui.toast('请求失败！');
+					});
+				}
+			});
+			
+		</script>
+	</body>
+
+</html>

@@ -98,14 +98,20 @@
 						}
 						api.login(userName,password,function(data){
 							if(data.key){
-								alert(data.key);
 								plus.storage.setItem('token',data.key);
+								var user={
+									userId:userName,
+									userName:"左武洲",
+									userImg:"images/lele.png"
+								}
+								plus.storage.setItem('user',JSON.stringify(user));
 								var menu=plus.webview.getWebviewById('menu');
 								mui.fire(menu,'login',{
 									userName:"左武洲",
 									userImg:"images/lele.png"
 								});
-								plus.webview.close('login','none');
+								//mui.fire(list,'login');
+								mui.back();
 								mui.toast('欢迎登录');
 								mui.openWindow({
 								url: '../index.html',

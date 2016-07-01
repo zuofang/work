@@ -85,8 +85,8 @@
 					var api = new RealtyApi(plus.storage.getItem('token'));
 				    var next = null;
 				    var condition={};
-					var opener=plus.webview.currentWebview().opener();
-					condition=opener.condition||condition;
+					var self=plus.webview.currentWebview();
+					condition=self.condition||condition;
 					condition.sort__commercial=3;
 					init(api,condition);
 					
