@@ -117,7 +117,6 @@
 					mui.confirm('确认修改此信息？', '', btnArray, function(e) {
 						if (e.index == 0) {
 							//确定
-							self.opener().close('none');
 							var data={};
 							data.name=$('#realName').val();
 							if(data.name.trim()===""){
