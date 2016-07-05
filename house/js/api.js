@@ -114,14 +114,18 @@ RealtyApi.prototype.getRegionList=function(callBack){
 RealtyApi.prototype.getRealtyList=function(callBack,url,data){
 	url=url||this.host+this.language+"/apis/realty/realties/";
 	data=data||{};
-	$.ajax({
+	var options={
 		url:url,
 		type:'GET',
 		data:data,
 		success:function(data){
 			callBack(data);
 		}
-	});
+	};
+	if(this.token!=""){
+		options.headers={'Authorization':'Token '+this.token};
+	}
+	$.ajax(options);
 };
 
 

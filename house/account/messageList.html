@@ -18,13 +18,13 @@
 		<div id="pullRefresh" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<ul id="msgList" class="mui-table-view">
-					<msg-item v-for="item in msgList" :item="item" track-by="$index"></msg-item>
+					<li is="msg-item" v-for="item in msgList" :item="item" track-by="$index"></li>
 				</ul>
 			</div>
 			
 		</div>
 		<template id="msgItem">
-			<li class="mui-table-view-cell" @click="transfer(item.chat,item.target_name)">
+			<li class="mui-table-view-cell" v-tap="transfer(item.chat,item.target_name)">
 				<div class="mui-slider-right mui-disabled">
 					<a class="mui-btn mui-btn-red">删除</a>
 				</div>
@@ -42,6 +42,7 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery-1.11.0.js"></script>
 		<script src="../js/vue.js"></script>
+		<script src="../js/vue-tap-click.js"></script>
 		<script src="../js/api.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			mui.plusReady(function(){

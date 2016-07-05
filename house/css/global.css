@@ -1,10 +1,12 @@
 /*公用样式*/
-body,.mui-content{
+body{
 	background: #fff;
 	margin: 0px;
 	padding: 0px;
 }
-
+.mui-content{
+	background: none;
+}
 header .logo {
 	margin-top: -5px;
 	width: 70px;
