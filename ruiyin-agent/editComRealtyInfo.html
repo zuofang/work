@@ -173,12 +173,13 @@
 							$('#mask').show();
 							data.images=[];
 							api.editRealty(comRealty.detail, data, function(data) {
-								mui.back();
 								mui.toast('修改成功');
 								mui.openWindow({
 									url: 'index.html',
 									id: 'index'
 								});
+								plus.webview.close('list','none');
+								plus.webview.close('editComRealtyInfo','none');
 							},function(){
 								$('#mask').hide();
 								mui.toast('修改失败');

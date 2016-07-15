@@ -61,14 +61,8 @@
 				}
 				var api=new RealtyApi();
 				api.login(userName,password,function(data){
-					if(data.key){
+					if(data.key){					
 						plus.storage.setItem('token',data.key);
-						var user={
-									userId:userName,
-									userName:"左武洲",
-									userImg:"images/lele.png"
-						};
-						plus.storage.setItem('user',JSON.stringify(user));
 						mui.openWindow({
 						url: 'index.html',
 						id: 'index'

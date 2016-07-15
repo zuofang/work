@@ -1,7 +1,7 @@
 {
 	"@platforms": ["android", "iPhone", "iPad"],
 	"id": "H51FADC6D",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "ruiyin-agent",/*应用名称，程序桌面图标名称*/
+	"name": "瑞银地产服务端",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
 		"code": "83"
@@ -208,7 +208,8 @@
 					"images/index/left_arrow.svg",
 					"css/app.css",
 					"js/app.js",
-					"js/jquery-1.11.0.js"
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [
 					"message.html",
@@ -217,7 +218,8 @@
 					"add_photo.html",
 					"list.html",
 					"addRealtyPhoto.html",
-					"addComRealtyPhoto.html"
+					"addComRealtyPhoto.html",
+					"messageContainer.html"
 				],
 				"priority": 0
 			},
@@ -313,7 +315,10 @@
 					"css/chat.css",
 					"images/lele.png",
 					"js/chat.js",
-					"css/app.css"
+					"css/app.css",
+					"js/vue.js",
+					"js/jquery-1.11.0.js",
+					"js/api.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -372,7 +377,8 @@
 					"js/api.js"
 				],
 				"refer": [
-					"login.html"
+					"login.html",
+					"index.html"
 				],
 				"priority": 0
 			},
@@ -398,9 +404,14 @@
 					"js/mui.min.js",
 					"css/app.css",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"images/index/mymsg.svg"
 				],
-				"refer": [],
+				"refer": [
+					"login.html",
+					"messageContainer.html",
+					"userInfo.html"
+				],
 				"priority": 0
 			},
 			"list.html": {
@@ -417,7 +428,8 @@
 					"js/jquery-1.11.0.js",
 					"js/api.js",
 					"js/mui.pullToRefresh.js",
-					"js/mui.pullToRefresh.material.js"
+					"js/mui.pullToRefresh.material.js",
+					"js/vue-tap-click.js"
 				],
 				"refer": [
 					"editComRealtyInfo.html",
@@ -533,11 +545,73 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"messageList.html": {
+				"resources": [
+					"js/vue.js",
+					"js/vue-tap-click.js",
+					"js/jquery-1.11.0.js",
+					"js/api.js",
+					"css/app.css",
+					"css/message.css",
+					"css/mui.min.css",
+					"js/mui.js"
+				],
+				"refer": [
+					"chat.html"
+				],
+				"priority": 0
+			},
+			"messageContainer.html": {
+				"resources": [
+					"messageList.html",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/message.css",
+					"css/mui.min.css",
+					"js/mui.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"userInfo.html": {
+				"resources": [
+					"js/vue.js",
+					"css/main.css",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/api.js"
+				],
+				"refer": [
+					"editUserInfo.html"
+				],
+				"priority": 0
+			},
+			"editUserInfo.html": {
+				"resources": [
+					"js/vue.js",
+					"css/main.css",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/api.js",
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"js/compressImg.js"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
 			"resources": [
-				"js/mui.js",
 				"css/mui.css"
 			]
 		}

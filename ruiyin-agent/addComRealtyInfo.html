@@ -162,7 +162,6 @@
 						});
 						$('#mask').show();
 						data.images=imgs;
-						console.log(JSON.stringify(data));
 						api.uploadRealty(data,function(data){
 							plus.webview.close('addComRealtyPhoto',"none");
 				    		plus.webview.close('addComRealtyInfo',"none");

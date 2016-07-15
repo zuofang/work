@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/app.css" rel="stylesheet" />
+    	<link href="css/main.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">用户资料</h1>
+		    <a class="mui-icon mui-icon-compose mui-pull-right" id="editUserBtn"></a>
+		</header>
+		<div class="mui-content" id="userInfoContainer">
+		    <ul class="mui-table-view" >
+		    	<li class="mui-table-view-cell">昵称 <span class="mui-pull-right">{{userInfo.username}}</span></li>
+		    	<li class="mui-table-view-cell">头像 <img src="{{userInfo.photo}}" class="user-info-img mui-pull-right" /></li>
+		    	<li class="mui-table-view-cell">姓氏 <span class="mui-pull-right">{{userInfo.first_name}}</span></li>
+		    	<li class="mui-table-view-cell">名字 <span class="mui-pull-right">{{userInfo.last_name}}</span></li>
+		    	<li class="mui-table-view-cell">国家 <span class="mui-pull-right">{{userInfo.country_display}}</span></li>	
+		    </ul>		   
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var vm=new Vue({
+					el:'#userInfoContainer',
+					data:{
+						userInfo:{}
+					}
+				});
+				vm.userInfo=JSON.parse(plus.storage.getItem('user'));
+				//修改资料
+				document.getElementById('editUserBtn').addEventListener('tap',function(){
+					mui.openWindow({
+						url: 'editUserInfo.html',
+						id: 'editUserInfo',
+						extras:{
+							userInfo:vm.userInfo
+						}
+					});
+				});
+			});
+			
+		</script>
+	</body>
+
+</html>

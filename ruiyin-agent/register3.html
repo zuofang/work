@@ -65,9 +65,8 @@
 				registerData.type=1;
 				var api=new RealtyApi();
 				api.register(registerData,function(data){
-					if(data.key){			
+					if(data.key){
 						plus.storage.setItem('token',data.key);
-						plus.webview.close('login','none');
 						plus.webview.close('register1','none');
 						plus.webview.close('register2','none');
 						mui.toast('注册成功');	

@@ -15,16 +15,17 @@
 	</header>
 	<div class="mui-content">
 	    <ul class="action">
-	    	<li id="addLand"><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
-	    	<li id="addHouse"><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
+	    	<li id="addLand"><i class="mui-icon mui-icon-plus"></i>添加地产<img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
+	    	<li id="addHouse"><i class="mui-icon mui-icon-plus"></i>添加房屋<img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
 	    	<li id="myMsg">
-	    		<!--<span class="msgCount">(2)</span>-->
+	    		<i class="mui-icon mui-icon-chatboxes"></i>我的消息<!--<span class="msgCount">(2)</span>-->
 	    		<img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
-	    	<li id="release"><span class="delHouse">(修改/删除房屋)</span><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
+	    	<li id="release"><i class="mui-icon mui-icon-list"></i>发布列表<span class="delHouse">(修改/删除房屋)</span><img src="images/index/left_arrow.svg" alt="" class="leftArrow" /></li>
 	    </ul>
 	</div>
 	<script src="js/mui.min.js"></script>
 	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/api.js"></script>
 	<script type="text/javascript" charset="UTF-8">
       	mui.plusReady(function(){
       		mui.init();
@@ -32,6 +33,12 @@
       		if(self.opener().id=="register3"){
       			self.opener().close('none');
       		}
+      		var api=new RealtyApi(plus.storage.getItem('token'));
+			api.getUserInfo(function(data){
+				plus.storage.setItem('user',JSON.stringify(data));
+			},function(){
+				mui.toast('用户信息获取失败');
+			});
       		document.getElementById('addLand').addEventListener('tap',function(){
 	      		mui.openWindow({
 	      			url:'addComRealtyPhoto.html',

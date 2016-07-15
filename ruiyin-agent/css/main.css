@@ -18,18 +18,12 @@
 	margin-bottom: 30px;
 	background-size: 40%;
 	position: relative;
+	font-weight: bold;
+	font-size: 20px;
+	padding-left: 15px;
 }
-#addLand{
-	background: url(../images/index/add_land.svg) no-repeat 10px center #FFFFFF;
-}
-#addHouse{
-	background: url(../images/index/add_house.svg) no-repeat 10px center #FFFFFF;
-}
-#myMsg{
-	background: url(../images/index/mymsg.svg) no-repeat 10px center #FFFFFF;
-}
-#release{
-	background: url(../images/index/release.svg) no-repeat 10px center #FFFFFF;
+.action li i{
+	font-weight: bold;
 }
 .actionImg{
 	margin-left: 10px;
@@ -43,7 +37,7 @@
 .delHouse{
 	font-size: 12px;
 	color: #7A7A7A;
-	margin-left: 45%;
+	font-weight: normal;
 }
 .leftArrow{
 	position: absolute;
@@ -265,4 +259,9 @@
 	border: none;
 	color: #FFFFFF;
 	width: 90%;
+}
+.user-info-img{
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
 }

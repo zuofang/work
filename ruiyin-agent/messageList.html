@@ -21,7 +21,7 @@
 			
 		</div>
 		<template id="msgItem">
-			<li class="mui-table-view-cell" v-tap="transfer(item.chat,item.target_name)">
+			<li class="mui-table-view-cell" v-tap="transfer(item.chat,item.target_name,item.target_photo)">
 				<div class="mui-slider-right mui-disabled">
 					<a class="mui-btn mui-btn-red">删除</a>
 				</div>
@@ -68,14 +68,15 @@
 							template:'#msgItem',
 							props:['item'],
 							methods:{
-								transfer:function(url,target){
+								transfer:function(url,target,photo){
 									//打开chat页面
 									mui.openWindow({
 										url: 'chat.html',
 										id: 'chat',
 										extras:{
 											url:url,
-											target:target
+											target:target,
+											photo:photo
 										}
 									});
 								}
