@@ -18,11 +18,11 @@
 		<div class="mui-content">
 			<ul class="mui-table-view">
 				<!--用户信息-->
-				<li class="mui-table-view-cell mui-media" id="uinfo">
-					<a class="mui-navigate-right" href="javascript:;">完善账户</a>
+				<li class="mui-table-view-cell mui-media" id="userinfoBtn">
+					<a class="mui-navigate-right" href="javascript:;">我的账户</a>
 				</li>
 				<!--其它选项-->
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell" id="myMsgBtn">
 					<a class="mui-navigate-right" href="javascript:;">我的消息</a>
 				</li>
 				<li class="mui-table-view-cell">
@@ -46,8 +46,27 @@
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
 			mui.plusReady(function(){
+				
+				mui.plusReady(function(){
+	      		//我的消息
+	      		document.getElementById('myMsgBtn').addEventListener('tap',function(){
+	      			mui.openWindow({
+	      				url:'messageContainer.html',
+	      				id:'messageContainer'
+	      			});
+	      		});
+	      		
+	      		//我的账户
+	      		document.getElementById('userinfoBtn').addEventListener('tap',function(){
+	      			mui.openWindow({
+	      				url:'userInfo.html',
+	      				id:'userInfo'
+	      			});
+	      		});
+	      	});
 				document.getElementById('exitBtn').addEventListener('tap',function(){
 					plus.storage.removeItem('token');
+					plus.storage.removeItem('user');
 				    var menu=plus.webview.getWebviewById('menu');
 				    mui.fire(menu,'exit');
 				    plus.webview.close('set');

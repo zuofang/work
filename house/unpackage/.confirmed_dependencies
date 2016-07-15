@@ -1,379 +1,413 @@
 {
-	"indexMenu.html": {
-		"resources": [
-			"js/jquery-1.11.0.js",
-			"images/lele.png",
-			"images/side/set.svg",
-			"images/side/logo.png",
-			"css/global.css",
-			"css/iconfont.css",
-			"fonts/iconfont.ttf",
-			"js/app.js",
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"main/search.html",
-			"account/attention.html",
-			"account/login.html",
-			"main/comRealtyListContainer.html",
-			"account/set.html",
-			"account/message.html",
-			"account/messageContainer.html"
-		]
-	},
-	"index.html": {
-		"resources": [
-			"images/index/bg.jpg",
-			"js/app.js",
-			"images/index/menu.svg",
-			"css/global.css",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"list.html",
-			"fonts/iconfont.ttf",
-			"js/mui.min.js"
-		],
-		"refer": [
-			"indexMenu.html",
-			"list.html",
-			"account/message.html",
-			"main/search.html",
-			"account/messageContainer.html"
-		]
-	},
-	"main/search.html": {
-		"resources": [
-			"css/search.css",
-			"js/mui.picker.min.js",
-			"js/mui.poppicker.js",
-			"fonts/mui.ttf",
-			"css/mui.poppicker.css",
-			"css/mui.picker.min.css",
-			"js/api.js",
-			"js/jquery-1.11.0.js",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"main/realtyListContainer.html",
-			"main/comRealtyListContainer.html"
-		]
-	},
-	"loadingPage.html": {
-		"resources": [
-			"js/mui.min.js"
-		],
-		"refer": [
-			"index.html",
-			"guide.html"
-		]
-	},
-	"list.html": {
-		"resources": [
-			"images/index/nusa3.png",
-			"images/index/ad2.jpg",
-			"images/index/ad1.jpg",
-			"css/list.css",
-			"images/index/11.png",
-			"images/index/star.svg",
-			"js/app.js",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"js/vue.js",
-			"js/jquery-1.11.0.js",
-			"js/api.js"
-		],
-		"refer": [
-			"main/realtyListContainer.html",
-			"main/comRealtyListContainer.html",
-			"main/realtyDetail.html",
-			"main/comRealtyDetail.html"
-		]
-	},
-	"account/message.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/message.css",
-			"css/mui.min.css",
-			"images/lele.png"
-		],
-		"refer": [
-			"main/chat.html"
-		]
-	},
-	"account/attention.html": {
-		"resources": [
-			"css/search_detail.css",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/commercial_real.css",
-			"css/mui.min.css",
-			"account/realtyCollection.html"
-		],
-		"refer": [
-			"account/comRealtyCollection.html",
-			"account/realtyCollection.html"
-		]
-	},
-	"account/realtyCollection.html": {
-		"resources": [
-			"js/vue.js",
-			"js/jquery-1.11.0.js",
-			"images/loading.gif",
-			"images/index/red.svg",
-			"js/api.js",
-			"css/search_detail.css",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/iconfont.css",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"main/realtyDetail.html"
-		]
-	},
-	"main/realtyDetail.html": {
-		"resources": [
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"fonts/iconfont.ttf",
-			"css/cd_and_hs.css",
-			"fonts/mui.ttf",
-			"js/vue.js",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/iconfont.css",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"main/sendMessage.html"
-		]
-	},
-	"guide.html": {
-		"resources": [
-			"images/guide/3.png",
-			"images/guide/2.png",
-			"images/guide/1.png",
-			"css/mui.min.css",
-			"images/guide/guide_logo.png"
-		],
-		"refer": [
-			"index.html"
-		]
-	},
-	"account/login.html": {
-		"resources": [
-			"images/login/tippas.svg",
-			"css/account-css/login.css",
-			"js/mui.picker.min.js",
-			"js/mui.poppicker.js",
-			"fonts/mui.ttf",
-			"images/login/login_bg.jpg",
-			"css/mui.poppicker.css",
-			"css/mui.picker.min.css",
-			"js/api.js",
-			"js/jquery-1.11.0.js",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"account/register.html"
-		]
-	},
-	"main/comRealtyListContainer.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"main/comRealtyList.html"
-		],
-		"refer": [
-			"main/comRealtyList.html"
-		]
-	},
-	"main/comRealtyList.html": {
-		"resources": [
-			"js/vue.js",
-			"js/jquery-1.11.0.js",
-			"images/loading.gif",
-			"css/commercial_real.css",
-			"css/iconfont.css",
-			"images/index/red.svg",
-			"js/api.js",
-			"images/index/star.svg",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/mui.min.css",
-			"js/vue-tap-click.js"
-		],
-		"refer": [
-			"main/comRealtyDetail.html"
-		]
-	},
-	"main/realtyListContainer.html": {
-		"resources": [
-			"js/mui.min.js",
-			"main/realtyList.html",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"main/realtyList.html"
-		]
-	},
-	"main/realtyList.html": {
-		"resources": [
-			"css/search_detail.css",
-			"js/vue.js",
-			"js/jquery-1.11.0.js",
-			"images/loading.gif",
-			"css/iconfont.css",
-			"images/index/red.svg",
-			"js/api.js",
-			"images/index/star.svg",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/mui.min.css",
-			"js/vue-tap-click.js"
-		],
-		"refer": [
-			"main/realtyDetail.html"
-		]
-	},
-	"account/set.html": {
-		"resources": [
-			"css/account-css/account_set.css",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"account/register.html": {
-		"resources": [
-			"css/account-css/regist.css"
-		],
-		"refer": []
-	},
-	"main/sendMessage.html": {
-		"resources": [
-			"css/send_mes.css",
-			"images/lele.png",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"fonts/iconfont.ttf",
-			"js/jquery-1.11.0.js",
-			"js/api.js",
-			"js/vue.js"
-		],
-		"refer": [
-			"main/agentInfo.html"
-		]
-	},
-	"main/agentInfo.html": {
-		"resources": [
-			"css/info_person.css",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"fonts/iconfont.ttf",
-			"images/lele.png"
-		],
-		"refer": []
-	},
-	"account/comRealtyCollection.html": {
-		"resources": [
-			"js/vue.js",
-			"js/jquery-1.11.0.js",
-			"js/mui.min.js",
-			"images/loading.gif",
-			"css/global.css",
-			"css/commercial_real.css",
-			"css/iconfont.css",
-			"images/index/red.svg",
-			"css/mui.min.css",
-			"js/api.js"
-		],
-		"refer": [
-			"main/comRealtyDetail.html"
-		]
-	},
-	"main/comRealtyDetail.html": {
-		"resources": [
-			"js/mui.zoom.js",
-			"js/vue.js",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"js/mui.previewimage.js",
-			"fonts/iconfont.ttf",
-			"css/cd_and_hs.css"
-		],
-		"refer": [
-			"main/sendMessage.html"
-		]
-	},
-	"main/chat.html": {
-		"resources": [
-			"js/mui.imageViewer.js",
-			"js/chat.js",
-			"css/mui.imageviewer.css",
-			"js/arttmpl.js",
-			"css/chat.css",
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"images/lele.png",
-			"js/vue.js",
-			"js/jquery-1.11.0.js",
-			"js/api.js"
-		],
-		"refer": []
-	},
-	"account/messageList.html": {
-		"resources": [
-			"js/vue.js",
-			"js/jquery-1.11.0.js",
-			"js/api.js",
-			"js/mui.min.js",
-			"css/global.css",
-			"css/message.css",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"main/chat.html"
-		]
-	},
-	"account/messageContainer.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/global.css",
-			"fonts/mui.ttf",
-			"css/message.css",
-			"css/mui.min.css",
-			"account/messageList.html"
-		],
-		"refer": [
-			"account/messageList.html"
-		]
-	}
+  "indexMenu.html": {
+    "resources": [
+      "js/jquery-1.11.0.js",
+      "images/lele.png",
+      "images/side/set.svg",
+      "images/side/logo.png",
+      "css/global.css",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "account/set.html",
+      "js/api.js"
+    ],
+    "refer": [
+      "main/search.html",
+      "account/attention.html",
+      "account/login.html",
+      "main/comRealtyListContainer.html",
+      "account/set.html",
+      "account/message.html",
+      "account/messageContainer.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "images/index/bg.jpg",
+      "js/app.js",
+      "images/index/menu.svg",
+      "css/global.css",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "list.html",
+      "fonts/iconfont.ttf",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "indexMenu.html",
+      "list.html",
+      "account/message.html",
+      "main/search.html",
+      "account/messageContainer.html"
+    ]
+  },
+  "main/search.html": {
+    "resources": [
+      "css/search.css",
+      "js/mui.picker.min.js",
+      "js/mui.poppicker.js",
+      "fonts/mui.ttf",
+      "css/mui.poppicker.css",
+      "css/mui.picker.min.css",
+      "js/api.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "main/realtyListContainer.html",
+      "main/comRealtyListContainer.html"
+    ]
+  },
+  "loadingPage.html": {
+    "resources": [
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "index.html",
+      "guide.html"
+    ]
+  },
+  "list.html": {
+    "resources": [
+      "images/index/nusa3.png",
+      "images/index/ad2.jpg",
+      "images/index/ad1.jpg",
+      "css/list.css",
+      "images/index/11.png",
+      "images/index/star.svg",
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "js/api.js"
+    ],
+    "refer": [
+      "main/realtyListContainer.html",
+      "main/comRealtyListContainer.html",
+      "main/realtyDetail.html",
+      "main/comRealtyDetail.html"
+    ]
+  },
+  "account/message.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/message.css",
+      "css/mui.min.css",
+      "images/lele.png"
+    ],
+    "refer": [
+      "main/chat.html"
+    ]
+  },
+  "account/attention.html": {
+    "resources": [
+      "css/search_detail.css",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/commercial_real.css",
+      "css/mui.min.css",
+      "account/realtyCollection.html"
+    ],
+    "refer": [
+      "account/comRealtyCollection.html",
+      "account/realtyCollection.html"
+    ]
+  },
+  "account/realtyCollection.html": {
+    "resources": [
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "images/loading.gif",
+      "images/index/red.svg",
+      "js/api.js",
+      "css/search_detail.css",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/iconfont.css",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "main/realtyDetail.html"
+    ]
+  },
+  "main/realtyDetail.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "fonts/iconfont.ttf",
+      "css/cd_and_hs.css",
+      "fonts/mui.ttf",
+      "js/vue.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/iconfont.css",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "main/sendMessage.html"
+    ]
+  },
+  "guide.html": {
+    "resources": [
+      "images/guide/3.png",
+      "images/guide/2.png",
+      "images/guide/1.png",
+      "css/mui.min.css",
+      "images/guide/guide_logo.png"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "account/login.html": {
+    "resources": [
+      "images/login/tippas.svg",
+      "css/account-css/login.css",
+      "js/mui.picker.min.js",
+      "js/mui.poppicker.js",
+      "fonts/mui.ttf",
+      "images/login/login_bg.jpg",
+      "css/mui.poppicker.css",
+      "css/mui.picker.min.css",
+      "js/api.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "account/register.html"
+    ]
+  },
+  "main/comRealtyListContainer.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "main/comRealtyList.html"
+    ],
+    "refer": [
+      "main/comRealtyList.html"
+    ]
+  },
+  "main/comRealtyList.html": {
+    "resources": [
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "images/loading.gif",
+      "css/commercial_real.css",
+      "css/iconfont.css",
+      "images/index/red.svg",
+      "js/api.js",
+      "images/index/star.svg",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/mui.min.css",
+      "js/vue-tap-click.js"
+    ],
+    "refer": [
+      "main/comRealtyDetail.html"
+    ]
+  },
+  "main/realtyListContainer.html": {
+    "resources": [
+      "js/mui.min.js",
+      "main/realtyList.html",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "main/realtyList.html"
+    ]
+  },
+  "main/realtyList.html": {
+    "resources": [
+      "css/search_detail.css",
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "images/loading.gif",
+      "css/iconfont.css",
+      "images/index/red.svg",
+      "js/api.js",
+      "images/index/star.svg",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/mui.min.css",
+      "js/vue-tap-click.js"
+    ],
+    "refer": [
+      "main/realtyDetail.html"
+    ]
+  },
+  "account/set.html": {
+    "resources": [
+      "css/account-css/account_set.css",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "account/userInfo.html"
+    ]
+  },
+  "account/register.html": {
+    "resources": [
+      "css/account-css/regist.css"
+    ],
+    "refer": []
+  },
+  "main/sendMessage.html": {
+    "resources": [
+      "css/send_mes.css",
+      "images/lele.png",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf",
+      "js/jquery-1.11.0.js",
+      "js/api.js",
+      "js/vue.js"
+    ],
+    "refer": [
+      "main/agentInfo.html"
+    ]
+  },
+  "main/agentInfo.html": {
+    "resources": [
+      "css/info_person.css",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf",
+      "images/lele.png"
+    ],
+    "refer": []
+  },
+  "account/comRealtyCollection.html": {
+    "resources": [
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.min.js",
+      "images/loading.gif",
+      "css/global.css",
+      "css/commercial_real.css",
+      "css/iconfont.css",
+      "images/index/red.svg",
+      "css/mui.min.css",
+      "js/api.js"
+    ],
+    "refer": [
+      "main/comRealtyDetail.html"
+    ]
+  },
+  "main/comRealtyDetail.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "js/vue.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "js/mui.previewimage.js",
+      "fonts/iconfont.ttf",
+      "css/cd_and_hs.css"
+    ],
+    "refer": [
+      "main/sendMessage.html"
+    ]
+  },
+  "main/chat.html": {
+    "resources": [
+      "js/mui.imageViewer.js",
+      "js/chat.js",
+      "css/mui.imageviewer.css",
+      "js/arttmpl.js",
+      "css/chat.css",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/lele.png",
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "js/api.js"
+    ],
+    "refer": []
+  },
+  "account/messageList.html": {
+    "resources": [
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "js/api.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "css/message.css",
+      "css/mui.min.css",
+      "js/vue-tap-click.js"
+    ],
+    "refer": [
+      "main/chat.html"
+    ]
+  },
+  "account/messageContainer.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/message.css",
+      "css/mui.min.css",
+      "account/messageList.html"
+    ],
+    "refer": [
+      "account/messageList.html"
+    ]
+  },
+  "account/userInfo.html": {
+    "resources": [
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "account/editUserInfo.html"
+    ]
+  },
+  "account/editUserInfo.html": {
+    "resources": [
+      "js/mui.picker.min.js",
+      "js/mui.poppicker.js",
+      "js/compressImg.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.min.css",
+      "js/api.js",
+      "js/vue.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.min.js",
+      "css/global.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  }
 }

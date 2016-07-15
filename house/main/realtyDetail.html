@@ -81,6 +81,14 @@
 						<span>{{house.price}}</span>
 					</li>
 					<li>
+						<label>面积</label>
+						<span>{{house.area}}</span>
+					</li>
+					<li>
+						<label>年份</label>
+						<span>{{house.year}}</span>
+					</li>
+					<li>
 						<label>平方均价</label>
 						<span>{{avgPrice}}</span>
 					</li>
@@ -125,7 +133,7 @@
 						<a class="mui-navigate-right" href="#">周边</a>
 						<div class="mui-collapse-content">
 							<div class="mui-row" v-for="item in house.surroundings">
-								<span>{{item.facility.name}}</span>
+								<span>{{item.name}}</span>
 							</div>
 						</div>
 					</li>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/global.css" rel="stylesheet" />
+    	<link href="../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+    	<style>
+    		.edit-user-container input{
+    			width: 80%;
+    			float: right;
+    			border: none;
+    			text-align: right;
+    		}
+    		.user-info-submit{
+    			display: block;
+    			width: 60%;
+    			margin: 0 auto;
+    			margin-top: 25px;
+    			border: none;
+    			color: #fff;
+    			background: #1AAEED;
+    		}
+    		.user-info-img{
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+			}
+    	</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">修改资料</h1>
+		</header>
+		<div class="mui-content" id="userInfoContainer">
+		    <ul class="mui-table-view edit-user-container" >
+		    	<li class="mui-table-view-cell">
+		    		<label>昵称</label>
+		    		<input v-model="userInfo.username"/>
+		    	</li>
+		    	<li class="mui-table-view-cell" id="userImgContainer">
+		    		<label>头像</label> 
+		    		<img id="userImg" src="{{userInfo.photo}}" class="user-info-img mui-pull-right" />
+		    	</li>
+		    	<li class="mui-table-view-cell">
+		    		<label>姓氏</label>
+		    		<input v-model="userInfo.first_name"/>
+		    	</li>
+		    	<li class="mui-table-view-cell">
+		    		<label>名字</label>
+		    		<input v-model="userInfo.last_name"/>
+		    	</li>
+		    	<li class="mui-table-view-cell">
+		    		<label>国家</label> 
+		    		<input value="{{userInfo.country_display}}" data-value="{{userInfo.country}}" id="userCountryPicker" readonly="readonly"/>
+		    	</li>	
+		    </ul>
+		    <button id="submitBtn" class="mui-btn user-info-submit">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/mui.picker.min.js"></script>
+		<script src="../js/mui.poppicker.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/compressImg.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var self=plus.webview.currentWebview();
+				var userInfo=self.userInfo;
+				var api=new RealtyApi(plus.storage.getItem('token'));
+				var countryData = [{
+						value: 'US',
+						text: '美国'
+					}, {
+						value: 'CN',
+						text: '中国'
+					}];
+				var vm=new Vue({
+					el:'#userInfoContainer',
+					data:{
+						userInfo:userInfo
+					}
+				});
+				var countryPicker = new mui.PopPicker();
+				countryPicker.setData(countryData);
+				document.getElementById('userCountryPicker').addEventListener('tap', function(event) {
+					countryPicker.show(function(items) {
+						vm.userInfo.country=items[0].value;
+						vm.userInfo.country_display=items[0].text;
+					});
+				}, false);
+				document.getElementById('userImgContainer').addEventListener('tap',function(){
+					plus.gallery.pick(function(path){
+					    $.compressImg(path,100,100,0.5,function(base64){
+					    	vm.userInfo.photo=base64;
+					    });
+					},function(){
+						mui.toast('系统错误');
+					},{
+						filter:'image',
+						maximum:1,
+						multiple:false,
+					});
+				});
+				//修改资料	
+				document.getElementById('submitBtn').addEventListener('tap',function(){
+					if(vm.userInfo.username==""){
+						mui.toast('昵称不能为空');
+						return;
+					}
+					var api=new RealtyApi(plus.storage.getItem('token'));
+					api.updateUserInfo(vm.userInfo,function(data){
+						plus.storage.setItem('user',JSON.stringify(data));
+						var menu=plus.webview.getWebviewById('menu');
+						mui.fire(menu,'editUserInfo');
+						mui.toast('修改成功');
+						plus.webview.close('userInfo','none');
+						mui.back();	
+					},function(){
+						mui.toast('修改失败');
+					})
+				});
+			});
+		</script>
+	</body>
+
+</html>

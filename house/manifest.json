@@ -5,7 +5,7 @@
 		"iPad"
 	],
 	"id": "H5B84E163",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "house",/*应用名称，程序桌面图标名称*/
+	"name": "瑞银地产",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
 		"code": "83"
@@ -582,14 +582,15 @@
 					"images/side/logo.png",
 					"images/lele.png",
 					"js/jquery-1.11.0.js",
-					"js/app.js"
+					"js/app.js",
+					"account/set.html",
+					"js/api.js"
 				],
 				"refer": [
 					"account/login.html",
 					"main/search.html",
 					"main/attention.html",
 					"account/message.html",
-					"account/set.html",
 					"main/buy.html",
 					"main/crowdFund.html",
 					"account/attention.html",
@@ -621,7 +622,9 @@
 					"css/iconfont.css",
 					"css/mui.min.css"
 				],
-				"refer": [],
+				"refer": [
+					"account/userInfo.html"
+				],
 				"priority": 0
 			},
 			"main/crowdFund.html": {
@@ -844,7 +847,8 @@
 					"js/mui.min.js",
 					"css/global.css",
 					"css/message.css",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/vue-tap-click.js"
 				],
 				"refer": [
 					"main/chat.html"
@@ -859,6 +863,38 @@
 					"css/message.css",
 					"css/mui.min.css",
 					"account/messageList.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"account/userInfo.html": {
+				"resources": [
+					"js/vue.js",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"account/editUserInfo.html"
+				],
+				"priority": 0
+			},
+			"account/editUserInfo.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"js/compressImg.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"js/api.js",
+					"js/vue.js",
+					"js/jquery-1.11.0.js",
+					"js/mui.min.js",
+					"css/global.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0

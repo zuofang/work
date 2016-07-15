@@ -70,12 +70,14 @@
 						if(data.key){
 							mui.toast('注册成功');					
 							plus.storage.setItem('token',data.key);
+							api.getUserInfo(function(data){
+								plus.storage.setItem('user',JSON.stringify(data));
+							},function(){
+								mui.toast('用户信息获取失败');
+							});	
 							plus.webview.close('login');
 							var menu=plus.webview.getWebviewById('menu');
-							mui.fire(menu,'register',{
-								userName:"左武洲",
-								userImg:"images/lele.png"
-							});
+							mui.fire(menu,'register');
 							mui.openWindow({
 								url: '../index.html',
 								id: 'index'							

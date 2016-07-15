@@ -10,6 +10,21 @@
 		<link rel="stylesheet" href="../css/global.css" />
 		<link href="../css/app.css" rel="stylesheet" />
 		<link href="../css/chat.css" rel="stylesheet" />
+		<style>
+			 .mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			.mui-scroll-wrapper{
+				position: absolute;
+				top: 104px;
+				bottom: 0px;
+				left: 0px;
+			}
+		</style>
 	</head>
 
 	<body contextmenu="return false;">
@@ -19,7 +34,7 @@
 		</header>
 		<div class="mui-content">
 			<div id='msg-list'>
-				<chat-item v-for="item in chatList" :item="item" :user="userId" track-by="$index"></chat-item>
+				<chat-item v-for="item in chatList" :item="item" :user="user" :target-photo="targetPhoto" :user-photo="userPhoto" track-by="$index"></chat-item>
 			</div>
 		</div>
 		<footer>
@@ -32,8 +47,9 @@
 			
 		</footer>
 		<template id="chatItem">
-				<div class="msg-item" :class="item.sender===user?'msg-item-self':''">
-					<img class="msg-user-img" :style="item.sender===user?'float: right;':'float: left;'"  src="../images/lele.png" alt="" />
+				<div class="msg-item" :class="item.sender===user?'msg-item-self':''">	
+					<img v-if="item.sender===user" class="msg-user-img" style="float: right;" src="{{userPhoto}}" alt=""  />
+					<img v-else class="msg-user-img" style="float: left;" src="{{targetPhoto}}" alt=""  />
 					<div class="msg-content">
 						<div class="msg-content-inner">
 							{{item.body}}				
@@ -51,6 +67,7 @@
 			mui.plusReady(function(){
 				var self=plus.webview.currentWebview();
 				var url=self.url;
+				var targetPhoto=self.photo;
 				var api=new RealtyApi(plus.storage.getItem('token'));
 				var user=JSON.parse(plus.storage.getItem('user'));
 				var target=self.target;
@@ -59,12 +76,14 @@
 					el:"#msg-list",
 					data:{
 						chatList:[],
-						userId:user.userId
+						user:user.username,
+						targetPhoto:targetPhoto,
+						userPhoto:user.photo
 					},
 					components:{
 						'chat-item':{
 							template:"#chatItem",
-							props:['item','user']
+							props:['item','user','targetPhoto','userPhoto']
 						}
 					}
 				});

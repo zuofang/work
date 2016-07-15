@@ -85,8 +85,8 @@
 				});
 				var api=new RealtyApi(plus.storage.getItem('token'));
 				var next = null;
-				var self=plus.webview.currentWebview();
-				var condition=self.condition||{};
+				var opener=plus.webview.currentWebview().opener();
+				var condition=opener.condition||{};
 				condition.sort__commercial=2;
 				init(api,condition);
 				//下拉

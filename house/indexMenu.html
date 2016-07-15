@@ -7,17 +7,28 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/iconfont.css" />
 		<link rel="stylesheet" href="css/global.css" />
+		<style>
+			.user-info-block{
+				margin-right: 20px;
+				margin-top: -10px;
+				color: #56ABE4;
+				font-size: 50px;
+			}
+			.user-info-block h6{
+				width: 60px;
+			}
+		</style>
 	</head>
 	<body>
 		<header style="margin-top: 40px;">
 			<img src="images/side/logo.png" width="148px" style="margin-left: 20px;" />
-			<span id="reg" class="mui-pull-right " style="margin-right: 20px;margin-top: -10px;color: #56ABE4;font-size: 50px;">
+			<span id="reg" class="mui-pull-right user-info-block">
 		    		   <img src="images/side/set.svg" width="50"height="50" />
 		    		 <h6 style="margin-left:2px;" >登录/注册</h6>
 		    </span>
-		    <span id="userInfo" class="mui-pull-right " style="margin-right: 20px;margin-top: -10px;color: #56ABE4;font-size: 50px;display: none;">
+		    <span id="userInfo" class="mui-pull-right user-info-block" style="display: none;">
 		    		   <img style="border-radius: 50%;" src="" width="50"height="50" />
-		    		 <h6 style="text-align: center;"></h6>
+		    		 <h6 style="text-align: center;overflow: hidden;"></h6>
 		    </span>
 		</header>
 		<div class="mui-content menu">
@@ -81,6 +92,7 @@
 		</footer>
 		<script src="js/mui.min.js"></script>
 		<script src="js/jquery-1.11.0.js"></script>
+		<script src="js/api.js"></script>
 		<script src="js/app.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 		mui.init();
@@ -88,14 +100,7 @@
 		mui.plusReady(function(){
 			var token= plus.storage.getItem('token');
 			if(token!==null){
-				var data={
-					userImg:"images/lele.png",
-					userName:"左武洲"
-				};
-				$('#reg').hide();
-				$('#userInfo>img').attr('src',data.userImg);
-				$('#userInfo>h6').text(data.userName);
-				$('#userInfo').show();
+				getUser();
 			}
 			//登录注册
 			document.getElementById('reg').addEventListener('tap', function() {
@@ -123,6 +128,14 @@
 			}
 			
 		});
+		
+		function getUser(){
+			var user=JSON.parse(plus.storage.getItem('user'));
+			$('#reg').hide();
+			$('#userInfo>img').attr('src',user.photo);
+			$('#userInfo>h6').text(user.username);
+			$('#userInfo').show();
+		}
 		function close() {
 			mui.fire(mui.currentWebview.opener(), "menu:close");
 		}
@@ -144,29 +157,37 @@
 			}
 		});
 		//注册事件
-		window.addEventListener('register',function(e){
-			alert(111);
+		window.addEventListener('register',function(){
 			plus.webview.close('register');
-			var data=e.detail;
-			$('#reg').hide();
-			$('#userInfo>img').attr('src',data.userImg);
-			$('#userInfo>h6').text(data.userName);
-			$('#userInfo').show();
+			var api=new RealtyApi(plus.storage.getItem('token'));
+			api.getUserInfo(function(data){
+				plus.storage.setItem('user',JSON.stringify(data));
+				getUser();
+			},function(){
+				mui.toast('用户信息获取失败');
+			});
 		});
 		//登录事件
-		window.addEventListener('login',function(e){
-			var data=e.detail;
-			$('#reg').hide();
-			$('#userInfo>img').attr('src',data.userImg);
-			$('#userInfo>h6').text(data.userName);
-			$('#userInfo').show();
+		window.addEventListener('login',function(){
+			var api=new RealtyApi(plus.storage.getItem('token'));
+			api.getUserInfo(function(data){
+				plus.storage.setItem('user',JSON.stringify(data));
+				getUser();
+			},function(){
+				mui.toast('用户信息获取失败');
+			});
+			
 		});
 		//登出
 		window.addEventListener('exit',function(){
 			$('#userInfo').hide();
 			$('#reg').show();
 		});
+		//修改用户信息
+		window.addEventListener('editUserInfo',function(){
+			getUser();
 		});
+	});
 		
 		</script>
 	</body>

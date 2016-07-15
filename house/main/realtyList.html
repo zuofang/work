@@ -68,7 +68,6 @@
 									});
 								},
 								collect: function(index, isCollect) {
-									alert(this.realtyList[index].unlike_by_current_user);
 								if(isCollect){
 									api.cancelCollectRealty(this.realtyList[index].unlike_by_current_user,function(){
 										vm.realtyList[index].unlike_by_current_user=null;
@@ -83,9 +82,8 @@
 					});			
 					var api = new RealtyApi(plus.storage.getItem('token'));
 				    var next = null;
-				    var condition={};
-					var self=plus.webview.currentWebview();
-					condition=self.condition||condition;
+					var opener=plus.webview.currentWebview().opener();
+					var condition=opener.condition||{};
 					condition.sort__commercial=3;
 					init(api,condition);
 					

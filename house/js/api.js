@@ -223,4 +223,45 @@ RealtyApi.prototype.getChatList=function(url,sCallBack,fCallBack){
 			}
 		});
 }
+//获取用户信息
+RealtyApi.prototype.getUserInfo=function(sCallBack,fCallBack){
+	$.ajax({
+			type:"GET",
+			url:this.host+this.language+"/apis/rest-auth/user/",
+			async:true,
+			headers:{'Authorization':'Token '+this.token},
+			success:function(data){
+				sCallBack(data);
+			},
+			error:function(){
+				fCallBack();
+			}
+		});
+}
+
+//修改用户信息
+RealtyApi.prototype.updateUserInfo=function(data,sCallBack,fCallBack){
+	delete data.agent_no;
+	if(data.photo.indexOf('http')<0){
+		console.log(data.photo);
+		data.photo=data.photo.substr(22);
+		console.log(data.photo);
+	}else{
+		delete data.photo;
+	}
+	$.ajax({
+			type:"PUT",
+			url:this.host+this.language+"/apis/rest-auth/user/",
+			contentType: "application/json",
+			async:true,
+			data:JSON.stringify(data),
+			headers:{'Authorization':'Token '+this.token},
+			success:function(data){
+				sCallBack(data);
+			},
+			error:function(){
+				fCallBack();
+			}
+		});
+}
 
